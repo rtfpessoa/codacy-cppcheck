@@ -1,0 +1,1 @@
+Obsolete function 'index' called. It is recommended to use the function 'strchr' instead.

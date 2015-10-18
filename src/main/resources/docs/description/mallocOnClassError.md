@@ -1,0 +1,1 @@
+Memory for class instance allocated with malloc(), but class contains a std::string.

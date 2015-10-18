@@ -1,0 +1,1 @@
+Declaration of array '' with negative size is undefined behaviour

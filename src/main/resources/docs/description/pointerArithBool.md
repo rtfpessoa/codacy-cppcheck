@@ -1,0 +1,1 @@
+Converting pointer arithmetic result to bool. The bool is always true unless there is undefined behaviour.

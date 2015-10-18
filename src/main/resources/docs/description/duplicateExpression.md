@@ -1,0 +1,1 @@
+Same expression on both sides of '&&'.

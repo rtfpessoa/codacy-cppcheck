@@ -1,0 +1,1 @@
+Variable 'varname' is not assigned a value.

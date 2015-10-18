@@ -1,0 +1,1 @@
+The function 'funcName' is never used.

@@ -1,0 +1,1 @@
+Instance of 'varname' object is destroyed immediately.

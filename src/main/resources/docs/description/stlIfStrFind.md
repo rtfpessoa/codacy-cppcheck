@@ -1,0 +1,1 @@
+Inefficient usage of string::find() in condition; string::compare() would be faster.

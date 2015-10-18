@@ -1,0 +1,1 @@
+Return value of function malloc() is not used.

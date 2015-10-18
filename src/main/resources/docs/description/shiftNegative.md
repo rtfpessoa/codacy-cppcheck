@@ -1,0 +1,1 @@
+Shifting by a negative value is undefined behaviour

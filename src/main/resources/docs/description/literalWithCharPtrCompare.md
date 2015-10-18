@@ -1,0 +1,1 @@
+String literal compared with variable 'foo'. Did you intend to use strcmp() instead?

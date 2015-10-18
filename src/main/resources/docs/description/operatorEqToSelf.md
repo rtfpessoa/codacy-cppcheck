@@ -1,0 +1,1 @@
+'operator=' should check for assignment to self to avoid problems with dynamic memory.

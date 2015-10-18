@@ -1,0 +1,1 @@
+'operator=' should return reference to 'this' instance.

@@ -1,0 +1,1 @@
+Array 'x[10]' accessed at index 20, which is out of bounds. Otherwise condition 'y==20' is redundant.

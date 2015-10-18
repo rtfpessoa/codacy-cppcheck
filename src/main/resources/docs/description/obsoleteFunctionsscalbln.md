@@ -1,0 +1,1 @@
+Obsolete function 'scalb' called. It is recommended to use 'scalbln', 'scalblnf' or 'scalblnl' instead.

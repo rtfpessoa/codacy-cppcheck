@@ -1,0 +1,1 @@
+Return value of allocation function 'funcName' is not stored.

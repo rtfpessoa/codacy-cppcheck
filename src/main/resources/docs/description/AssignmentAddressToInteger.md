@@ -1,0 +1,1 @@
+Assigning a pointer to an integer is not portable.

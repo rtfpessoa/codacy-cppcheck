@@ -1,0 +1,1 @@
+Signed 'char' type used as array index.

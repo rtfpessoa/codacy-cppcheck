@@ -1,0 +1,1 @@
+Returning the result of c_str() in a function that returns std::string is slow and redundant.

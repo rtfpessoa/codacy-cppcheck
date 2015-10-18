@@ -1,0 +1,1 @@
+Non reentrant function 'getspnam' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getspnam_r'.

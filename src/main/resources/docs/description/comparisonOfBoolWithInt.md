@@ -1,0 +1,1 @@
+Comparison of a boolean with an integer that is neither 1 nor 0.

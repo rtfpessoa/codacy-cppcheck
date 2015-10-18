@@ -1,0 +1,1 @@
+The scope of the variable 'varname' can be reduced.

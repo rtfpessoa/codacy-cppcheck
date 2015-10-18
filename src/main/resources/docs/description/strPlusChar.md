@@ -1,0 +1,1 @@
+Unusual pointer arithmetic. A value of type 'char' is added to a string literal.

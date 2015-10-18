@@ -1,0 +1,1 @@
+Ineffective statement similar to '*A++;'. Did you intend to write '(*A)++;'?

@@ -1,0 +1,1 @@
+Dangerous usage of 'varname' (strncpy doesn't always null-terminate it).

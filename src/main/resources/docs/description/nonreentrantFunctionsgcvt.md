@@ -1,0 +1,1 @@
+Non reentrant function 'gcvt' called. For threadsafe applications it is recommended to use the reentrant replacement function 'gcvt_r'.

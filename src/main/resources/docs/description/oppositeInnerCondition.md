@@ -1,0 +1,1 @@
+Opposite conditions in nested 'if' blocks lead to a dead code block.

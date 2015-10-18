@@ -1,0 +1,1 @@
+Memory pointed to by 'varname' is freed twice.

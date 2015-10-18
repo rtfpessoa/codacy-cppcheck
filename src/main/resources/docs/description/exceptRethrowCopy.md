@@ -1,0 +1,1 @@
+Throwing a copy of the caught exception instead of rethrowing the original exception.

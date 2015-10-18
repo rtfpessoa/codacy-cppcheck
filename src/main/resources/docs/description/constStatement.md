@@ -1,0 +1,1 @@
+Redundant code: Found a statement that begins with type constant.

@@ -1,0 +1,1 @@
+BOOST_FOREACH caches the end() iterator. It's undefined behavior if you modify the container inside.

@@ -1,0 +1,1 @@
+struct or union member 'structname::variable' is never used.

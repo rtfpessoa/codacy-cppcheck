@@ -1,0 +1,1 @@
+Obsolete function 'bzero' called. It is recommended to use the function 'memset' instead.

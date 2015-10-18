@@ -1,0 +1,1 @@
+Obsolete function 'ftime' called. It is recommended to use time(), gettimeofday() or clock_gettime() instead.

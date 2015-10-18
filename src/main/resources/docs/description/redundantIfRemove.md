@@ -1,0 +1,1 @@
+Redundant checking of STL container element existence before removing it.

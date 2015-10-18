@@ -1,0 +1,1 @@
+Non reentrant function 'getrpcbyname' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getrpcbyname_r'.

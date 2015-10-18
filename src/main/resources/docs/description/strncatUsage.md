@@ -1,0 +1,1 @@
+Dangerous usage of strncat - 3rd parameter is the maximum number of characters to append.

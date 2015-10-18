@@ -1,0 +1,1 @@
+Non reentrant function 'getnetbyname' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getnetbyname_r'.

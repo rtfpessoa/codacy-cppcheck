@@ -1,0 +1,1 @@
+The extra qualification 'type' is unnecessary and is considered an error by many compilers.

@@ -1,0 +1,1 @@
+Race condition: non-interlocked access after InterlockedDecrement(). Use InterlockedDecrement() return value instead.

@@ -1,0 +1,1 @@
+Invalid func_name() argument nr 1. A non-boolean value is required.

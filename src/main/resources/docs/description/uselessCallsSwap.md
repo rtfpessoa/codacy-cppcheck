@@ -1,0 +1,1 @@
+It is inefficient to swap a object with itself by calling 'str.swap(str)'

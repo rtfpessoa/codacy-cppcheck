@@ -1,0 +1,1 @@
+Obsolete function 'bcopy' called. It is recommended to use the 'memmove' or 'memcpy' function instead.

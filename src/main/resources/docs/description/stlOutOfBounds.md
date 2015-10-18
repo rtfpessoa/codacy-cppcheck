@@ -1,0 +1,1 @@
+When i==foo.size(), foo[i] is out of bounds.

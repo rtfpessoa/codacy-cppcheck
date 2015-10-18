@@ -1,0 +1,1 @@
+%n in format string (no. 1) requires 'int *' but the argument type is Unknown.

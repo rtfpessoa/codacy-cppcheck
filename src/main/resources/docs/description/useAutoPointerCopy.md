@@ -1,0 +1,1 @@
+Copying 'auto_ptr' pointer to another does not create two equal objects since one has lost its ownership of the pointer.

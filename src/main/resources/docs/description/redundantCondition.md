@@ -1,0 +1,1 @@
+Redundant condition: If x > 11 the condition x > 10 is always true.

@@ -1,0 +1,1 @@
+Member variable 'classname::varname' is not initialized in the constructor.

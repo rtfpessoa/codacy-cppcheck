@@ -1,0 +1,1 @@
+Logical disjunction always evaluates to true: foo > 3 && foo < 4.

@@ -1,0 +1,1 @@
+When using 'char' variables in bit operations, sign extension can generate unexpected results.

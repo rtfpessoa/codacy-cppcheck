@@ -1,0 +1,1 @@
+Same iterator is used with different containers 'container1' and 'container2'.

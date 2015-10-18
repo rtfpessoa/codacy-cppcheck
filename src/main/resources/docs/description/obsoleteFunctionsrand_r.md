@@ -1,0 +1,1 @@
+Obsolete function 'rand_r' called. It is recommended to use the function 'rand' instead.

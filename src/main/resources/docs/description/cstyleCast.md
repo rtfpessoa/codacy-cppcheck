@@ -1,0 +1,1 @@
+C-style pointer casting

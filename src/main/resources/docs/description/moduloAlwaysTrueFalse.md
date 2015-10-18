@@ -1,0 +1,1 @@
+Comparison of modulo result is predetermined, because it is always less than 1.

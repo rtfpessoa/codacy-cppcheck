@@ -1,0 +1,1 @@
+Non reentrant function 'fgetspent' called. For threadsafe applications it is recommended to use the reentrant replacement function 'fgetspent_r'.

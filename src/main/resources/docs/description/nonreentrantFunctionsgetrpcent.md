@@ -1,0 +1,1 @@
+Non reentrant function 'getrpcent' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getrpcent_r'.

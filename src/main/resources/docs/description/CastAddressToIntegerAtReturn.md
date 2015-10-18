@@ -1,0 +1,1 @@
+Returning an address value in a function with integer return type is not portable.

@@ -1,0 +1,1 @@
+No 'return' statement in non-void function causes undefined behavior.

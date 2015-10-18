@@ -1,0 +1,1 @@
+Non reentrant function 'fgetgrent' called. For threadsafe applications it is recommended to use the reentrant replacement function 'fgetgrent_r'.

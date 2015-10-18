@@ -1,0 +1,1 @@
+Possible null pointer dereference if the default parameter value is used: pointer

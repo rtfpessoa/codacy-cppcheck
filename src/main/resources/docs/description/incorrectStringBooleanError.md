@@ -1,0 +1,1 @@
+Conversion of string literal to bool always evaluates to true.

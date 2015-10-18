@@ -1,0 +1,1 @@
+Invalid usage of output stream: '<< std::cout'.

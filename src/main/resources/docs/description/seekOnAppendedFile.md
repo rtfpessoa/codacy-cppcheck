@@ -1,0 +1,1 @@
+Repositioning operation performed on a file opened in append mode has no effect.

@@ -1,0 +1,1 @@
+Non reentrant function 'fgetpwent' called. For threadsafe applications it is recommended to use the reentrant replacement function 'fgetpwent_r'.

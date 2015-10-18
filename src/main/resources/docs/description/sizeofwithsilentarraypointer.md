@@ -1,0 +1,1 @@
+Using 'sizeof' on array given as function argument returns size of a pointer.

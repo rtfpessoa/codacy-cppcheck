@@ -1,0 +1,1 @@
+'*varname' is of type 'void', the behaviour of 'sizeof(void)' is not covered by the ISO C standard.

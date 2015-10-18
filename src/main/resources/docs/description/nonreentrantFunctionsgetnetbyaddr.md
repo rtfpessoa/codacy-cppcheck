@@ -1,0 +1,1 @@
+Non reentrant function 'getnetbyaddr' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getnetbyaddr_r'.

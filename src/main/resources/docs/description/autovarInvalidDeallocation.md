@@ -1,0 +1,1 @@
+Deallocation of an auto-variable results in undefined behaviour.

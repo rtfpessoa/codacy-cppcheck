@@ -1,0 +1,1 @@
+Non reentrant function 'gethostent' called. For threadsafe applications it is recommended to use the reentrant replacement function 'gethostent_r'.
