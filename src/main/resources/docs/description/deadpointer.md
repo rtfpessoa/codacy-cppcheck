@@ -1,1 +1,0 @@
-Dead pointer usage. Pointer 'pointer' is dead if it has been assigned '&x' at line 0.

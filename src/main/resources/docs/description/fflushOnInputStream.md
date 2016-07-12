@@ -1,1 +1,0 @@
-fflush() called on input stream 'stdin' may result in undefined behaviour on non-linux systems.

@@ -1,1 +1,0 @@
-Variable 'varname' is assigned a value that is never used.

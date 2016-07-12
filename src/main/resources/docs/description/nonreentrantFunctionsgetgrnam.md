@@ -1,1 +1,0 @@
-Non reentrant function 'getgrnam' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getgrnam_r'.

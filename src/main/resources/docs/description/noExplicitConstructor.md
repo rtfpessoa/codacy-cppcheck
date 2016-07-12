@@ -1,1 +1,0 @@
-Class 'classname' has a constructor with 1 argument that is not explicit.

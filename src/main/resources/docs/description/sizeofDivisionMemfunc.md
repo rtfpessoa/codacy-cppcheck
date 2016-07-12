@@ -1,1 +1,0 @@
-Division by result of sizeof(). memset() expects a size in bytes, did you intend to multiply instead?

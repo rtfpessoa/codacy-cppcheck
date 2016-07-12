@@ -1,1 +1,0 @@
-Obsolete function 'bsd_signal' called. It is recommended to use the function 'sigaction' instead.

@@ -1,1 +1,0 @@
-Passing the result of c_str() to a function that takes std::string as argument no. 0 is slow and redundant.

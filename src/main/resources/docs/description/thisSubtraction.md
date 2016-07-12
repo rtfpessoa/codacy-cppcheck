@@ -1,1 +1,0 @@
-Suspicious pointer subtraction. Did you intend to write '->'?

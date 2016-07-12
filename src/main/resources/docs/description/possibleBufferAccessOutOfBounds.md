@@ -1,1 +1,0 @@
-Possible buffer overflow if strlen(source) is larger than or equal to sizeof(destination).

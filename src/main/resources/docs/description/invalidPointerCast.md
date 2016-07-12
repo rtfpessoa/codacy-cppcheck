@@ -1,1 +1,0 @@
-Casting between float* and double* which have an incompatible binary data representation.

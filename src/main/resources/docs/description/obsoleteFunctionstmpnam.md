@@ -1,1 +1,0 @@
-Obsolete function 'tmpnam' called. It is recommended to use 'tmpfile', 'mkstemp' or 'mkdtemp' instead.

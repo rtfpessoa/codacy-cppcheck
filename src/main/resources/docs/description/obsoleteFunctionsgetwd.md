@@ -1,1 +1,0 @@
-Obsolete function 'getwd' called. It is recommended to use the function 'getcwd' instead.

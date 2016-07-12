@@ -1,1 +1,0 @@
-Obsolete function 'rindex' called. It is recommended to use the function 'strrchr' instead.

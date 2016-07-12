@@ -1,1 +1,0 @@
-Comma is used in return statement. The comma can easily be misread as a ';'.

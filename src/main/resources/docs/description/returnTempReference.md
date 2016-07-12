@@ -1,1 +1,0 @@
-Reference to temporary returned.

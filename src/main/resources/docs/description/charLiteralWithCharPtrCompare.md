@@ -1,1 +1,0 @@
-Char literal compared with pointer 'foo'. Did you intend to dereference it?

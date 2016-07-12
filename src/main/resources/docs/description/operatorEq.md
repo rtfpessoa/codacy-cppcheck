@@ -1,1 +1,0 @@
-'class::operator=' should return 'class &'.

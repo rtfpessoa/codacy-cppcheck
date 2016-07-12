@@ -16,26 +16,32 @@ object WarnResult {
 
 object CPPCheck extends Tool {
 
-  override def apply(path: Path, conf: Option[Seq[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[Iterable[Result]] = {
+  override def apply(path: Path, conf: Option[List[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[List[Result]] = {
     Try {
+      println(conf)
+
       val filesToLint: Seq[String] = files.fold(Seq(path.toString)) { paths =>
         paths.map(_.toString).toSeq
       }
 
-      val command = Seq("cppcheck", "--enable=all", "--error-exitcode=0",
+      val command = List("cppcheck", "--enable=all", "--error-exitcode=0",
         """--template={"patternId":"{id}","file":"{file}","line":"{line}","message":"{message}"}""") ++
         filesToLint
 
       CommandRunner.exec(command) match {
         case Right(resultFromTool) =>
+          println(resultFromTool)
           val output = resultFromTool.stdout ++ resultFromTool.stderr
           parseToolResult(output, path, checkPattern(conf))
-        case Left(failure) => throw failure
+
+        case Left(failure) =>
+          failure.printStackTrace()
+          throw failure
       }
     }
   }
 
-  private def parseToolResult(resultFromTool: Seq[String], path: Path, wasRequested: String => Boolean): Seq[Result] = {
+  private def parseToolResult(resultFromTool: List[String], path: Path, wasRequested: String => Boolean): List[Result] = {
     for {
       outputLine <- resultFromTool
       result <- Try(Json.parse(outputLine)).toOption.flatMap(_.asOpt[WarnResult]) if wasRequested(result.patternId)
@@ -44,10 +50,9 @@ object CPPCheck extends Tool {
       PatternId(result.patternId), ResultLine(line))
   }
 
-  private def checkPattern(conf: Option[Seq[PatternDef]])(patternId: String): Boolean = {
-    conf
-      .map(_.exists(_.patternId.value.toLowerCase == patternId.toLowerCase))
-      .getOrElse(true)
+  private def checkPattern(conf: Option[List[PatternDef]])(patternId: String): Boolean = {
+    println(conf.forall(_.exists(_.patternId.value.toLowerCase == patternId.toLowerCase)))
+    conf.forall(_.exists(_.patternId.value.toLowerCase == patternId.toLowerCase))
   }
 
 }

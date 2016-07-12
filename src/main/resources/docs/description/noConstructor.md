@@ -1,1 +1,0 @@
-The class 'classname' does not have a constructor.

@@ -1,1 +1,0 @@
-Redundant pointer operation on varname - it's already a pointer.

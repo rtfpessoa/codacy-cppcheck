@@ -1,1 +1,0 @@
-Condition 'x' is always true

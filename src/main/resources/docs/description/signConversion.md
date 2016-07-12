@@ -1,1 +1,0 @@
-Suspicious code: sign conversion of var in calculation, even though var can have a negative value

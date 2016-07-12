@@ -1,1 +1,0 @@
-va_list 'vl' used before va_start() was called.

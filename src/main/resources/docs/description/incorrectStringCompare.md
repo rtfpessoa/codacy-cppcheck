@@ -1,1 +1,0 @@
-String literal doesn't match length argument for substr().

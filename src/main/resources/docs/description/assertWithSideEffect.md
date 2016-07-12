@@ -1,1 +1,0 @@
-Assert statement calls a function which may have desired side effects: 'function'.

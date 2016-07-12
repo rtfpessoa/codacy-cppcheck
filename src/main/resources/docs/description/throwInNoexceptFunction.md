@@ -1,1 +1,0 @@
-Exception thrown in function declared not to throw exceptions.

@@ -1,1 +1,0 @@
-Non reentrant function 'getspent' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getspent_r'.

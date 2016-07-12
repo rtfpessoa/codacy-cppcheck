@@ -1,1 +1,0 @@
-Boolean value assigned to pointer.

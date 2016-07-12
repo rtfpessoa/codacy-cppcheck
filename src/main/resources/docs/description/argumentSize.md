@@ -1,1 +1,0 @@
-The array 'array' is too small, the function 'function' expects a bigger one.

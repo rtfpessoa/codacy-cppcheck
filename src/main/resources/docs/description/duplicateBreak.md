@@ -1,1 +1,0 @@
-Consecutive return, break, continue, goto or throw statements are unnecessary.

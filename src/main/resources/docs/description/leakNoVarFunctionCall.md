@@ -1,1 +1,0 @@
-Allocation with funcName, funcName doesn't release it.

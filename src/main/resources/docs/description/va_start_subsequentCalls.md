@@ -1,1 +1,0 @@
-va_start() or va_copy() called subsequently on 'vl' without va_end() in between.

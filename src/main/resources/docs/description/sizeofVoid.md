@@ -1,1 +1,0 @@
-Behaviour of 'sizeof(void)' is not covered by the ISO C standard.

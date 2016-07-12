@@ -1,1 +1,0 @@
-Class 'Base' which is inherited by class 'Derived' does not have a virtual destructor.

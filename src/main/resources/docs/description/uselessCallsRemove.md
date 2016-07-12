@@ -1,1 +1,0 @@
-Return value of std::remove() ignored. Elements remain in container.

@@ -1,1 +1,0 @@
-Exception should be caught by reference.

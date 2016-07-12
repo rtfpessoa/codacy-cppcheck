@@ -1,1 +1,0 @@
-Comparison of a function returning boolean value using relational (<, >, <= or >=) operator.

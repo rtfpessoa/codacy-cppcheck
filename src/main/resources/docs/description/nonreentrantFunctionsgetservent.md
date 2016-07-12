@@ -1,1 +1,0 @@
-Non reentrant function 'getservent' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getservent_r'.

@@ -1,1 +1,0 @@
-Obsolete function 'swapcontext' called. Due to portability issues, applications are recommended to be rewritten to use POSIX threads.

@@ -1,1 +1,0 @@
-int result is assigned to long variable. If the variable is long to avoid loss of information, then you have loss of information.

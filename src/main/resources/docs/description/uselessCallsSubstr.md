@@ -1,1 +1,0 @@
-Ineffective call of function 'substr' because it returns a copy of the object. Use operator= instead.

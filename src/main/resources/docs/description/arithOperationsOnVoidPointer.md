@@ -1,1 +1,0 @@
-'varname' is of type 'vartype'. When using void pointers in calculations, the behaviour is undefined.

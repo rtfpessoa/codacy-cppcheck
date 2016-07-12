@@ -1,1 +1,0 @@
-Suspicious usage of 'sizeof' with a numeric constant as parameter.

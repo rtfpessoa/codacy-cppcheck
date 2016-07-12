@@ -1,1 +1,0 @@
-Member variable 'var' is initialized by itself.

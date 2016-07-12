@@ -1,1 +1,0 @@
-The size argument is given as a char constant.

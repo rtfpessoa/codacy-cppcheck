@@ -1,1 +1,0 @@
-Obsolete function 'bcmp' called. It is recommended to use the function 'memcmp' instead.

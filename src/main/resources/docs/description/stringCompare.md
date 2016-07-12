@@ -1,1 +1,0 @@
-Comparison of identical string variables.

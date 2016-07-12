@@ -1,1 +1,0 @@
-Suspicious condition. The result of find() is an iterator, but it is not properly checked.

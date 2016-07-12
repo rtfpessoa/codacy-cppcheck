@@ -1,1 +1,0 @@
-Uninitialized variable: varname

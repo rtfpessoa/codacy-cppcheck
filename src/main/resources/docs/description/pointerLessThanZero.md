@@ -1,1 +1,0 @@
-A pointer can not be negative so it is either pointless or an error to check if it is.

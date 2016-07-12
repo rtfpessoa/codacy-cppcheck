@@ -1,1 +1,0 @@
-Using NaN/Inf in a computation.

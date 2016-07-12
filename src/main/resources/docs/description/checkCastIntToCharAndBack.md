@@ -1,1 +1,0 @@
-Storing func_name() return value in char variable and then comparing with EOF.

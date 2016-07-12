@@ -1,1 +1,0 @@
-The variable 'name' forward declaration is unnecessary. Type variable is already declared earlier.

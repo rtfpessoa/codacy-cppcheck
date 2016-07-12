@@ -1,1 +1,0 @@
-Non reentrant function 'gethostbyaddr' called. For threadsafe applications it is recommended to use the reentrant replacement function 'gethostbyaddr_r'.

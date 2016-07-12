@@ -1,1 +1,0 @@
-Variable 'variable' is assigned in constructor body. Consider performing initialization in initialization list.

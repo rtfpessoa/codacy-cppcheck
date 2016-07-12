@@ -1,1 +1,0 @@
-Size of pointer 'varname' used instead of size of its data.

@@ -1,1 +1,0 @@
-Non reentrant function 'getservbyport' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getservbyport_r'.

@@ -1,1 +1,0 @@
-Used file that is not opened.

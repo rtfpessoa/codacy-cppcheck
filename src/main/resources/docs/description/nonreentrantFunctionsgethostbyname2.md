@@ -1,1 +1,0 @@
-Non reentrant function 'gethostbyname2' called. For threadsafe applications it is recommended to use the reentrant replacement function 'gethostbyname2_r'.

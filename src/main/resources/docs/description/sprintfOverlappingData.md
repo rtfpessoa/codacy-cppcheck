@@ -1,1 +1,0 @@
-Undefined behavior: Variable 'varname' is used as parameter and destination in s[n]printf().

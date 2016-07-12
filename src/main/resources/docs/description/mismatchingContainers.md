@@ -1,1 +1,0 @@
-Iterators of different containers are used together.

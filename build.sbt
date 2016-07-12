@@ -4,7 +4,7 @@ name := """codacy-cppcheck"""
 
 version := "1.0.0-SNAPSHOT"
 
-val languageVersion = "2.11.7"
+val languageVersion = "2.11.8"
 
 scalaVersion := languageVersion
 
@@ -14,8 +14,8 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-json" % "2.3.8",
-  "com.codacy" %% "codacy-engine-scala-seed" % "1.4.0"
+  "com.typesafe.play" %% "play-json" % "2.4.6",
+  "com.codacy" %% "codacy-engine-scala-seed" % "2.6.33"
 )
 
 enablePlugins(JavaAppPackaging)

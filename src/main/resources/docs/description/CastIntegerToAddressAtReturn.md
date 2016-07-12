@@ -1,1 +1,0 @@
-Returning an integer in a function with pointer return type is not portable.

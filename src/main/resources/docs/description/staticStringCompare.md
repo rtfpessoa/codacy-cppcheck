@@ -1,1 +1,0 @@
-Unnecessary comparison of static strings.

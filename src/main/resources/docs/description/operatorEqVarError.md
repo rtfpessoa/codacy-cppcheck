@@ -1,1 +1,0 @@
-Member variable 'classname::' is not assigned a value in 'classname::operator='.

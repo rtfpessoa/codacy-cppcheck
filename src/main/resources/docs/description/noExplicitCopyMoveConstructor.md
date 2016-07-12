@@ -1,1 +1,0 @@
-Abstract class 'classname' has a copy/move constructor that is not explicit.

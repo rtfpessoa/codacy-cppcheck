@@ -1,1 +1,0 @@
-Memory for class instance allocated with malloc(), but class provides constructors.

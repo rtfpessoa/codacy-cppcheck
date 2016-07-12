@@ -1,1 +1,0 @@
-Result of operator '|' is always true if one operand is non-zero. Did you intend to use '&'?

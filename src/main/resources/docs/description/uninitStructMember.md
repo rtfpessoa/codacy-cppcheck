@@ -1,1 +1,0 @@
-Uninitialized struct member: a.b

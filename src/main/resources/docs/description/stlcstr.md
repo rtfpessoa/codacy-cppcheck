@@ -1,1 +1,0 @@
-Dangerous usage of c_str(). The value returned by c_str() is invalid after this call.

@@ -1,1 +1,0 @@
-You can randomly lose access to pointers if you store 'auto_ptr' pointers in an STL container.

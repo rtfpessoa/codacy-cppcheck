@@ -1,1 +1,0 @@
-Class Class is not safe, destructor throws exception

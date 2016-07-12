@@ -1,1 +1,0 @@
-Same expression in both branches of ternary operator.

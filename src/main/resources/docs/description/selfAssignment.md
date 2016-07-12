@@ -1,1 +1,0 @@
-Redundant assignment of 'varname' to itself.

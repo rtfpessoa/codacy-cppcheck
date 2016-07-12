@@ -1,1 +1,0 @@
-Non reentrant function 'getpwnam' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getpwnam_r'.

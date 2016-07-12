@@ -1,1 +1,0 @@
-Modifying string literal directly or indirectly is undefined behaviour

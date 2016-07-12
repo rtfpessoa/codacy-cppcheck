@@ -1,1 +1,0 @@
-Buffer 'varname' must have size of 2 integers if used as parameter of pipe().

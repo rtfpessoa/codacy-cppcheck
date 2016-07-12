@@ -1,1 +1,0 @@
-Possible inefficient checking for 'list' emptiness.

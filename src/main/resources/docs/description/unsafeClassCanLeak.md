@@ -1,1 +1,0 @@
-Class 'class' is unsafe, 'class::varname' can leak by wrong usage.

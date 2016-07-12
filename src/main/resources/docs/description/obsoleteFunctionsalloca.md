@@ -1,1 +1,0 @@
-Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.

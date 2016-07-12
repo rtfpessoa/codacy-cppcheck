@@ -1,1 +1,0 @@
-Either the condition is redundant or there is division by zero at line 0.

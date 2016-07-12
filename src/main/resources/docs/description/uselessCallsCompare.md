@@ -1,1 +1,0 @@
-It is inefficient to call 'str.find(str)' as it always returns 0.

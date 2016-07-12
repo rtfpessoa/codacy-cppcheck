@@ -1,1 +1,0 @@
-Possible leak in public function. The pointer 'varname' is not deallocated before it is allocated.

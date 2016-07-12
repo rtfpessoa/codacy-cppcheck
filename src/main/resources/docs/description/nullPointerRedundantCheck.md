@@ -1,1 +1,0 @@
-Either the condition is redundant or there is possible null pointer dereference: pointer.

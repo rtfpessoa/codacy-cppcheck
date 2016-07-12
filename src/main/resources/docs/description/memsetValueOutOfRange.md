@@ -1,1 +1,0 @@
-The 2nd memset() argument 'varname' doesn't fit into an 'unsigned char'.

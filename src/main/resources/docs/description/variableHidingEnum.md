@@ -1,1 +1,0 @@
-variable 'name' hides enumerator with same name

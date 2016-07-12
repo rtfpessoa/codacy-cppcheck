@@ -1,1 +1,0 @@
-'operator=' should either return reference to 'this' instance or be declared private and left unimplemented.

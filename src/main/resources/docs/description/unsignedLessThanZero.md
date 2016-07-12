@@ -1,1 +1,0 @@
-Checking if unsigned variable 'varname' is less than zero.

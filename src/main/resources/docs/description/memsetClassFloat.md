@@ -1,1 +1,0 @@
-Using memset() on class which contains a floating point number.

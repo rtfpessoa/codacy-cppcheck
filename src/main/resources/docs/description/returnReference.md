@@ -1,1 +1,0 @@
-Reference to auto variable returned.

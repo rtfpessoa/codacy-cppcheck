@@ -1,1 +1,0 @@
-Obsolete function 'pthread_attr_setstackaddr' called. It is recommended to use the function 'pthread_attr_setstack' instead.

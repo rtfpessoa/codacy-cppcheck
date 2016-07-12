@@ -1,1 +1,0 @@
-The allocated size sz is not a multiple of the underlying type's size.

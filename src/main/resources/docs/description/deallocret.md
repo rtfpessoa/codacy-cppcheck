@@ -1,1 +1,0 @@
-Returning/dereferencing 'p' after it is deallocated / released

@@ -1,1 +1,0 @@
-Found calculation inside sizeof().

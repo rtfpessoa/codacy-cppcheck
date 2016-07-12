@@ -1,1 +1,0 @@
-Non reentrant function 'getgrent' called. For threadsafe applications it is recommended to use the reentrant replacement function 'getgrent_r'.

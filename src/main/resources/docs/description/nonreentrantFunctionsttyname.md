@@ -1,1 +1,0 @@
-Non reentrant function 'ttyname' called. For threadsafe applications it is recommended to use the reentrant replacement function 'ttyname_r'.

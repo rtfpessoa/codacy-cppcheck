@@ -1,1 +1,0 @@
-scanf without field width limits can crash with huge input data.

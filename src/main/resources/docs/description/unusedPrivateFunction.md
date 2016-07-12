@@ -1,1 +1,0 @@
-Unused private function: 'classname::funcname'

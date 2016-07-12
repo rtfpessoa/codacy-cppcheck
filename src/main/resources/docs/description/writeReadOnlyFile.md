@@ -1,1 +1,0 @@
-Write operation on a file that was opened only for reading.
