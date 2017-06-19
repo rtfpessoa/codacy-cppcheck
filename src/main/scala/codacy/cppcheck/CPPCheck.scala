@@ -16,6 +16,10 @@ object WarnResult {
 
 object CPPCheck extends Tool {
 
+  lazy val blacklist = Set(
+    "unusedFunction"
+  )
+
   override def apply(path: Path, conf: Option[List[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[List[Result]] = {
     Try {
       println(conf)
@@ -32,7 +36,7 @@ object CPPCheck extends Tool {
         case Right(resultFromTool) =>
           println(resultFromTool)
           val output = resultFromTool.stdout ++ resultFromTool.stderr
-          parseToolResult(output, path, checkPattern(conf))
+          parseToolResult(output, path, checkPattern(conf)).filterNot(blacklisted)
 
         case Left(failure) =>
           failure.printStackTrace()
@@ -53,6 +57,13 @@ object CPPCheck extends Tool {
   private def checkPattern(conf: Option[List[PatternDef]])(patternId: String): Boolean = {
     println(conf.forall(_.exists(_.patternId.value.toLowerCase == patternId.toLowerCase)))
     conf.forall(_.exists(_.patternId.value.toLowerCase == patternId.toLowerCase))
+  }
+
+  def blacklisted(result: Result): Boolean = {
+    result match {
+      case issue: Issue => blacklist.contains(issue.patternId.value)
+      case _ => false
+    }
   }
 
 }
