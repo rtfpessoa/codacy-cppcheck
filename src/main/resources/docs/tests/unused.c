@@ -1,4 +1,4 @@
-//#Patterns: unreadVariable,unusedFunction
+//#Patterns: unreadVariable
 
 int foo() {
    using namespace ::com::sun::star::i18n;
@@ -22,7 +22,6 @@ struct ABC
 
 static struct ABC abc[] = { {1, 2, 3} };
 
-//#Info: unusedFunction
 void foo()
 {
     //#Info: unreadVariable
