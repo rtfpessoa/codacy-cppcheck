@@ -28,7 +28,7 @@ object CPPCheck extends Tool {
         paths.map(_.toString).toSeq
       }
 
-      val command = List("cppcheck", "--enable=all", "--error-exitcode=0",
+      val command = List("cppcheck", "--enable=all", "--error-exitcode=0", "--force",
         """--template={"patternId":"{id}","file":"{file}","line":"{line}","message":"{message}"}""") ++
         filesToLint
 
