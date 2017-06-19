@@ -1417,11 +1417,6 @@
       "category": "ErrorProne"
     },
     {
-      "patternId": "unusedFunction",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
       "patternId": "unusedVariable",
       "level": "Info",
       "category": "CodeStyle"
