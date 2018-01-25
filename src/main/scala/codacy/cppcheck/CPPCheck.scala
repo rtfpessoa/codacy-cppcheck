@@ -22,7 +22,6 @@ object CPPCheck extends Tool {
 
   override def apply(path: Path, conf: Option[List[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[List[Result]] = {
     Try {
-      println(conf)
 
       val filesToLint: Seq[String] = files.fold(Seq(path.toString)) { paths =>
         paths.map(_.toString).toSeq
@@ -34,12 +33,9 @@ object CPPCheck extends Tool {
 
       CommandRunner.exec(command) match {
         case Right(resultFromTool) =>
-          println(resultFromTool)
           val output = resultFromTool.stdout ++ resultFromTool.stderr
           parseToolResult(output, path, checkPattern(conf)).filterNot(blacklisted)
-
         case Left(failure) =>
-          failure.printStackTrace()
           throw failure
       }
     }
@@ -55,7 +51,6 @@ object CPPCheck extends Tool {
   }
 
   private def checkPattern(conf: Option[List[PatternDef]])(patternId: String): Boolean = {
-    println(conf.forall(_.exists(_.patternId.value.toLowerCase == patternId.toLowerCase)))
     conf.forall(_.exists(_.patternId.value.toLowerCase == patternId.toLowerCase))
   }
 
