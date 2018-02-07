@@ -16,26 +16,26 @@ object WarnResult {
 
 object CPPCheck extends Tool {
 
+  lazy val blacklist = Set(
+    "unusedFunction"
+  )
+
   override def apply(path: Path, conf: Option[List[PatternDef]], files: Option[Set[Path]])(implicit spec: Spec): Try[List[Result]] = {
     Try {
-      println(conf)
 
       val filesToLint: Seq[String] = files.fold(Seq(path.toString)) { paths =>
         paths.map(_.toString).toSeq
       }
 
-      val command = List("cppcheck", "--enable=all", "--error-exitcode=0",
+      val command = List("cppcheck", "--enable=all", "--error-exitcode=0", "--force",
         """--template={"patternId":"{id}","file":"{file}","line":"{line}","message":"{message}"}""") ++
         filesToLint
 
       CommandRunner.exec(command) match {
         case Right(resultFromTool) =>
-          println(resultFromTool)
           val output = resultFromTool.stdout ++ resultFromTool.stderr
-          parseToolResult(output, path, checkPattern(conf))
-
+          parseToolResult(output, path, checkPattern(conf)).filterNot(blacklisted)
         case Left(failure) =>
-          failure.printStackTrace()
           throw failure
       }
     }
@@ -51,8 +51,14 @@ object CPPCheck extends Tool {
   }
 
   private def checkPattern(conf: Option[List[PatternDef]])(patternId: String): Boolean = {
-    println(conf.forall(_.exists(_.patternId.value.toLowerCase == patternId.toLowerCase)))
     conf.forall(_.exists(_.patternId.value.toLowerCase == patternId.toLowerCase))
+  }
+
+  def blacklisted(result: Result): Boolean = {
+    result match {
+      case issue: Issue => blacklist.contains(issue.patternId.value)
+      case _ => false
+    }
   }
 
 }

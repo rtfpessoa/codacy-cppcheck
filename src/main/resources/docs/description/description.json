@@ -1698,12 +1698,6 @@
     "timeToFix": 5
   },
   {
-    "patternId": "unusedFunction",
-    "title": "The function 'funcName' is never used.",
-    "description": "The function 'funcName' is never used.",
-    "timeToFix": 5
-  },
-  {
     "patternId": "unusedVariable",
     "title": "Unused variable: varname",
     "description": "Unused variable: varname",
