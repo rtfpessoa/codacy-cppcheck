@@ -15,7 +15,7 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.4.6",
-  "com.codacy" %% "codacy-engine-scala-seed" % "2.6.33"
+  "com.codacy" %% "codacy-engine-scala-seed" % "2.7.8"
 )
 
 enablePlugins(JavaAppPackaging)
@@ -26,7 +26,7 @@ version in Docker := "1.0.0"
 
 organization := "com.codacy"
 
-val cppcheckVersion = "1.77"
+val cppcheckVersion = "1.82"
 
 val installAll =
   s"""apk update --no-cache
