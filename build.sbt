@@ -15,7 +15,7 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-json" % "2.4.6",
-  "com.codacy" %% "codacy-engine-scala-seed" % "2.6.33"
+  "com.codacy" %% "codacy-engine-scala-seed" % "2.7.8"
 )
 
 enablePlugins(JavaAppPackaging)
@@ -25,6 +25,20 @@ enablePlugins(DockerPlugin)
 version in Docker := "1.0.0"
 
 organization := "com.codacy"
+
+val cppcheckVersion = "1.82"
+
+val installAll =
+  s"""apk update --no-cache
+      |&& apk add --no-cache bash
+      |&& apk add --no-cache -t .required_apks wget make g++ pcre-dev
+      |&& wget --no-check-certificate -O /tmp/cppcheck.tar.gz https://github.com/danmar/cppcheck/archive/$cppcheckVersion.tar.gz
+      |&& tar -zxf /tmp/cppcheck.tar.gz -C /tmp
+      |&& cd /tmp/cppcheck-$cppcheckVersion
+      |&& make install CFGDIR=/cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function --static"
+      |&& apk del .required_apks
+      |&& rm -rf /tmp/*
+      |&& rm -rf /var/cache/apk/*""".stripMargin.replaceAll(System.lineSeparator(), " ")
 
 mappings in Universal <++= (resourceDirectory in Compile) map { (resourceDir: File) =>
   val src = resourceDir / "docs"
@@ -43,13 +57,15 @@ daemonUser in Docker := dockerUser
 
 daemonGroup in Docker := dockerGroup
 
-dockerBaseImage := "rtfpessoa/ubuntu-jdk8-cppcheck"
+dockerBaseImage := "develar/java"
 
 dockerCommands := dockerCommands.value.flatMap {
+  case cmd@Cmd("WORKDIR", _) => List(cmd,
+    Cmd("RUN", installAll)
+  )
   case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
     Cmd("RUN", "mv /opt/docker/docs /docs"),
-    Cmd("RUN", "groupadd -g 2004 docker"),
-    Cmd("RUN", "adduser --disabled-password --gecos \"\" --uid 2004 --gid 2004 docker"),
+    Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
     ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
   )
   case other => List(other)
