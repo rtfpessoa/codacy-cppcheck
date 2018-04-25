@@ -1,0 +1,43 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: hseeberger/scala-sbt:8u151-2.12.5-1.1.2
+    working_directory: ~/
+    steps:
+      - checkout
+      - run: 
+          name: Clone test project
+          working_directory: ~/
+          command: |
+            (git -C ~/codacy-plugins-test fetch --all && 
+              git -C ~/codacy-plugins-test reset --hard origin/master) || 
+                git clone git://github.com/codacy/codacy-plugins-test.git ~/codacy-plugins-test
+      - restore_cache:
+          key: scala-library-dependencies-{{ checksum "build.sbt" }}
+      - run: 
+          name: Compile test project
+          working_directory: ~/codacy-plugins-test
+          command: sbt compile
+      - run: 
+          name: Publish tool docker
+          working_directory: ~/$CIRCLE_PROJECT_REPONAME
+          command: sbt 'set version in Docker := "latest"' 'set name := "$CIRCLE_PROJECT_REPONAME"' docker:publishLocal
+      - save_cache:
+          key: scala-library-dependencies-{{ checksum "build.sbt" }}
+          paths:
+            - "~/.ivy2"
+            - "~/.m2"
+            - "~/.sbt"
+            - "~/codacy-plugins-test/target"
+            - "~/codacy-plugins-test/project/target"
+            - "~/codacy-plugins-test/project/project"
+            - "~/$CIRCLE_PROJECT_REPONAME/target"
+            - "~/$CIRCLE_PROJECT_REPONAME/project/target"
+            - "~/$CIRCLE_PROJECT_REPONAME/project/project"
+      - run: 
+          name: Test json
+          command: sbt -Dcodacy.tests.ignore.descriptions=true "run-main codacy.plugins.DockerTest json $CIRCLE_PROJECT_REPONAME:latest"
+      - run:
+          name: Test patterns
+          command: sbt -Dcodacy.tests.noremove=true -Dcodacy.tests.threads=8 "run-main codacy.plugins.DockerTest pattern $CIRCLE_PROJECT_REPONAME:latest"
