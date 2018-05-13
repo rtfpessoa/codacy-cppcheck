@@ -1,10 +1,13 @@
 import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
 
+import scala.io.Source
+import scala.util.parsing.json.JSON
+
 name := """codacy-cppcheck"""
 
 version := "1.0.0-SNAPSHOT"
 
-val languageVersion = "2.11.8"
+val languageVersion = "2.11.12"
 
 scalaVersion := languageVersion
 
@@ -26,15 +29,23 @@ version in Docker := "1.0.0"
 
 organization := "com.codacy"
 
-val cppcheckVersion = "1.82"
+lazy val toolVersion = TaskKey[String]("Retrieve the version of the underlying tool from patterns.json")
 
-val installAll =
+toolVersion := {
+  val jsonFile = (resourceDirectory in Compile).value / "docs" / "patterns.json"
+  val toolMap = JSON.parseFull(Source.fromFile(jsonFile).getLines().mkString)
+    .getOrElse(throw new Exception("patterns.json is not a valid json"))
+    .asInstanceOf[Map[String, String]]
+  toolMap.getOrElse[String]("version", throw new Exception("Failed to retrieve 'version' from patterns.json"))
+}
+
+def installAll(toolVersion: String) =
   s"""apk update --no-cache
       |&& apk add --no-cache bash
       |&& apk add --no-cache -t .required_apks wget make g++ pcre-dev
-      |&& wget --no-check-certificate -O /tmp/cppcheck.tar.gz https://github.com/danmar/cppcheck/archive/$cppcheckVersion.tar.gz
+      |&& wget --no-check-certificate -O /tmp/cppcheck.tar.gz https://github.com/danmar/cppcheck/archive/$toolVersion.tar.gz
       |&& tar -zxf /tmp/cppcheck.tar.gz -C /tmp
-      |&& cd /tmp/cppcheck-$cppcheckVersion
+      |&& cd /tmp/cppcheck-$toolVersion
       |&& make install CFGDIR=/cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function --static"
       |&& apk del .required_apks
       |&& rm -rf /tmp/*
@@ -57,16 +68,17 @@ daemonUser in Docker := dockerUser
 
 daemonGroup in Docker := dockerGroup
 
-dockerBaseImage := "develar/java"
+dockerBaseImage := "openjdk:8-jre-alpine"
 
-dockerCommands := dockerCommands.value.flatMap {
-  case cmd@Cmd("WORKDIR", _) => List(cmd,
-    Cmd("RUN", installAll)
-  )
-  case cmd@(Cmd("ADD", "opt /opt")) => List(cmd,
-    Cmd("RUN", "mv /opt/docker/docs /docs"),
-    Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
-    ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
-  )
-  case other => List(other)
+dockerCommands := {
+  dockerCommands.dependsOn(toolVersion).value.flatMap {
+    case cmd@Cmd("ADD", _) => List(
+      Cmd("RUN", s"adduser -u 2004 -D $dockerUser"),
+      cmd,
+      Cmd("RUN", installAll(toolVersion.value)),
+      Cmd("RUN", "mv /opt/docker/docs /docs"),
+      ExecCmd("RUN", Seq("chown", "-R", s"$dockerUser:$dockerGroup", "/docs"): _*)
+    )
+    case other => List(other)
+  }
 }

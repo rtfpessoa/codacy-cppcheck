@@ -91,7 +91,7 @@
   },
   {
     "patternId": "uselessAssignmentPtrArg",
-    "title": "Assignment of function parameter has no effect outside the function",
+    "title": "Assignment of function pointer parameter has no effect outside the function",
     "description": "Assignment of function parameter has no effect outside the function. Did you forget dereferencing it?",
     "timeToFix": 5
   },
