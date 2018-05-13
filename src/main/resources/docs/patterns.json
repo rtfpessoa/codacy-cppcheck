@@ -1,5 +1,6 @@
 {
   "name": "cppcheck",
+  "version": "1.83",
   "patterns": [
     {
       "patternId": "toomanyconfigs",
