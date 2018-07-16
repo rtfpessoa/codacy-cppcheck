@@ -21,6 +21,18 @@ The docker is ran with the following command:
 docker run -it -v $srcDir:/src  <DOCKER_NAME>:<DOCKER_VERSION>
 ```
 
+#### Generate Docs
+
+1. Build cppcheck docker with specific version
+```
+docker build [<Project root>] -t cppcheck-doc --build-arg toolVersion=[<VERSION>]
+```
+
+2. Run the DocGenerator
+```
+sbt "run-main codacy.cppcheck.DocGenerator [<VERSION>] docker run -i cppcheck-doc"
+```
+
 ## Docs
 
 [Tool Developer Guide](https://support.codacy.com/hc/en-us/articles/207994725-Tool-Developer-Guide)

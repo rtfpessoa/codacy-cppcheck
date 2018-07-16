@@ -1,4 +1,4 @@
-FROM hseeberger/scala-sbt
+FROM ubuntu:17.10
 ARG toolVersion
 
 RUN apt-get update
@@ -8,4 +8,4 @@ RUN tar -zxf /tmp/cppcheck.tar.gz -C /tmp
 WORKDIR /tmp/cppcheck-$toolVersion
 RUN make install CFGDIR=/cfg HAVE_RULES=yes CXXFLAGS="-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function --static -pthread"
 
-ENTRYPOINT ["sbt", "run-main codacy.cppcheck.DocGenerator $toolVersion"]
+CMD ["cppcheck", "--errorlist"]

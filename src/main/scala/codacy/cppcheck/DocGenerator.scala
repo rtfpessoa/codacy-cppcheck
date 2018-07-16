@@ -2,10 +2,9 @@ package codacy.cppcheck
 
 import java.io.File
 
-import codacy.docker.api._
 import codacy.dockerApi.utils.{CommandResult, CommandRunner}
 import codacy.helpers.ResourceHelper
-import play.api.libs.json.{JsArray, JsObject, Json}
+import play.api.libs.json.{JsArray, Json}
 
 import scala.xml.{Elem, XML}
 
@@ -18,12 +17,12 @@ object DocGenerator {
 
   def main(args: Array[String]): Unit = {
 
-    val command = List("cppcheck", "--errorlist")
+    val command = args.tail.toList
 
     CommandRunner.exec(command) match {
       case Right(resultFromTool) =>
         val rules = getRules(resultFromTool)
-        val version = getVersion(args)
+        val version = getVersion(Option(args(0)))
 
         createPatternsAndDescriptionFile(version, rules)
       case Left(failure) =>
@@ -70,7 +69,7 @@ object DocGenerator {
       Json.obj(
         "patternId" -> rule.patternId,
         "title" -> Json.toJsFieldJsValueWrapper(rule.title),
-        "description" -> Json.toJsFieldJsValueWrapper(rule.description),
+        "description" -> Json.toJsFieldJsValueWrapper(truncateText(rule.description, 495)),
         "timeToFix" -> 5
       )
     }
@@ -78,20 +77,8 @@ object DocGenerator {
     Json.parse(Json.toJson(codacyPatternsDescs).toString).as[JsArray]
   }
 
-  private def getVersion(args: Array[String]): String = {
-    args.headOption
-      .orElse {
-        ResourceHelper
-          .getResourceContent("docs/patterns.json")
-          .toOption
-          .flatMap { lines =>
-            Json
-              .parse(lines.mkString("\n"))
-              .as[JsObject]
-              .\("version")
-              .asOpt[String]
-          }
-      }
+  private def getVersion(versionOpt: Option[String]): String = {
+    versionOpt
       .getOrElse {
         throw new Exception("No version provided")
       }
@@ -140,5 +127,13 @@ object DocGenerator {
       Json
         .parse(Json.toJson(generateDescriptions(rules)).toString)
         .as[JsArray])
+  }
+
+  private def truncateText(description: String, maxCharacters: Int): String = {
+    if (description.length > maxCharacters) {
+      description.take(maxCharacters).split("\\.").dropRight(1).mkString(".") + "."
+    } else {
+      description
+    }
   }
 }
