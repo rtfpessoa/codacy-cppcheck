@@ -12,7 +12,7 @@ Check the **Docs** section for more information.
 You can create the docker by doing:
 
 ```bash
-sbt docker:publishLocal
+./scripts/publish.sh codacy-cppcheck <VERSION>
 ```
 
 The docker is ran with the following command:
@@ -26,7 +26,7 @@ docker run -it -v $srcDir:/src  <DOCKER_NAME>:<DOCKER_VERSION>
 1. Run the script, from the project root, to generate documentation:
 
 ```
-./scripts/generateDocs.sh [<Version>]
+./scripts/generateDocs
 ```
 
 ## Docs

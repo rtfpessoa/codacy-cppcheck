@@ -1,9 +1,7 @@
 package codacy.cppcheck
 
-import codacy.dockerApi.utils.{CommandResult, CommandRunner}
 import play.api.libs.json.{JsArray, Json}
 import better.files._
-import better.files.Dsl.SymbolicOperations
 import better.files
 
 import scala.xml.{Elem, XML}
@@ -17,16 +15,10 @@ object DocGenerator {
 
   def main(args: Array[String]): Unit = {
 
-    val version = getVersion(Option(args(0)))
-    val command = args.tail.toList
-
-    CommandRunner.exec(command) match {
-      case Right(resultFromTool) =>
-        val rules = getRules(resultFromTool)
-        createPatternsAndDescriptionFile(version, rules)
-      case Left(failure) =>
-        throw failure
-    }
+    val version: String = getVersion
+    val fileName = args(0)
+    val rules = getRules(fileName)
+    createPatternsAndDescriptionFile(version, rules)
   }
 
   private def generatePatterns(rules: Seq[Ruleset]): JsArray = {
@@ -77,16 +69,13 @@ object DocGenerator {
     Json.parse(Json.toJson(codacyPatternsDescs).toString).as[JsArray]
   }
 
-  private def getVersion(versionOpt: Option[String]): String = {
-    versionOpt
-      .getOrElse {
-        throw new Exception("No version provided")
-      }
+  private def getVersion: String = {
+    val repoRoot: files.File = File(".cppcheckVersion")
+    repoRoot.lines.mkString("")
   }
 
-  private def getRules(resultFromTool: CommandResult): Seq[Ruleset] = {
-    val output: String = resultFromTool.stdout.mkString("")
-    val outputXML: Elem = XML.loadString(output)
+  private def getRules(fileName: String): Seq[Ruleset] = {
+    val outputXML: Elem = XML.loadFile(fileName)
     (outputXML \\ "errors" \\ "error").map { r =>
       Ruleset((r \ "@id").text,
               (r \ "@severity").text,

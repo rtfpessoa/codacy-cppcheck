@@ -4,11 +4,11 @@
   "patterns" : [ {
     "patternId" : "purgedConfiguration",
     "level" : "Info",
-    "category" : "ErrorProne"
+    "category" : "CodeStyle"
   }, {
     "patternId" : "toomanyconfigs",
     "level" : "Info",
-    "category" : "ErrorProne"
+    "category" : "CodeStyle"
   }, {
     "patternId" : "AssignmentAddressToInteger",
     "level" : "Warning",
@@ -35,11 +35,11 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "autoVariables",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "returnAddressOfAutoVariable",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "autoVariablesAssignGlobalPointer",
@@ -47,23 +47,23 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "returnLocalVariable",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "returnReference",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "returnTempReference",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "autovarInvalidDeallocation",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "returnAddressOfFunctionParameter",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "uselessAssignmentArg",
@@ -75,7 +75,7 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "assignBoolToPointer",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "assignBoolToFloat",
@@ -107,19 +107,19 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "pointerArithBool",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "boostForeachError",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "arrayIndexOutOfBounds",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "bufferAccessOutOfBounds",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "strncatUsage",
@@ -127,7 +127,7 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "outOfBounds",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "sizeArgumentAsChar",
@@ -143,11 +143,11 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "negativeIndex",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "insecureCmdLineArgs",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "pointerOutOfBounds",
@@ -167,11 +167,11 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "negativeMemoryAllocationSize",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "negativeArraySize",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "arrayIndexOutOfBoundsCond",
@@ -179,11 +179,11 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidFunctionArg",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidFunctionArgBool",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "ignoredReturnValue",
@@ -247,11 +247,11 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "memsetClass",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "memsetClassReference",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "memsetClassFloat",
@@ -263,7 +263,7 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "mallocOnClassError",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "operatorEq",
@@ -271,7 +271,7 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "virtualDestructor",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "thisSubtraction",
@@ -283,7 +283,7 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "operatorEqMissingReturnStatement",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "operatorEqShouldBeLeftUnimplemented",
@@ -311,7 +311,7 @@
     "category" : "Performance"
   }, {
     "patternId" : "selfInitialization",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "duplInheritedMember",
@@ -415,7 +415,7 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "throwInNoexceptFunction",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "unhandledExceptionSpecification",
@@ -423,7 +423,7 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "coutCerrMisusage",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "fflushOnInputStream",
@@ -431,19 +431,19 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "IOWithoutPositioning",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "readWriteOnlyFile",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "writeReadOnlyFile",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "useClosedFile",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "seekOnAppendedFile",
@@ -455,7 +455,7 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "wrongPrintfScanfArgNum",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidScanfArgType_s",
@@ -499,7 +499,7 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidScanfFormatWidth",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "wrongPrintfScanfParameterPositionError",
@@ -507,19 +507,19 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "deallocret",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "doubleFree",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "leakNoVarFunctionCall",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "leakReturnValNotUsed",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "leakUnsafeArgAlloc",
@@ -535,35 +535,35 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "memleak",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "resourceLeak",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "deallocDealloc",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "deallocuse",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "mismatchSize",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "mismatchAllocDealloc",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "memleakOnRealloc",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "nullPointer",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "nullPointerDefaultArg",
@@ -575,15 +575,15 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "nullPointerArithmetic",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "zerodiv",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "zerodivcond",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "unusedScopedObject",
@@ -599,15 +599,15 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "shiftNegative",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "wrongPipeParameterSize",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "raceAfterInterlockedDecrement",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "redundantCopyLocalConst",
@@ -763,7 +763,7 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "unknownEvaluationOrder",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "accessMoved",
@@ -783,35 +783,35 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidIterator1",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "iterators",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "mismatchingContainers",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "eraseDereference",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "stlOutOfBounds",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidIterator2",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidPointer",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "stlBoundaries",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "stlIfFind",
@@ -823,7 +823,7 @@
     "category" : "Performance"
   }, {
     "patternId" : "stlcstr",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "stlcstrReturn",
@@ -851,15 +851,15 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "useAutoPointerContainer",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "useAutoPointerArray",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "useAutoPointerMalloc",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "uselessCallsCompare",
@@ -939,15 +939,15 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "stringLiteralWrite",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "sprintfOverlappingData",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "strPlusChar",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "incorrectStringCompare",
@@ -979,15 +979,15 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "shiftTooManyBits",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "shiftTooManyBitsSigned",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "integerOverflow",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "signConversion",
@@ -1003,27 +1003,27 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "floatConversionOverflow",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "uninitstring",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "uninitdata",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "uninitvar",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "uninitStructMember",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "deadpointer",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "unusedFunction",
@@ -1059,35 +1059,35 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "va_start_referencePassed",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "va_end_missing",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "va_list_usedBeforeStarted",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "va_start_subsequentCalls",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "missingInclude",
     "level" : "Info",
-    "category" : "ErrorProne"
+    "category" : "CodeStyle"
   }, {
     "patternId" : "missingIncludeSystem",
     "level" : "Info",
-    "category" : "ErrorProne"
+    "category" : "CodeStyle"
   }, {
     "patternId" : "ConfigurationNotChecked",
     "level" : "Info",
-    "category" : "ErrorProne"
+    "category" : "CodeStyle"
   }, {
     "patternId" : "preprocessorErrorDirective",
-    "level" : "Warning",
+    "level" : "Error",
     "category" : "ErrorProne"
   } ]
 }

@@ -21,7 +21,7 @@ jobs:
       - run: 
           name: Publish tool docker locally
           working_directory: ~/workdir
-          command: sbt 'set version in Docker := "latest"' "set name := \"$CIRCLE_PROJECT_REPONAME\"" docker:publishLocal
+          command: ./scripts/publish.sh $CIRCLE_PROJECT_REPONAME latest
       - save_cache:
           key: dependencies-{{ checksum "build.sbt" }}
           paths:
