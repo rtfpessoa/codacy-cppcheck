@@ -71,6 +71,8 @@ daemonGroup in Docker := dockerGroup
 
 dockerBaseImage := "openjdk:8-jre-alpine"
 
+mainClass in Compile := Some("codacy.Engine")
+
 dockerCommands := {
   dockerCommands.dependsOn(toolVersion).value.flatMap {
     case cmd@Cmd("ADD", _) => List(
