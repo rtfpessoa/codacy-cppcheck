@@ -23,14 +23,10 @@ docker run -it -v $srcDir:/src  <DOCKER_NAME>:<DOCKER_VERSION>
 
 #### Generate Docs
 
-1. Build cppcheck docker with specific version
-```
-docker build [<Project root>] -t cppcheck-doc --build-arg toolVersion=[<VERSION>]
-```
+1. Run the script, from the project root, to generate documentation:
 
-2. Run the DocGenerator
 ```
-sbt "run-main codacy.cppcheck.DocGenerator [<VERSION>] docker run -i cppcheck-doc"
+./scripts/generateDocs.sh [<Version>]
 ```
 
 ## Docs
