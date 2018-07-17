@@ -1,10 +1,10 @@
 package codacy.cppcheck
 
-import java.io.File
-
 import codacy.dockerApi.utils.{CommandResult, CommandRunner}
-import codacy.helpers.ResourceHelper
 import play.api.libs.json.{JsArray, Json}
+import better.files._
+import better.files.Dsl.SymbolicOperations
+import better.files
 
 import scala.xml.{Elem, XML}
 
@@ -17,13 +17,12 @@ object DocGenerator {
 
   def main(args: Array[String]): Unit = {
 
+    val version = getVersion(Option(args(0)))
     val command = args.tail.toList
 
     CommandRunner.exec(command) match {
       case Right(resultFromTool) =>
         val rules = getRules(resultFromTool)
-        val version = getVersion(Option(args(0)))
-
         createPatternsAndDescriptionFile(version, rules)
       case Left(failure) =>
         throw failure
@@ -35,7 +34,6 @@ object DocGenerator {
       val category: String =
         if (rule.level.startsWith("error") ||
             rule.level.startsWith("warning") ||
-            rule.level.startsWith("information") ||
             rule.level.startsWith("portability")) {
           "ErrorProne"
         } else if (rule.level.startsWith("performance")) {
@@ -45,11 +43,12 @@ object DocGenerator {
         }
 
       val level: String =
-        if (rule.level.startsWith("error") ||
-            rule.level.startsWith("warning") ||
+        if (rule.level.startsWith("warning") ||
             rule.level.startsWith("portability") ||
             rule.level.startsWith("performance")) {
           "Warning"
+        } else if(rule.level.startsWith("error")) {
+          "Error"
         } else {
           "Info"
         }
@@ -69,7 +68,8 @@ object DocGenerator {
       Json.obj(
         "patternId" -> rule.patternId,
         "title" -> Json.toJsFieldJsValueWrapper(rule.title),
-        "description" -> Json.toJsFieldJsValueWrapper(truncateText(rule.description, 495)),
+        "description" -> Json.toJsFieldJsValueWrapper(
+          truncateText(rule.description, 495)),
         "timeToFix" -> 5
       )
     }
@@ -98,18 +98,18 @@ object DocGenerator {
   private def createPatternsAndDescriptionFile(
       version: String,
       rules: Seq[DocGenerator.Ruleset]): Unit = {
-    val repoRoot: File = new java.io.File(".")
-    val docsRoot: File = new java.io.File(repoRoot, "src/main/resources/docs")
-    val patternsFile: File = new java.io.File(docsRoot, "patterns.json")
-    val descriptionsRoot: File = new java.io.File(docsRoot, "description")
-    val descriptionsFile: File =
-      new java.io.File(descriptionsRoot, "description.json")
+    val repoRoot: files.File = File(".")
+    val docsRoot: files.File = File(repoRoot, "src/main/resources/docs")
+    val patternsFile: files.File = File(docsRoot, "patterns.json")
+    val descriptionsRoot: files.File = File(docsRoot, "description")
+    val descriptionsFile: files.File =
+      File(descriptionsRoot, "description.json")
 
     val patterns: String = getPatterns(version, rules)
     val descriptions: String = getDescriptions(rules)
 
-    ResourceHelper.writeFile(patternsFile.toPath, patterns)
-    ResourceHelper.writeFile(descriptionsFile.toPath, descriptions)
+    patternsFile.write(patterns)
+    descriptionsFile.write(descriptions)
   }
 
   private def getPatterns(version: String,
@@ -131,7 +131,11 @@ object DocGenerator {
 
   private def truncateText(description: String, maxCharacters: Int): String = {
     if (description.length > maxCharacters) {
-      description.take(maxCharacters).split("\\.").dropRight(1).mkString(".") + "."
+      description
+        .take(maxCharacters)
+        .split("\\.")
+        .dropRight(1)
+        .mkString(".") + "."
     } else {
       description
     }
