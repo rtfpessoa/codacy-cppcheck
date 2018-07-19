@@ -1,1511 +1,1093 @@
 {
-  "name": "cppcheck",
-  "version": "1.83",
-  "patterns": [
-    {
-      "patternId": "toomanyconfigs",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "AssignmentAddressToInteger",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "AssignmentIntegerToAddress",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "CastIntegerToAddressAtReturn",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "CastAddressToIntegerAtReturn",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "assertWithSideEffect",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "assignmentInAssert",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "autoVariables",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "returnAddressOfAutoVariable",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "returnLocalVariable",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "returnReference",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "returnTempReference",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "autovarInvalidDeallocation",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "returnAddressOfFunctionParameter",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "uselessAssignmentArg",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "uselessAssignmentPtrArg",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "assignBoolToPointer",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "comparisonOfFuncReturningBoolError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "comparisonOfTwoFuncsReturningBoolError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "comparisonOfBoolWithBoolError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "incrementboolean",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "comparisonOfBoolWithInt",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "compareBoolExpressionWithInt",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "pointerArithBool",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "boostForeachError",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "arrayIndexOutOfBounds",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "bufferAccessOutOfBounds",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "strncatUsage",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "outOfBounds",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "sizeArgumentAsChar",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "negativeIndex",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "insecureCmdLineArgs",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "pointerOutOfBounds",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "arrayIndexThenCheck",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "possibleBufferAccessOutOfBounds",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "argumentSize",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "negativeMemoryAllocationSize",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "negativeArraySize",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "arrayIndexOutOfBoundsCond",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "noConstructor",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "noExplicitConstructor",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "noExplicitCopyMoveConstructor",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "copyCtorPointerCopying",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "noCopyConstructor",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "uninitMemberVar",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "operatorEqVarError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unusedPrivateFunction",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "memsetClass",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "memsetClassReference",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "memsetClassFloat",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "mallocOnClassWarning",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "mallocOnClassError",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "operatorEq",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "virtualDestructor",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "thisSubtraction",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "operatorEqRetRefThis",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "operatorEqMissingReturnStatement",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "operatorEqShouldBeLeftUnimplemented",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "operatorEqToSelf",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "useInitializationList",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "selfInitialization",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "duplInheritedMember",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "assignIfError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "badBitmaskCheck",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "comparisonError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "multiCondition",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "mismatchingBitAnd",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "oppositeInnerCondition",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "incorrectLogicOperator",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "redundantCondition",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "moduloAlwaysTrueFalse",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "clarifyCondition",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "knownConditionTrueFalse",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "exceptThrowInDestructor",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "exceptDeallocThrow",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "exceptRethrowCopy",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "catchExceptionByValue",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "throwInNoexceptFunction",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "coutCerrMisusage",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "fflushOnInputStream",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "IOWithoutPositioning",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "readWriteOnlyFile",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "writeReadOnlyFile",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "useClosedFile",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "seekOnAppendedFile",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidscanf",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "wrongPrintfScanfArgNum",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "invalidScanfArgType_s",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidScanfArgType_int",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidScanfArgType_float",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidPrintfArgType_s",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidPrintfArgType_n",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidPrintfArgType_p",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidPrintfArgType_int",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidPrintfArgType_uint",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidPrintfArgType_sint",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidPrintfArgType_float",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidLengthModifierError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidScanfFormatWidth",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "wrongPrintfScanfParameterPositionError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "deallocret",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "doubleFree",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "leakNoVarFunctionCall",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "leakReturnValNotUsed",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "publicAllocationError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unsafeClassCanLeak",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "memleak",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "resourceLeak",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "deallocDealloc",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "deallocuse",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "mismatchSize",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "mismatchAllocDealloc",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "memleakOnRealloc",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "nonreentrantFunctionscrypt",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsctermid",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsecvt",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsfcvt",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsfgetgrent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsfgetpwent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsfgetspent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgcvt",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetgrent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetgrgid",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetgrnam",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgethostbyaddr",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgethostbyname",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgethostbyname2",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgethostent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetlogin",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetnetbyaddr",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetnetbyname",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetnetgrent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetprotobyname",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetpwent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetpwnam",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetpwuid",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetrpcbyname",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetrpcbynumber",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetrpcent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetservbyname",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetservbyport",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetservent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetspent",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgetspnam",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsgmtime",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionslocaltime",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsreaddir",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsstrtok",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionstempnam",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nonreentrantFunctionsttyname",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nullPointer",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "nullPointerDefaultArg",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nullPointerRedundantCheck",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsgets",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsalloca",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsasctime",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsasctime_r",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsbcmp",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsbcopy",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsbsd_signal",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsbzero",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsctime_r",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsecvt",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsfcvt",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsftime",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsgcvt",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsgetcontext",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsgethostbyaddr",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsgethostbyname",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsgetwd",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsindex",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsmakecontext",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionspthread_attr_getstackaddr",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionspthread_attr_setstackaddr",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsrand_r",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsrindex",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsscalbln",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsswapcontext",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionstmpnam",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionstmpnam_r",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsualarm",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsusleep",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsutime",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionsvfork",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "obsoleteFunctionswcswcs",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidFunctionArg",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "invalidFunctionArgBool",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "zerodiv",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "zerodivcond",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unusedScopedObject",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidPointerCast",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "shiftNegative",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "wrongPipeParameterSize",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "raceAfterInterlockedDecrement",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "redundantCopy",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "redundantAssignment",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "comparisonFunctionIsAlwaysTrueOrFalse",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "checkCastIntToCharAndBack",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "cstyleCast",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "passedByValue",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "constStatement",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "charArrayIndex",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "charBitOp",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "variableScope",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "redundantAssignInSwitch",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "redundantCopyInSwitch",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "switchCaseFallThrough",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "selfAssignment",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "wrongmathcall",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unpreciseMathCall",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "memsetZeroBytes",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "memsetFloat",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "memsetValueOutOfRange",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "clarifyCalculation",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "clarifyStatement",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "duplicateExpression",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "duplicateExpressionTernary",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "duplicateBreak",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unreachableCode",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unsignedLessThanZero",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unsignedPositive",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "pointerLessThanZero",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "pointerPositive",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "varFuncNullUB",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "nanInArithmeticExpression",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "commaSeparatedReturn",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "ignoredReturnValue",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "redundantPointerOp",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unusedLabel",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "invalidIterator1",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "iterators",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "mismatchingContainers",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "eraseDereference",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "stlOutOfBounds",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "invalidIterator2",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "invalidPointer",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "stlBoundaries",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "stlIfFind",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "stlIfStrFind",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "stlcstr",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "stlcstrReturn",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "stlcstrParam",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "stlSize",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "StlMissingComparison",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "redundantIfRemove",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "useAutoPointerCopy",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "useAutoPointerContainer",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "useAutoPointerArray",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "useAutoPointerMalloc",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "uselessCallsCompare",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "uselessCallsSwap",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "uselessCallsSubstr",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "uselessCallsEmpty",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "uselessCallsRemove",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "derefInvalidIterator",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "sizeofwithsilentarraypointer",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "pointerSize",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "sizeofDivisionMemfunc",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "sizeofwithnumericparameter",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "sizeofsizeof",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "sizeofCalculation",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "sizeofVoid",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "sizeofDereferencedVoidPointer",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "arithOperationsOnVoidPointer",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "stringLiteralWrite",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "sprintfOverlappingData",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "strPlusChar",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "incorrectStringCompare",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "literalWithCharPtrCompare",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "charLiteralWithCharPtrCompare",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "incorrectStringBooleanError",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "staticStringCompare",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "stringCompare",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "shiftTooManyBits",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "integerOverflow",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "signConversion",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "truncLongCastAssignment",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "truncLongCastReturn",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "uninitstring",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "uninitdata",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "uninitvar",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "uninitStructMember",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "deadpointer",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "unusedVariable",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unusedAllocatedMemory",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unreadVariable",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unassignedVariable",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unusedStructMember",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "postfixOperator",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "va_start_wrongParameter",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "va_start_referencePassed",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "va_end_missing",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "va_list_usedBeforeStarted",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "va_start_subsequentCalls",
-      "level": "Error",
-      "category": "ErrorProne"
-    },
-    {
-      "patternId": "unnecessaryForwardDeclaration",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "variableHidingEnum",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "unnecessaryQualification",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "missingInclude",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "missingIncludeSystem",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "ConfigurationNotChecked",
-      "level": "Info",
-      "category": "CodeStyle"
-    },
-    {
-      "patternId": "preprocessorErrorDirective",
-      "level": "Error",
-      "category": "ErrorProne"
-    }
-  ]
+  "name" : "cppcheck",
+  "version" : "1.84",
+  "patterns" : [ {
+    "patternId" : "purgedConfiguration",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "toomanyconfigs",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "AssignmentAddressToInteger",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "AssignmentIntegerToAddress",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "CastIntegerToAddressAtReturn",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "CastAddressToIntegerAtReturn",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "assertWithSideEffect",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "assignmentInAssert",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "autoVariables",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "returnAddressOfAutoVariable",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "autoVariablesAssignGlobalPointer",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "returnLocalVariable",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "returnReference",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "returnTempReference",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "autovarInvalidDeallocation",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "returnAddressOfFunctionParameter",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "uselessAssignmentArg",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "uselessAssignmentPtrArg",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "assignBoolToPointer",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "assignBoolToFloat",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "comparisonOfFuncReturningBoolError",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "comparisonOfTwoFuncsReturningBoolError",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "comparisonOfBoolWithBoolError",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "incrementboolean",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "bitwiseOnBoolean",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "compareBoolExpressionWithInt",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "pointerArithBool",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "boostForeachError",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "arrayIndexOutOfBounds",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "bufferAccessOutOfBounds",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "strncatUsage",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "outOfBounds",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sizeArgumentAsChar",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "terminateStrncpy",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "bufferNotZeroTerminated",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "negativeIndex",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "insecureCmdLineArgs",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "pointerOutOfBounds",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "arrayIndexThenCheck",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "possibleBufferAccessOutOfBounds",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "argumentSize",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "negativeMemoryAllocationSize",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "negativeArraySize",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "arrayIndexOutOfBoundsCond",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidFunctionArg",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidFunctionArgBool",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "ignoredReturnValue",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "wrongmathcall",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "unpreciseMathCall",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "memsetZeroBytes",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "memsetFloat",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "memsetValueOutOfRange",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "noConstructor",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "noExplicitConstructor",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "copyCtorPointerCopying",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "noCopyConstructor",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "noOperatorEq",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "noDestructor",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "uninitMemberVar",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "operatorEqVarError",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "unusedPrivateFunction",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "memsetClass",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "memsetClassReference",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "memsetClassFloat",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "mallocOnClassWarning",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "mallocOnClassError",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "operatorEq",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "virtualDestructor",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "thisSubtraction",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "operatorEqRetRefThis",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "operatorEqMissingReturnStatement",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "operatorEqShouldBeLeftUnimplemented",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "operatorEqToSelf",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "functionConst",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "functionStatic",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "initializerList",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "useInitializationList",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "selfInitialization",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "duplInheritedMember",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "copyCtorAndEqOperator",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "unsafeClassDivZero",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "pureVirtualCall",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "virtualCallInConstructor",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "missingOverride",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "assignIfError",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "badBitmaskCheck",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "comparisonError",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "multiCondition",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "mismatchingBitAnd",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "oppositeInnerCondition",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "identicalInnerCondition",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "identicalConditionAfterEarlyExit",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "incorrectLogicOperator",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "redundantCondition",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "moduloAlwaysTrueFalse",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "clarifyCondition",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "knownConditionTrueFalse",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "invalidTestForOverflow",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "pointerAdditionResultNotNull",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "exceptThrowInDestructor",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "exceptDeallocThrow",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "exceptRethrowCopy",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "catchExceptionByValue",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "throwInNoexceptFunction",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "unhandledExceptionSpecification",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "coutCerrMisusage",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "fflushOnInputStream",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "IOWithoutPositioning",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "readWriteOnlyFile",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "writeReadOnlyFile",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "useClosedFile",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "seekOnAppendedFile",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidscanf",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "wrongPrintfScanfArgNum",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidScanfArgType_s",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidScanfArgType_int",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidScanfArgType_float",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidPrintfArgType_s",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidPrintfArgType_n",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidPrintfArgType_p",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidPrintfArgType_uint",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidPrintfArgType_sint",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidPrintfArgType_float",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidLengthModifierError",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidScanfFormatWidth",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "wrongPrintfScanfParameterPositionError",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "deallocret",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "doubleFree",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "leakNoVarFunctionCall",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "leakReturnValNotUsed",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "leakUnsafeArgAlloc",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "publicAllocationError",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "unsafeClassCanLeak",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "memleak",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "resourceLeak",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "deallocDealloc",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "deallocuse",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "mismatchSize",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "mismatchAllocDealloc",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "memleakOnRealloc",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "nullPointer",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "nullPointerDefaultArg",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "nullPointerRedundantCheck",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "nullPointerArithmetic",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "zerodiv",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "zerodivcond",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "unusedScopedObject",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "invalidPointerCast",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "shiftNegativeLHS",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "shiftNegative",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "wrongPipeParameterSize",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "raceAfterInterlockedDecrement",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "redundantCopyLocalConst",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "redundantCopy",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "redundantAssignment",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "comparisonFunctionIsAlwaysTrueOrFalse",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "checkCastIntToCharAndBack",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "cstyleCast",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "passedByValue",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "constStatement",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "signedCharArrayIndex",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "unknownSignCharArrayIndex",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "charBitOp",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "variableScope",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "redundantAssignInSwitch",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "redundantCopyInSwitch",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "suspiciousCase",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "suspiciousEqualityComparison",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "selfAssignment",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "clarifyCalculation",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "clarifyStatement",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "duplicateBranch",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "oppositeExpression",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "duplicateExpression",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "duplicateValueTernary",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "duplicateExpressionTernary",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "duplicateBreak",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unreachableCode",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unsignedLessThanZero",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unsignedPositive",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "pointerLessThanZero",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "pointerPositive",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "suspiciousSemicolon",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "incompleteArrayFill",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "varFuncNullUB",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "nanInArithmeticExpression",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "commaSeparatedReturn",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "redundantPointerOp",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unusedLabelSwitch",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "unusedLabel",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unknownEvaluationOrder",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "accessMoved",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "accessForwarded",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "funcArgNamesDifferent",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "funcArgOrderDifferent",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidIterator1",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "iterators",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "mismatchingContainers",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "eraseDereference",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "stlOutOfBounds",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidIterator2",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidPointer",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "stlBoundaries",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "stlIfFind",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "stlIfStrFind",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "stlcstr",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "stlcstrReturn",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "stlcstrParam",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "stlSize",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "StlMissingComparison",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "redundantIfRemove",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "useAutoPointerCopy",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "useAutoPointerContainer",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "useAutoPointerArray",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "useAutoPointerMalloc",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "uselessCallsCompare",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "uselessCallsSwap",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "uselessCallsSubstr",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "uselessCallsEmpty",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "uselessCallsRemove",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "derefInvalidIterator",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "reademptycontainer",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "sizeofwithsilentarraypointer",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "pointerSize",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sizeofDivisionMemfunc",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sizeofwithnumericparameter",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sizeofsizeof",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sizeofCalculation",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sizeofFunctionCall",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "multiplySizeof",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "divideSizeof",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sizeofVoid",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sizeofDereferencedVoidPointer",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "arithOperationsOnVoidPointer",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "stringLiteralWrite",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sprintfOverlappingData",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "strPlusChar",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "incorrectStringCompare",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "literalWithCharPtrCompare",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "charLiteralWithCharPtrCompare",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "incorrectStringBooleanError",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "staticStringCompare",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "stringCompare",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "overlappingStrcmp",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "shiftTooManyBits",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "shiftTooManyBitsSigned",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "integerOverflow",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "signConversion",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "truncLongCastAssignment",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "truncLongCastReturn",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "floatConversionOverflow",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "uninitstring",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "uninitdata",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "uninitvar",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "uninitStructMember",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "deadpointer",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "unusedFunction",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unusedVariable",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unusedAllocatedMemory",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unreadVariable",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unassignedVariable",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "unusedStructMember",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "postfixOperator",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
+    "patternId" : "va_start_wrongParameter",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "va_start_referencePassed",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "va_end_missing",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "va_list_usedBeforeStarted",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "va_start_subsequentCalls",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "missingInclude",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "missingIncludeSystem",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "ConfigurationNotChecked",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "preprocessorErrorDirective",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  } ]
 }
