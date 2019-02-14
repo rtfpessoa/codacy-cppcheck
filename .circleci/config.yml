@@ -1,24 +1,56 @@
 version: 2
+
+references:
+  set_version_env_variable: &set_version_env_variable
+    run:
+      name: Define Environment Variable VERSION_NUMBER and ENV at Runtime
+      command: |
+        echo "export VERSION_NUMBER=$(cat .version)" >> $BASH_ENV
+        source $BASH_ENV
+        echo $VERSION_NUMBER
+
 jobs:
+  checkout_and_version:
+    docker:
+      - image: codacy/git-version:1.0.8
+    working_directory: ~/workdir
+    steps:
+      - checkout
+      - run:
+          name: Set version
+          command: /bin/git-version > .version
+      - run:
+          name: Set Sbt version
+          command: echo "version in ThisBuild := \"$(cat .version)\"" > version.sbt
+      - run:
+          name: Current version
+          command: cat .version
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - workdir
+
   build:
     machine: true
     working_directory: ~/workdir
     steps:
-      - checkout
-      - run: 
+      - attach_workspace:
+          at: ~/
+      - *set_version_env_variable
+      - run:
           name: Clone test project
           working_directory: ~/
           command: |
-            (git -C ~/codacy-plugins-test fetch --all && 
-              git -C ~/codacy-plugins-test reset --hard origin/master) || 
+            (git -C ~/codacy-plugins-test fetch --all &&
+              git -C ~/codacy-plugins-test reset --hard origin/master) ||
                 git clone git://github.com/codacy/codacy-plugins-test.git ~/codacy-plugins-test
       - restore_cache:
           key: dependencies-{{ checksum "build.sbt" }}
-      - run: 
+      - run:
           name: Compile test project
           working_directory: ~/codacy-plugins-test
           command: sbt compile
-      - run: 
+      - run:
           name: Publish tool docker locally
           working_directory: ~/workdir
           command: ./scripts/publish.sh $CIRCLE_PROJECT_REPONAME latest
@@ -34,21 +66,21 @@ jobs:
             - "~/workdir/target"
             - "~/workdir/project/target"
             - "~/workdir/project/project"
-      - run: 
+      - run:
           name: Test json
           working_directory: ~/codacy-plugins-test
-          command: sbt -Dcodacy.tests.ignore.descriptions=true "run-main codacy.plugins.DockerTest json codacy/$CIRCLE_PROJECT_REPONAME:latest"
+          command: sbt -Dcodacy.tests.ignore.descriptions=true "runMain codacy.plugins.DockerTest json codacy/$CIRCLE_PROJECT_REPONAME:latest"
       - run:
           name: Test patterns
           working_directory: ~/codacy-plugins-test
-          command: sbt -Dcodacy.tests.noremove=true -Dcodacy.tests.threads=8 "run-main codacy.plugins.DockerTest pattern codacy/$CIRCLE_PROJECT_REPONAME:latest"
+          command: sbt -Dcodacy.tests.noremove=true -Dcodacy.tests.threads=8 "runMain codacy.plugins.DockerTest pattern codacy/$CIRCLE_PROJECT_REPONAME:latest"
       - deploy:
           name: Push application Docker image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker login -u $DOCKER_USER -p $DOCKER_PASS
-              docker tag codacy/${CIRCLE_PROJECT_REPONAME}:latest codacy/$CIRCLE_PROJECT_REPONAME:1.0.$CIRCLE_BUILD_NUM
-              docker push codacy/$CIRCLE_PROJECT_REPONAME:1.0.$CIRCLE_BUILD_NUM
+              docker tag codacy/${CIRCLE_PROJECT_REPONAME}:latest codacy/$CIRCLE_PROJECT_REPONAME:$(cat .version)
+              docker push codacy/$CIRCLE_PROJECT_REPONAME:$(cat .version)
               docker push codacy/$CIRCLE_PROJECT_REPONAME:latest
             fi
 
@@ -56,4 +88,7 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - build
+      - checkout_and_version
+      - build:
+          requires:
+            - checkout_and_version
