@@ -90,5 +90,6 @@ workflows:
     jobs:
       - checkout_and_version
       - build:
+          context: CodacyDocker
           requires:
             - checkout_and_version
