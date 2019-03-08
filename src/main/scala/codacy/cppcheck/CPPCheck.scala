@@ -39,7 +39,7 @@ object CPPCheck extends Tool {
           }
         }.getOrElse("")
 
-      val command = List("cppcheck", "--enable=all", "--error-exitcode=0", "--force", "-j 2", languageParameter,
+      val command = List("cppcheck", "--enable=all", "--error-exitcode=0", "--inline-suppr", "--force", "-j 2", languageParameter,
         """--template={"patternId":"{id}","file":"{file}","line":"{line}","message":"{message}"}""") ++
         filesToLint
 
