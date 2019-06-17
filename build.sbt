@@ -2,7 +2,7 @@ name := """codacy-cppcheck"""
 
 version := "1.0.0-SNAPSHOT"
 
-val languageVersion = "2.11.12"
+val languageVersion = "2.12.7"
 
 scalaVersion := languageVersion
 
@@ -12,8 +12,8 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-json" % "2.4.6",
-  "com.codacy" %% "codacy-engine-scala-seed" % "2.7.8",
+  "com.typesafe.play" %% "play-json" % "2.7.3",
+  "com.codacy" %% "codacy-engine-scala-seed" % "3.0.9",
   "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
   "com.github.pathikrit" %% "better-files" % "3.5.0"
 )
