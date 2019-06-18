@@ -21,4 +21,4 @@ fi
 echo "Building docker with version ${VERSION} for ${TOOL_NAME}"
 ${current_directory}/publish-base.sh
 sbt 'set version := "'"${VERSION}"'"' docker:stage
-docker build --no-cache -t "codacy/${TOOL_NAME}:${VERSION}" -f Dockerfile .
+docker build --no-cache -t "${TOOL_NAME}:${VERSION}" -f Dockerfile .
