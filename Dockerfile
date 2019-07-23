@@ -1,4 +1,4 @@
-FROM codacy/codacy-cppcheck-base:latest
+FROM codacy-cppcheck-base:latest
 
 LABEL maintainer="team@codacy.com"
 

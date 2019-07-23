@@ -2,9 +2,10 @@ package codacy.cppcheck
 
 import java.nio.file.{Path, Paths}
 
-import codacy.docker.api.Result.Issue
-import codacy.docker.api.{Configuration, Pattern, Result, Source, Tool}
-import codacy.dockerApi.utils.CommandRunner
+import com.codacy.plugins.api.results.Result.Issue
+import com.codacy.plugins.api.results.{Pattern, Result, Tool}
+import com.codacy.plugins.api.{Options, Source}
+import com.codacy.tools.scala.seed.utils.CommandRunner
 import play.api.libs.json._
 
 import scala.util.Try
@@ -21,10 +22,10 @@ object CPPCheck extends Tool {
     "unusedFunction"
   )
 
-  private val languageConfKey = Configuration.Key("language")
+  private val languageConfKey = Options.Key("language")
 
   override def apply(source: Source.Directory, configuration: Option[List[Pattern.Definition]], files: Option[Set[Source.File]],
-                     options: Map[Configuration.Key, Configuration.Value])
+                     options: Map[Options.Key, Options.Value])
                     (implicit specification: Tool.Specification): Try[List[Result]] = {
     Try {
       val path = Paths.get(source.path)
