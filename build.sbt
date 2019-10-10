@@ -2,13 +2,13 @@ name := """codacy-cppcheck"""
 
 version := "1.0.0-SNAPSHOT"
 
-val languageVersion = "2.12.7"
+val languageVersion = "2.12.8"
 
 scalaVersion := languageVersion
 
 resolvers ++= Seq(
   "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/releases",
-  "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/"
+  "Typesafe Repo" at "https://repo.typesafe.com/typesafe/releases/"
 )
 
 libraryDependencies ++= Seq(
