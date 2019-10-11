@@ -1,6 +1,6 @@
 {
   "name" : "cppcheck",
-  "version" : "1.84",
+  "version" : "1.89",
   "patterns" : [ {
     "patternId" : "purgedConfiguration",
     "level" : "Info",
@@ -42,15 +42,15 @@
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
-    "patternId" : "autoVariablesAssignGlobalPointer",
-    "level" : "Warning",
-    "category" : "ErrorProne"
-  }, {
     "patternId" : "returnLocalVariable",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "returnReference",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "danglingReference",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
@@ -72,6 +72,18 @@
   }, {
     "patternId" : "uselessAssignmentPtrArg",
     "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "returnDanglingLifetime",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidLifetime",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "danglingLifetime",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "assignBoolToPointer",
@@ -110,6 +122,14 @@
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
+    "patternId" : "comparisonOfBoolWithInvalidComparator",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "returnNonBoolInBooleanFunction",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
     "patternId" : "boostForeachError",
     "level" : "Error",
     "category" : "ErrorProne"
@@ -118,27 +138,11 @@
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
-    "patternId" : "bufferAccessOutOfBounds",
-    "level" : "Error",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "strncatUsage",
+    "patternId" : "arrayIndexOutOfBoundsCond",
     "level" : "Warning",
     "category" : "ErrorProne"
   }, {
-    "patternId" : "outOfBounds",
-    "level" : "Error",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "sizeArgumentAsChar",
-    "level" : "Warning",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "terminateStrncpy",
-    "level" : "Warning",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "bufferNotZeroTerminated",
+    "patternId" : "pointerOutOfBounds",
     "level" : "Warning",
     "category" : "ErrorProne"
   }, {
@@ -146,36 +150,16 @@
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
-    "patternId" : "insecureCmdLineArgs",
-    "level" : "Error",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "pointerOutOfBounds",
-    "level" : "Warning",
-    "category" : "ErrorProne"
-  }, {
     "patternId" : "arrayIndexThenCheck",
     "level" : "Info",
     "category" : "CodeStyle"
   }, {
-    "patternId" : "possibleBufferAccessOutOfBounds",
-    "level" : "Warning",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "argumentSize",
-    "level" : "Warning",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "negativeMemoryAllocationSize",
+    "patternId" : "bufferAccessOutOfBounds",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
-    "patternId" : "negativeArraySize",
+    "patternId" : "objectIndex",
     "level" : "Error",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "arrayIndexOutOfBoundsCond",
-    "level" : "Warning",
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidFunctionArg",
@@ -183,6 +167,10 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidFunctionArgBool",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidFunctionArgStr",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
@@ -219,22 +207,26 @@
     "category" : "CodeStyle"
   }, {
     "patternId" : "copyCtorPointerCopying",
-    "level" : "Info",
-    "category" : "CodeStyle"
+    "level" : "Warning",
+    "category" : "ErrorProne"
   }, {
     "patternId" : "noCopyConstructor",
-    "level" : "Info",
-    "category" : "CodeStyle"
+    "level" : "Warning",
+    "category" : "ErrorProne"
   }, {
     "patternId" : "noOperatorEq",
-    "level" : "Info",
-    "category" : "CodeStyle"
+    "level" : "Warning",
+    "category" : "ErrorProne"
   }, {
     "patternId" : "noDestructor",
-    "level" : "Info",
-    "category" : "CodeStyle"
+    "level" : "Warning",
+    "category" : "ErrorProne"
   }, {
     "patternId" : "uninitMemberVar",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "uninitMemberVarPrivate",
     "level" : "Warning",
     "category" : "ErrorProne"
   }, {
@@ -338,6 +330,10 @@
     "level" : "Info",
     "category" : "CodeStyle"
   }, {
+    "patternId" : "unsafeClassRefMember",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
     "patternId" : "assignIfError",
     "level" : "Info",
     "category" : "CodeStyle"
@@ -347,6 +343,10 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "comparisonError",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "duplicateCondition",
     "level" : "Info",
     "category" : "CodeStyle"
   }, {
@@ -397,6 +397,10 @@
     "patternId" : "pointerAdditionResultNotNull",
     "level" : "Warning",
     "category" : "ErrorProne"
+  }, {
+    "patternId" : "duplicateConditionalAssign",
+    "level" : "Info",
+    "category" : "CodeStyle"
   }, {
     "patternId" : "exceptThrowInDestructor",
     "level" : "Warning",
@@ -502,6 +506,10 @@
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
+    "patternId" : "invalidScanfFormatWidth_smaller",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
     "patternId" : "wrongPrintfScanfParameterPositionError",
     "level" : "Warning",
     "category" : "ErrorProne"
@@ -578,6 +586,10 @@
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
+    "patternId" : "nullPointerArithmeticRedundantCheck",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
     "patternId" : "zerodiv",
     "level" : "Error",
     "category" : "ErrorProne"
@@ -610,6 +622,10 @@
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
+    "patternId" : "invalidFree",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
     "patternId" : "redundantCopyLocalConst",
     "level" : "Warning",
     "category" : "Performance"
@@ -617,10 +633,6 @@
     "patternId" : "redundantCopy",
     "level" : "Warning",
     "category" : "Performance"
-  }, {
-    "patternId" : "redundantAssignment",
-    "level" : "Info",
-    "category" : "CodeStyle"
   }, {
     "patternId" : "comparisonFunctionIsAlwaysTrueOrFalse",
     "level" : "Warning",
@@ -637,6 +649,10 @@
     "patternId" : "passedByValue",
     "level" : "Warning",
     "category" : "Performance"
+  }, {
+    "patternId" : "constVariable",
+    "level" : "Info",
+    "category" : "CodeStyle"
   }, {
     "patternId" : "constStatement",
     "level" : "Warning",
@@ -670,10 +686,6 @@
     "level" : "Warning",
     "category" : "ErrorProne"
   }, {
-    "patternId" : "suspiciousEqualityComparison",
-    "level" : "Warning",
-    "category" : "ErrorProne"
-  }, {
     "patternId" : "selfAssignment",
     "level" : "Warning",
     "category" : "ErrorProne"
@@ -687,6 +699,10 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "duplicateBranch",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "duplicateAssignExpression",
     "level" : "Info",
     "category" : "CodeStyle"
   }, {
@@ -778,21 +794,85 @@
     "level" : "Info",
     "category" : "CodeStyle"
   }, {
+    "patternId" : "redundantBitwiseOperationInSwitch",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "shadowVariable",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "shadowFunction",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "shadowArgument",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "constArgument",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "comparePointers",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "redundantAssignment",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "redundantInitialization",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
     "patternId" : "funcArgOrderDifferent",
     "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "containerOutOfBounds",
+    "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidIterator1",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
-    "patternId" : "iterators",
+    "patternId" : "iterators1",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "iterators2",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "iterators3",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "iteratorsCmp1",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "iteratorsCmp2",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "invalidContainer",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "mismatchingContainers",
     "level" : "Error",
     "category" : "ErrorProne"
+  }, {
+    "patternId" : "mismatchingContainerExpression",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "sameIteratorExpression",
+    "level" : "Info",
+    "category" : "CodeStyle"
   }, {
     "patternId" : "eraseDereference",
     "level" : "Error",
@@ -802,11 +882,7 @@
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
-    "patternId" : "invalidIterator2",
-    "level" : "Error",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "invalidPointer",
+    "patternId" : "negativeContainerIndex",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
@@ -822,6 +898,10 @@
     "level" : "Warning",
     "category" : "Performance"
   }, {
+    "patternId" : "stlFindInsert",
+    "level" : "Warning",
+    "category" : "Performance"
+  }, {
     "patternId" : "stlcstr",
     "level" : "Error",
     "category" : "ErrorProne"
@@ -834,6 +914,10 @@
     "level" : "Warning",
     "category" : "Performance"
   }, {
+    "patternId" : "stlcstrthrow",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
     "patternId" : "stlSize",
     "level" : "Warning",
     "category" : "Performance"
@@ -845,22 +929,6 @@
     "patternId" : "redundantIfRemove",
     "level" : "Info",
     "category" : "CodeStyle"
-  }, {
-    "patternId" : "useAutoPointerCopy",
-    "level" : "Info",
-    "category" : "CodeStyle"
-  }, {
-    "patternId" : "useAutoPointerContainer",
-    "level" : "Error",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "useAutoPointerArray",
-    "level" : "Error",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "useAutoPointerMalloc",
-    "level" : "Error",
-    "category" : "ErrorProne"
   }, {
     "patternId" : "uselessCallsCompare",
     "level" : "Warning",
@@ -887,6 +955,10 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "reademptycontainer",
+    "level" : "Info",
+    "category" : "CodeStyle"
+  }, {
+    "patternId" : "useStlAlgorithm",
     "level" : "Info",
     "category" : "CodeStyle"
   }, {
@@ -963,6 +1035,10 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "incorrectStringBooleanError",
+    "level" : "Warning",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "incorrectCharBooleanError",
     "level" : "Warning",
     "category" : "ErrorProne"
   }, {
