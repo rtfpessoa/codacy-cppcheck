@@ -88,12 +88,12 @@ object DocGenerator {
     descriptionsFile.write(s"$descriptions\n")
   }
 
-  private def getAddonPatterns() : JsArray = {
+  private def getAddonPatterns(): JsArray = {
     val patternsJson = Resource.getAsString("addons/patterns.json")
     (Json.parse(patternsJson) \ "patterns").as[JsArray]
   }
 
-  private def getAddonDescription() : JsArray = {
+  private def getAddonDescription(): JsArray = {
     val descriptionJson = Resource.getAsString("addons/description/description.json")
     Json.parse(descriptionJson).as[JsArray]
   }

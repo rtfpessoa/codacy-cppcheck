@@ -1,6 +1,6 @@
 package codacy.cppcheck
 
-import java.nio.file.{Path, Paths, Files}
+import java.nio.file.{Files, Path, Paths}
 
 import com.codacy.plugins.api.results.Result.Issue
 import com.codacy.plugins.api.results.{Pattern, Result, Tool}
