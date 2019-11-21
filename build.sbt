@@ -2,10 +2,10 @@ import com.typesafe.sbt.packager.docker.Cmd
 
 name := "codacy-cppcheck"
 
-scalaVersion := "2.12.10"
+scalaVersion := "2.13.1"
 
 libraryDependencies ++= Seq(
-  "com.codacy" %% "codacy-engine-scala-seed" % "3.0.59",
+  "com.codacy" %% "codacy-engine-scala-seed" % "3.1.0",
   "org.scala-lang.modules" %% "scala-xml" % "1.2.0",
   "com.github.pathikrit" %% "better-files" % "3.8.0"
 )

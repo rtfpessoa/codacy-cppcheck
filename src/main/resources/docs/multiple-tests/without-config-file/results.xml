@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+    <file name="unused.c">
+        <error source="unreadVariable" line="28" message="Variable 'a' is assigned a value that is never used." severity="info" />
+        <error source="unreadVariable" line="30" message="Variable 'b' is assigned a value that is never used." severity="info" />
+        <error source="unreadVariable" line="32" message="Variable 'c' is assigned a value that is never used." severity="info" />
+    </file>
+    <file name="unusedLabel.cpp">
+        <error source="unusedLabel" line="8" message="Label 'Test2' is not used." severity="info" />
+    </file>
+    <file name="header.h">
+        <error source="unusedLabel" line="4" message="Label 'public' is not used." severity="info" />
+        <error source="unusedLabel" line="9" message="Label 'private' is not used." severity="info" />
+    </file>
+</checkstyle>
