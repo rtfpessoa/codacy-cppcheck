@@ -1,6 +1,6 @@
 package codacy.cppcheck
 
-import java.nio.file.{Path, Paths}
+import java.nio.file.{Path, Paths, Files}
 
 import com.codacy.plugins.api.results.Result.Issue
 import com.codacy.plugins.api.results.{Pattern, Result, Tool}
@@ -43,9 +43,16 @@ object CPPCheck extends Tool {
         }
         .getOrElse("")
 
+      val tempFolder = Files.createTempDirectory("cppcheck-build-dir-")
+      tempFolder.toFile().deleteOnExit()
+
       val command = List(
         "cppcheck",
         "--enable=all",
+        "--addon=cert",
+        "--addon=y2038",
+        "--addon=threadsafety",
+        s"--cppcheck-build-dir=${tempFolder.toString}",
         "--error-exitcode=0",
         "--inline-suppr",
         "--force",

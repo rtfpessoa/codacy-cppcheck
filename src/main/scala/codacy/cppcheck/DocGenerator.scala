@@ -84,8 +84,18 @@ object DocGenerator {
     val patterns: String = getPatterns(version, rules)
     val descriptions: String = getDescriptions(rules)
 
-    patternsFile.write(patterns)
-    descriptionsFile.write(descriptions)
+    patternsFile.write(s"$patterns\n")
+    descriptionsFile.write(s"$descriptions\n")
+  }
+
+  private def getAddonPatterns() : JsArray = {
+    val patternsJson = Resource.getAsString("addons/patterns.json")
+    (Json.parse(patternsJson) \ "patterns").as[JsArray]
+  }
+
+  private def getAddonDescription() : JsArray = {
+    val descriptionJson = Resource.getAsString("addons/description/description.json")
+    Json.parse(descriptionJson).as[JsArray]
   }
 
   private def getPatterns(version: String, rules: Seq[DocGenerator.Ruleset]): String = {
@@ -93,9 +103,9 @@ object DocGenerator {
       Json.obj(
         "name" -> "cppcheck",
         "version" -> version,
-        "patterns" -> Json
+        "patterns" -> (Json
           .parse(Json.toJson(generatePatterns(rules)).toString)
-          .as[JsArray]
+          .as[JsArray] ++ getAddonPatterns())
       )
     )
   }
@@ -104,7 +114,7 @@ object DocGenerator {
     Json.prettyPrint(
       Json
         .parse(Json.toJson(generateDescriptions(rules)).toString)
-        .as[JsArray]
+        .as[JsArray] ++ getAddonDescription()
     )
   }
 
