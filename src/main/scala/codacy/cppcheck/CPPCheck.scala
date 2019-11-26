@@ -46,12 +46,12 @@ object CPPCheck extends Tool {
       val tempFolder = Files.createTempDirectory("cppcheck-build-dir-")
       tempFolder.toFile().deleteOnExit()
 
-      def addonIfNeeded(name: String): Option[String] = {
+      def addonIfNeeded(name: String, parameter: Option[String] = None): Option[String] = {
         val enabled = configuration match {
           case Some(patterns) => patterns.exists(_.patternId.value.startsWith(s"$name-"))
           case None => true
         }
-        if (enabled) Some(s"--addon=$name")
+        if (enabled) Some(s"--addon=${parameter.getOrElse(name)}")
         else None
       }
 
@@ -59,6 +59,7 @@ object CPPCheck extends Tool {
         addonIfNeeded("cert") ++
         addonIfNeeded("y2038") ++
         addonIfNeeded("threadsafety") ++
+        addonIfNeeded("misra", Some("/opt/docker/addons/misra.json")) ++
         List(
           s"--cppcheck-build-dir=${tempFolder.toString}",
           "--error-exitcode=0",

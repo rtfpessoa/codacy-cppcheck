@@ -88,14 +88,45 @@ object DocGenerator {
     descriptionsFile.write(s"$descriptions\n")
   }
 
+  private def getMisraPatterns(): JsArray = {
+    val misraPatterns = getMisraRules.map{
+      rule => Json.obj(
+        "patternId" -> s"misra-c2012-$rule",
+        "level" -> "Warning",
+        "category" -> "ErrorProne"
+      )
+    }
+
+    Json.parse(Json.toJson(misraPatterns).toString).as[JsArray]
+  }
+
+  private def getMisraRules(): Seq[String] = {
+    val misraRules = Resource.getAsStream("addons/misra_rules.txt")
+    val result = misraRules.lines.filter(_.startsWith("Rule ")).map(_.stripPrefix("Rule ")).toSeq
+    misraRules.close()
+    result
+  }
+
+  private def getMisraDescription(): JsArray = {
+    val misraDescriptions = getMisraRules.map{
+      rule => Json.obj(
+        "patternId" -> s"misra-c2012-$rule",
+        "title" -> Json.toJsFieldJsValueWrapper(s"MISRA $rule rule"),
+        "timeToFix" -> 5
+      )
+    }
+
+    Json.parse(Json.toJson(misraDescriptions).toString).as[JsArray]
+  }
+
   private def getAddonPatterns(): JsArray = {
     val patternsJson = Resource.getAsString("addons/patterns.json")
-    (Json.parse(patternsJson) \ "patterns").as[JsArray]
+    (Json.parse(patternsJson) \ "patterns").as[JsArray] ++ getMisraPatterns()
   }
 
   private def getAddonDescription(): JsArray = {
     val descriptionJson = Resource.getAsString("addons/description/description.json")
-    Json.parse(descriptionJson).as[JsArray]
+    Json.parse(descriptionJson).as[JsArray] ++ getMisraDescription()
   }
 
   private def getPatterns(version: String, rules: Seq[DocGenerator.Ruleset]): String = {
