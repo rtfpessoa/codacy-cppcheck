@@ -18,12 +18,21 @@ enablePlugins(DockerPlugin)
 
 mappings in Universal ++= {
   (resourceDirectory in Compile) map { resourceDir: File =>
-    val src = resourceDir / "docs"
-    val dest = "/docs"
+    val docsSrc = resourceDir / "docs"
+    val docsDest = "/docs"
 
-    for {
-      path <- src.allPaths.get if !path.isDirectory
-    } yield path -> path.toString.replaceFirst(src.toString, dest)
+    val addonsSrc = resourceDir / "addons"
+    val addonsDest = "/addons"
+
+    (for {
+      path <- docsSrc.allPaths.get if !path.isDirectory
+    } yield path -> path.toString.replaceFirst(docsSrc.toString, docsDest)
+    ) ++ (
+      for {
+        path <- addonsSrc.allPaths.get
+          if !path.isDirectory && path.name.startsWith("misra")
+      } yield path -> path.toString.replaceFirst(addonsSrc.toString, addonsDest)
+    )
   }
 }.value
 
