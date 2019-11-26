@@ -89,12 +89,8 @@ object DocGenerator {
   }
 
   private def getMisraPatterns(): JsArray = {
-    val misraPatterns = getMisraRules.map{
-      rule => Json.obj(
-        "patternId" -> s"misra-c2012-$rule",
-        "level" -> "Warning",
-        "category" -> "ErrorProne"
-      )
+    val misraPatterns = getMisraRules.map { rule =>
+      Json.obj("patternId" -> s"misra-c2012-$rule", "level" -> "Warning", "category" -> "ErrorProne")
     }
 
     Json.parse(Json.toJson(misraPatterns).toString).as[JsArray]
@@ -108,8 +104,8 @@ object DocGenerator {
   }
 
   private def getMisraDescription(): JsArray = {
-    val misraDescriptions = getMisraRules.map{
-      rule => Json.obj(
+    val misraDescriptions = getMisraRules.map { rule =>
+      Json.obj(
         "patternId" -> s"misra-c2012-$rule",
         "title" -> Json.toJsFieldJsValueWrapper(s"MISRA $rule rule"),
         "timeToFix" -> 5

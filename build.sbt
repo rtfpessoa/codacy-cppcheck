@@ -26,11 +26,10 @@ mappings in Universal ++= {
 
     (for {
       path <- docsSrc.allPaths.get if !path.isDirectory
-    } yield path -> path.toString.replaceFirst(docsSrc.toString, docsDest)
-    ) ++ (
+    } yield path -> path.toString.replaceFirst(docsSrc.toString, docsDest)) ++ (
       for {
         path <- addonsSrc.allPaths.get
-          if !path.isDirectory && path.name.startsWith("misra")
+        if !path.isDirectory && path.name.startsWith("misra")
       } yield path -> path.toString.replaceFirst(addonsSrc.toString, addonsDest)
     )
   }
