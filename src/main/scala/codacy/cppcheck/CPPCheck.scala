@@ -48,7 +48,7 @@ object CPPCheck extends Tool {
 
       def addonIfNeeded(name: String): Option[String] = {
         val enabled = configuration match {
-          case Some(patterns) => patterns.exists(_.patternId.value.contains(name))
+          case Some(patterns) => patterns.exists(_.patternId.value.startsWith(s"$name-"))
           case None => true
         }
         if (enabled) Some(s"--addon=$name")
