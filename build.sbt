@@ -16,8 +16,6 @@ enablePlugins(JavaAppPackaging)
 
 enablePlugins(DockerPlugin)
 
-version in Docker := "1.0.0"
-
 mappings in Universal ++= {
   (resourceDirectory in Compile) map { resourceDir: File =>
     val src = resourceDir / "docs"
