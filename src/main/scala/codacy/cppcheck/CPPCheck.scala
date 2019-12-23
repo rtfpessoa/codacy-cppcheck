@@ -46,20 +46,28 @@ object CPPCheck extends Tool {
       val tempFolder = Files.createTempDirectory("cppcheck-build-dir-")
       tempFolder.toFile().deleteOnExit()
 
-      val command = List(
-        "cppcheck",
-        "--enable=all",
-        "--addon=cert",
-        "--addon=y2038",
-        "--addon=threadsafety",
-        s"--cppcheck-build-dir=${tempFolder.toString}",
-        "--error-exitcode=0",
-        "--inline-suppr",
-        "--force",
-        "-j 2",
-        languageParameter,
-        """--template={"patternId":"{id}","file":"{file}","line":"{line}","message":"{message}"}"""
-      ) ++
+      def addonIfNeeded(name: String): Option[String] = {
+        val enabled = configuration match {
+          case Some(patterns) => patterns.exists(_.patternId.value.startsWith(s"$name-"))
+          case None => true
+        }
+        if (enabled) Some(s"--addon=$name")
+        else None
+      }
+
+      val command: List[String] = List("cppcheck", "--enable=all") ++
+        addonIfNeeded("cert") ++
+        addonIfNeeded("y2038") ++
+        addonIfNeeded("threadsafety") ++
+        List(
+          s"--cppcheck-build-dir=${tempFolder.toString}",
+          "--error-exitcode=0",
+          "--inline-suppr",
+          "--force",
+          s"-j ${Runtime.getRuntime().availableProcessors()}",
+          languageParameter,
+          """--template={"patternId":"{id}","file":"{file}","line":"{line}","message":"{message}"}"""
+        ) ++
         filesToLint
 
       CommandRunner.exec(command) match {
