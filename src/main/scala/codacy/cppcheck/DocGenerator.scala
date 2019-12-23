@@ -5,6 +5,7 @@ import better.files._
 import better.files
 
 import scala.xml.{Elem, XML}
+import scala.util.Using
 
 object DocGenerator {
 
@@ -97,10 +98,9 @@ object DocGenerator {
   }
 
   private def getMisraRules(): Seq[String] = {
-    val misraRules = Resource.getAsStream("addons/misra_rules.txt")
-    val result = misraRules.lines.filter(_.startsWith("Rule ")).map(_.stripPrefix("Rule ")).toSeq
-    misraRules.close()
-    result
+    Using.resource(Resource.getAsStream("addons/misra_rules.txt")) { misraRules =>
+      misraRules.lines.filter(_.startsWith("Rule ")).map(_.stripPrefix("Rule ")).toSeq
+    }
   }
 
   private def getMisraDescription(): JsArray = {
