@@ -1517,4 +1517,380 @@
   "patternId" : "y2038-unsafe-call",
   "title" : "Using Y2038-unsafe call",
   "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-3.1",
+  "title" : "MISRA 3.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-4.1",
+  "title" : "MISRA 4.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-10.4",
+  "title" : "MISRA 10.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.5",
+  "title" : "MISRA 11.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.5",
+  "title" : "MISRA 15.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.6",
+  "title" : "MISRA 15.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.7",
+  "title" : "MISRA 17.7 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.1",
+  "title" : "MISRA 20.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.3",
+  "title" : "MISRA 21.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.4",
+  "title" : "MISRA 21.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.6",
+  "title" : "MISRA 13.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-7.1",
+  "title" : "MISRA 7.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-14.3",
+  "title" : "MISRA 14.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.9",
+  "title" : "MISRA 21.9 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-19.2",
+  "title" : "MISRA 19.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.1",
+  "title" : "MISRA 15.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.6",
+  "title" : "MISRA 11.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.6",
+  "title" : "MISRA 18.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-22.1",
+  "title" : "MISRA 22.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.8",
+  "title" : "MISRA 18.8 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.6",
+  "title" : "MISRA 21.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-2.2",
+  "title" : "MISRA 2.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.6",
+  "title" : "MISRA 17.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.4",
+  "title" : "MISRA 13.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-14.2",
+  "title" : "MISRA 14.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.7",
+  "title" : "MISRA 21.7 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-7.3",
+  "title" : "MISRA 7.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.1",
+  "title" : "MISRA 17.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.5",
+  "title" : "MISRA 5.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-10.6",
+  "title" : "MISRA 10.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.5",
+  "title" : "MISRA 13.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-22.6",
+  "title" : "MISRA 22.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-2.1",
+  "title" : "MISRA 2.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.13",
+  "title" : "MISRA 20.13 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.2",
+  "title" : "MISRA 18.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.3",
+  "title" : "MISRA 18.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.4",
+  "title" : "MISRA 16.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.4",
+  "title" : "MISRA 20.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-2.6",
+  "title" : "MISRA 2.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.7",
+  "title" : "MISRA 16.7 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.5",
+  "title" : "MISRA 17.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.7",
+  "title" : "MISRA 20.7 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-10.1",
+  "title" : "MISRA 10.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.8",
+  "title" : "MISRA 17.8 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-8.12",
+  "title" : "MISRA 8.12 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-8.14",
+  "title" : "MISRA 8.14 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.5",
+  "title" : "MISRA 20.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-14.1",
+  "title" : "MISRA 14.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.11",
+  "title" : "MISRA 21.11 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.5",
+  "title" : "MISRA 16.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.2",
+  "title" : "MISRA 17.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-12.3",
+  "title" : "MISRA 12.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.6",
+  "title" : "MISRA 20.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.3",
+  "title" : "MISRA 11.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.7",
+  "title" : "MISRA 18.7 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.3",
+  "title" : "MISRA 16.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.1",
+  "title" : "MISRA 18.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.2",
+  "title" : "MISRA 13.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.14",
+  "title" : "MISRA 20.14 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.2",
+  "title" : "MISRA 16.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-1.3",
+  "title" : "MISRA 1.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.1",
+  "title" : "MISRA 5.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-22.4",
+  "title" : "MISRA 22.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.4",
+  "title" : "MISRA 5.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.5",
+  "title" : "MISRA 21.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.5",
+  "title" : "MISRA 18.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-12.2",
+  "title" : "MISRA 12.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.2",
+  "title" : "MISRA 20.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.3",
+  "title" : "MISRA 15.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-12.4",
+  "title" : "MISRA 12.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.2",
+  "title" : "MISRA 5.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-9.5",
+  "title" : "MISRA 9.5 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.10",
+  "title" : "MISRA 21.10 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.8",
+  "title" : "MISRA 11.8 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.3",
+  "title" : "MISRA 20.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-8.11",
+  "title" : "MISRA 8.11 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-8.3",
+  "title" : "MISRA 8.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.7",
+  "title" : "MISRA 15.7 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.6",
+  "title" : "MISRA 16.6 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-14.4",
+  "title" : "MISRA 14.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-22.2",
+  "title" : "MISRA 22.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.1",
+  "title" : "MISRA 13.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-2.4",
+  "title" : "MISRA 2.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-10.8",
+  "title" : "MISRA 10.8 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.7",
+  "title" : "MISRA 11.7 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.3",
+  "title" : "MISRA 13.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.10",
+  "title" : "MISRA 20.10 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.4",
+  "title" : "MISRA 18.4 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.9",
+  "title" : "MISRA 11.9 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-12.1",
+  "title" : "MISRA 12.1 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.3",
+  "title" : "MISRA 5.3 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.8",
+  "title" : "MISRA 21.8 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.2",
+  "title" : "MISRA 15.2 rule",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.4",
+  "title" : "MISRA 11.4 rule",
+  "timeToFix" : 5
 } ]

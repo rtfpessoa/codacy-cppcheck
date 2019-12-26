@@ -84,18 +84,45 @@ object DocGenerator {
     val patterns: String = getPatterns(version, rules)
     val descriptions: String = getDescriptions(rules)
 
-    patternsFile.write(s"$patterns\n")
-    descriptionsFile.write(s"$descriptions\n")
+    patternsFile.write(s"${patterns}${System.lineSeparator}")
+    descriptionsFile.write(s"${descriptions}${System.lineSeparator}")
+  }
+
+  private def misraPatternId(rule: String): String = s"misra-c2012-$rule"
+
+  private def getMisraPatterns(): JsArray = {
+    val misraPatterns = getMisraRules.map { rule =>
+      Json.obj("patternId" -> misraPatternId(rule), "level" -> "Warning", "category" -> "ErrorProne")
+    }
+
+    Json.parse(Json.toJson(misraPatterns).toString).as[JsArray]
+  }
+
+  private def getMisraRules(): Seq[String] = {
+    val misraRulesLines = File("src/main/resources/addons/misra_rules.txt").lines
+    misraRulesLines.filter(_.startsWith("Rule ")).map(_.stripPrefix("Rule ")).toSeq
+  }
+
+  private def getMisraDescription(): JsArray = {
+    val misraDescriptions = getMisraRules.map { rule =>
+      Json.obj(
+        "patternId" -> misraPatternId(rule),
+        "title" -> Json.toJsFieldJsValueWrapper(s"MISRA $rule rule"),
+        "timeToFix" -> 5
+      )
+    }
+
+    Json.parse(Json.toJson(misraDescriptions).toString).as[JsArray]
   }
 
   private def getAddonPatterns(): JsArray = {
-    val patternsJson = Resource.getAsString("addons/patterns.json")
-    (Json.parse(patternsJson) \ "patterns").as[JsArray]
+    val patternsJson = File("src/main/resources/addons/patterns.json").contentAsString
+    (Json.parse(patternsJson) \ "patterns").as[JsArray] ++ getMisraPatterns()
   }
 
   private def getAddonDescription(): JsArray = {
-    val descriptionJson = Resource.getAsString("addons/description/description.json")
-    Json.parse(descriptionJson).as[JsArray]
+    val descriptionJson = File("src/main/resources/addons/description/description.json").contentAsString
+    Json.parse(descriptionJson).as[JsArray] ++ getMisraDescription()
   }
 
   private def getPatterns(version: String, rules: Seq[DocGenerator.Ruleset]): String = {
