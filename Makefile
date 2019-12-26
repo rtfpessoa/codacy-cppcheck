@@ -5,5 +5,5 @@ publish-base:
 
 generate-docs:
 	docker run -i "codacy-cppcheck-base:latest" --errorlist > .tmp_errorlist
-	sbt "runMain codacy.cppcheck.DocGenerator .tmp_errorlist"
+	sbt "doc-generator/run .tmp_errorlist"
 	rm -rf .tmp_errorlist

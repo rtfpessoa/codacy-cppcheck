@@ -1,4 +1,0 @@
-{
-	"script": "misra.py",
-	"args": [ "--rule-texts=/opt/docker/addons/misra_rules.txt" ]
-}
