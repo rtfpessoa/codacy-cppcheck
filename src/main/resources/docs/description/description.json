@@ -104,6 +104,11 @@
   "description" : "Non-local variable 'x' will use object.",
   "timeToFix" : 5
 }, {
+  "patternId" : "danglingTemporaryLifetime",
+  "title" : "Using object to temporary.",
+  "description" : "Using object to temporary.",
+  "timeToFix" : 5
+}, {
   "patternId" : "assignBoolToPointer",
   "title" : "Boolean value assigned to pointer.",
   "description" : "Boolean value assigned to pointer.",
@@ -135,8 +140,8 @@
   "timeToFix" : 5
 }, {
   "patternId" : "bitwiseOnBoolean",
-  "title" : "Boolean variable 'varname' is used in bitwise operation. Did you mean '&&'?",
-  "description" : "Boolean variable 'varname' is used in bitwise operation. Did you mean '&&'?",
+  "title" : "Boolean expression 'expression' is used in bitwise operation. Did you mean '&&'?",
+  "description" : "Boolean expression 'expression' is used in bitwise operation. Did you mean '&&'?",
   "timeToFix" : 5
 }, {
   "patternId" : "compareBoolExpressionWithInt",
@@ -387,11 +392,6 @@
   "patternId" : "copyCtorAndEqOperator",
   "title" : "The class 'class' has 'operator=' but lack of 'copy constructor'.",
   "description" : "The class 'class' has 'operator=' but lack of 'copy constructor'.",
-  "timeToFix" : 5
-}, {
-  "patternId" : "unsafeClassDivZero",
-  "title" : "Public interface of Class is not safe. When calling Class::dostuff(), if parameter x is 0 that leads to division by zero.",
-  "description" : "Public interface of Class is not safe. When calling Class::dostuff(), if parameter x is 0 that leads to division by zero.",
   "timeToFix" : 5
 }, {
   "patternId" : "pureVirtualCall",
@@ -750,8 +750,8 @@
   "timeToFix" : 5
 }, {
   "patternId" : "invalidPointerCast",
-  "title" : "Casting between float* and double* which have an incompatible binary data representation.",
-  "description" : "Casting between float* and double* which have an incompatible binary data representation.",
+  "title" : "Casting between float * and double * which have an incompatible binary data representation.",
+  "description" : "Casting between float * and double * which have an incompatible binary data representation.",
   "timeToFix" : 5
 }, {
   "patternId" : "shiftNegativeLHS",
@@ -826,7 +826,7 @@
 }, {
   "patternId" : "unknownSignCharArrayIndex",
   "title" : "'char' type used as array index.",
-  "description" : "'char' type used as array index. Values greater that 127 will be treated depending on whether 'char' is signed or unsigned on target platform.",
+  "description" : "'char' type used as array index. Values greater than 127 will be treated depending on whether 'char' is signed or unsigned on target platform.",
   "timeToFix" : 5
 }, {
   "patternId" : "charBitOp",
@@ -1367,11 +1367,6 @@
   "patternId" : "uninitStructMember",
   "title" : "Uninitialized struct member: a.b",
   "description" : "Uninitialized struct member: a.b",
-  "timeToFix" : 5
-}, {
-  "patternId" : "deadpointer",
-  "title" : "Dead pointer usage. Pointer 'pointer' is dead if it has been assigned '&x' at line 0.",
-  "description" : "Dead pointer usage. Pointer 'pointer' is dead if it has been assigned '&x' at line 0.",
   "timeToFix" : 5
 }, {
   "patternId" : "unusedFunction",

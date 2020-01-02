@@ -1,6 +1,6 @@
 {
   "name" : "cppcheck",
-  "version" : "1.89",
+  "version" : "1.90",
   "patterns" : [ {
     "patternId" : "purgedConfiguration",
     "level" : "Info",
@@ -83,6 +83,10 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "danglingLifetime",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "danglingTemporaryLifetime",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
@@ -313,10 +317,6 @@
     "patternId" : "copyCtorAndEqOperator",
     "level" : "Warning",
     "category" : "ErrorProne"
-  }, {
-    "patternId" : "unsafeClassDivZero",
-    "level" : "Info",
-    "category" : "CodeStyle"
   }, {
     "patternId" : "pureVirtualCall",
     "level" : "Warning",
@@ -1095,10 +1095,6 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "uninitStructMember",
-    "level" : "Error",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "deadpointer",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
