@@ -1,9 +1,7 @@
-/RUNNING_PID
-/logs/
-target
+
+target/
 .idea
 .DS_Store
-.metals
-.bloop
-*.dump
+.metals/
+.bloop/
 .tmp_errorlist
