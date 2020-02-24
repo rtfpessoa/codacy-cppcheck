@@ -1204,7 +1204,8 @@
   }, {
     "patternId" : "cert-STR07-C",
     "level" : "Warning",
-    "category" : "Security"
+    "category" : "Security",
+    "subCategory" : "InsecureModulesLibraries"
   }, {
     "patternId" : "cert-STR11-C",
     "level" : "Warning",
@@ -1212,19 +1213,23 @@
   }, {
     "patternId" : "cert-API01-C",
     "level" : "Warning",
-    "category" : "Security"
+    "category" : "Security",
+    "subCategory" : "UnexpectedBehaviour"
   }, {
     "patternId" : "y2038-type-bits-not-64",
     "level" : "Error",
-    "category" : "Security"
+    "category" : "Security",
+    "subCategory" : "UnexpectedBehaviour"
   }, {
     "patternId" : "y2038-type-bits-undef",
     "level" : "Warning",
-    "category" : "Security"
+    "category" : "Security",
+    "subCategory" : "UnexpectedBehaviour"
   }, {
     "patternId" : "y2038-unsafe-call",
     "level" : "Warning",
-    "category" : "Security"
+    "category" : "Security",
+    "subCategory" : "UnexpectedBehaviour"
   }, {
     "patternId" : "misra-c2012-3.1",
     "level" : "Warning",
