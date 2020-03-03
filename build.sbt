@@ -19,7 +19,7 @@ lazy val root = project
   .settings(
     commonSettings,
     name := "codacy-cppcheck",
-    libraryDependencies ++= Seq("com.codacy" %% "codacy-engine-scala-seed" % "3.1.0"),
+    libraryDependencies ++= Seq("com.codacy" %% "codacy-engine-scala-seed" % "4.0.0"),
     mainClass in Compile := Some("codacy.Engine"),
     mappings in Universal ++= {
       (resourceDirectory in Compile) map { resourceDir: File =>
