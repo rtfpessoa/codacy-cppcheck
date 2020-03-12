@@ -1,6 +1,6 @@
 # Codacy CPPCheck
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3bd4fdde0b9b43dd9aead3130d370c5d)](https://www.codacy.com/app/Codacy/codacy-cppcheck?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-cppcheck&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3bd4fdde0b9b43dd9aead3130d370c5d)](https://www.codacy.com/gh/codacy/codacy-cppcheck?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/codacy-cppcheck&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://circleci.com/gh/codacy/codacy-cppcheck.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/codacy/codacy-cppcheck)
 
 This is the docker engine we use at Codacy to have [CPPCheck](http://cppcheck.sourceforge.net) support.
