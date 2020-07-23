@@ -1,6 +1,6 @@
 {
   "name" : "cppcheck",
-  "version" : "1.90",
+  "version" : "2.1",
   "patterns" : [ {
     "patternId" : "purgedConfiguration",
     "level" : "Info",
@@ -323,12 +323,16 @@
     "category" : "ErrorProne"
   }, {
     "patternId" : "virtualCallInConstructor",
-    "level" : "Warning",
-    "category" : "ErrorProne"
+    "level" : "Info",
+    "category" : "CodeStyle"
   }, {
     "patternId" : "missingOverride",
     "level" : "Info",
     "category" : "CodeStyle"
+  }, {
+    "patternId" : "thisUseAfterFree",
+    "level" : "Warning",
+    "category" : "ErrorProne"
   }, {
     "patternId" : "unsafeClassRefMember",
     "level" : "Warning",
@@ -810,7 +814,7 @@
     "level" : "Info",
     "category" : "CodeStyle"
   }, {
-    "patternId" : "constArgument",
+    "patternId" : "knownArgument",
     "level" : "Info",
     "category" : "CodeStyle"
   }, {
@@ -829,6 +833,10 @@
     "patternId" : "funcArgOrderDifferent",
     "level" : "Warning",
     "category" : "ErrorProne"
+  }, {
+    "patternId" : "moduloofone",
+    "level" : "Info",
+    "category" : "CodeStyle"
   }, {
     "patternId" : "containerOutOfBounds",
     "level" : "Error",
@@ -850,15 +858,15 @@
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
-    "patternId" : "iteratorsCmp1",
-    "level" : "Error",
-    "category" : "ErrorProne"
-  }, {
-    "patternId" : "iteratorsCmp2",
+    "patternId" : "invalidContainerLoop",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {
     "patternId" : "invalidContainer",
+    "level" : "Error",
+    "category" : "ErrorProne"
+  }, {
+    "patternId" : "mismatchingContainerIterator",
     "level" : "Error",
     "category" : "ErrorProne"
   }, {

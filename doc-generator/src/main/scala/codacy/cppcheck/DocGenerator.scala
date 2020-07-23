@@ -12,7 +12,7 @@ object DocGenerator {
 
   def main(args: Array[String]): Unit = {
 
-    val version: String = getVersion
+    val version: String = Versions.cppcheckVersion
     val fileName = args(0)
     val rules = getRules(fileName)
     createPatternsAndDescriptionFile(version, rules)
@@ -61,11 +61,6 @@ object DocGenerator {
     Json.parse(Json.toJson(codacyPatternsDescs).toString).as[JsArray]
   }
 
-  private def getVersion: String = {
-    val repoRoot: files.File = File(".cppcheckVersion")
-    repoRoot.lines.mkString("")
-  }
-
   private def getRules(fileName: String): Seq[Ruleset] = {
     val outputXML: Elem = XML.loadFile(fileName)
     (outputXML \\ "errors" \\ "error").map { r =>
@@ -75,7 +70,7 @@ object DocGenerator {
 
   private def createPatternsAndDescriptionFile(version: String, rules: Seq[DocGenerator.Ruleset]): Unit = {
     val repoRoot: files.File = File(".")
-    val docsRoot: files.File = File(repoRoot, "src/main/resources/docs")
+    val docsRoot: files.File = File(repoRoot, "docs")
     val patternsFile: files.File = File(docsRoot, "patterns.json")
     val descriptionsRoot: files.File = File(docsRoot, "description")
     val descriptionsFile: files.File =
@@ -99,7 +94,7 @@ object DocGenerator {
   }
 
   private def getMisraRules(): Seq[String] = {
-    val misraRulesLines = File("src/main/resources/addons/misra_rules.txt").lines
+    val misraRulesLines = File("addons/misra_rules.txt").lines
     misraRulesLines.filter(_.startsWith("Rule ")).map(_.stripPrefix("Rule ")).toSeq
   }
 
@@ -116,12 +111,12 @@ object DocGenerator {
   }
 
   private def getAddonPatterns(): JsArray = {
-    val patternsJson = File("src/main/resources/addons/patterns.json").contentAsString
+    val patternsJson = File("addons/patterns.json").contentAsString
     (Json.parse(patternsJson) \ "patterns").as[JsArray] ++ getMisraPatterns()
   }
 
   private def getAddonDescription(): JsArray = {
-    val descriptionJson = File("src/main/resources/addons/description/description.json").contentAsString
+    val descriptionJson = File("addons/description/description.json").contentAsString
     Json.parse(descriptionJson).as[JsArray] ++ getMisraDescription()
   }
 
