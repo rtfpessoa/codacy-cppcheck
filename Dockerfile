@@ -17,7 +17,7 @@ RUN \
     rm -rf /var/cache/apk/*
 
 COPY docs /docs
-COPY addons /addons
+COPY addons /workdir/addons
 RUN adduser --uid 2004 --disabled-password --gecos "" docker
 
 FROM base as dev
