@@ -24,7 +24,7 @@ FROM base as dev
 
 RUN apk add openjdk11
 COPY target/universal/stage/ /workdir/
-RUN chmod +x /workdir/bin/codacy-swiftlint
+RUN chmod +x /workdir/bin/codacy-cppcheck
 USER docker
 WORKDIR /src
 ENTRYPOINT ["/workdir/bin/codacy-cppcheck"]

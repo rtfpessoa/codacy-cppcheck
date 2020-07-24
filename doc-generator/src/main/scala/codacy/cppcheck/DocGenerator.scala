@@ -5,16 +5,20 @@ import better.files._
 import better.files
 
 import scala.xml.{Elem, XML}
+import scala.sys.process._
 
 object DocGenerator {
 
   case class Ruleset(patternId: String, level: String, title: String, description: String)
 
   def main(args: Array[String]): Unit = {
-
     val version: String = Versions.cppcheckVersion
-    val fileName = args(0)
-    val rules = getRules(fileName)
+    val rules = (for {
+      file <- File.temporaryFile()
+      javaFile = file.toJava
+      _ = assert("docker run -i --entrypoint cppcheck codacy-cppcheck:latest --errorlist".#>(javaFile).! == 0)
+      res = getRules(javaFile)
+    } yield res).get()
     createPatternsAndDescriptionFile(version, rules)
   }
 
@@ -61,8 +65,8 @@ object DocGenerator {
     Json.parse(Json.toJson(codacyPatternsDescs).toString).as[JsArray]
   }
 
-  private def getRules(fileName: String): Seq[Ruleset] = {
-    val outputXML: Elem = XML.loadFile(fileName)
+  private def getRules(file: java.io.File): Seq[Ruleset] = {
+    val outputXML: Elem = XML.loadFile(file)
     (outputXML \\ "errors" \\ "error").map { r =>
       Ruleset((r \ "@id").text, (r \ "@severity").text, (r \ "@msg").text, (r \ "@verbose").text)
     }

@@ -18,8 +18,8 @@ workflows:
       - codacy/sbt:
           name: publish_docker_local
           cmd: |
-            sbt graalvm-native-image:packageBin
-            make publish-docker
+            sbt universal:stage graalvm-native-image:packageBin
+            docker build --no-cache -t $CIRCLE_PROJECT_REPONAME:latest .
             docker save --output docker-image.tar $CIRCLE_PROJECT_REPONAME:latest
           persist_to_workspace: true
           requires:

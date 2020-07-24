@@ -2,10 +2,12 @@ import com.typesafe.sbt.packager.docker.Cmd
 
 val cppcheckVersion: String = {
   val source = scala.io.Source.fromFile("Dockerfile")
-  val prefix = "ARG toolVersion="
-  val result = source.getLines.find(_.startsWith(prefix)).map(_.stripPrefix(prefix))
-  source.close()
-  result.get
+  try {
+    val prefix = "ARG toolVersion="
+    source.getLines.find(_.startsWith(prefix)).get.stripPrefix(prefix)
+  } finally {
+    source.close()
+  }
 }
 
 val commonSettings = Seq(scalaVersion := "2.13.3")
