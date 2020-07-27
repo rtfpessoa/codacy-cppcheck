@@ -12,14 +12,13 @@ object DocGenerator {
   case class Ruleset(patternId: String, level: String, title: String, description: String)
 
   def main(args: Array[String]): Unit = {
-    val version: String = Versions.cppcheckVersion
     val rules = (for {
       file <- File.temporaryFile()
       javaFile = file.toJava
       _ = assert("docker run -i --entrypoint cppcheck codacy-cppcheck:latest --errorlist".#>(javaFile).! == 0)
       res = getRules(javaFile)
     } yield res).get()
-    createPatternsAndDescriptionFile(version, rules)
+    createPatternsAndDescriptionFile(rules)
   }
 
   private def generatePatterns(rules: Seq[Ruleset]): JsArray = {
@@ -72,7 +71,7 @@ object DocGenerator {
     }
   }
 
-  private def createPatternsAndDescriptionFile(version: String, rules: Seq[DocGenerator.Ruleset]): Unit = {
+  private def createPatternsAndDescriptionFile(rules: Seq[DocGenerator.Ruleset]): Unit = {
     val repoRoot: files.File = File(".")
     val docsRoot: files.File = File(repoRoot, "docs")
     val patternsFile: files.File = File(docsRoot, "patterns.json")
@@ -80,7 +79,7 @@ object DocGenerator {
     val descriptionsFile: files.File =
       File(descriptionsRoot, "description.json")
 
-    val patterns: String = getPatterns(version, rules)
+    val patterns: String = getPatterns(rules)
     val descriptions: String = getDescriptions(rules)
 
     patternsFile.write(s"${patterns}${System.lineSeparator}")
@@ -124,11 +123,11 @@ object DocGenerator {
     Json.parse(descriptionJson).as[JsArray] ++ getMisraDescription()
   }
 
-  private def getPatterns(version: String, rules: Seq[DocGenerator.Ruleset]): String = {
+  private def getPatterns(rules: Seq[DocGenerator.Ruleset]): String = {
     Json.prettyPrint(
       Json.obj(
         "name" -> "cppcheck",
-        "version" -> version,
+        "version" -> Versions.cppcheckVersion,
         "patterns" -> (Json
           .parse(Json.toJson(generatePatterns(rules)).toString)
           .as[JsArray] ++ getAddonPatterns())
