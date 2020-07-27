@@ -16,22 +16,24 @@ RUN \
     rm -rf /tmp/* && \
     rm -rf /var/cache/apk/*
 
-COPY docs /docs
-COPY addons /workdir/addons
-RUN adduser --uid 2004 --disabled-password --gecos "" docker
-
 FROM base as dev
 
 RUN apk add openjdk11
+COPY docs /docs
+COPY addons/misra* /workdir/addons/
+RUN adduser --uid 2004 --disabled-password --gecos "" docker
 COPY target/universal/stage/ /workdir/
 RUN chmod +x /workdir/bin/codacy-cppcheck
 USER docker
-WORKDIR /src
-ENTRYPOINT ["/workdir/bin/codacy-cppcheck"]
+WORKDIR /workdir
+ENTRYPOINT ["bin/codacy-cppcheck"]
 
 FROM base
 
+COPY docs /docs
+COPY addons/misra* /workdir/addons/
+RUN adduser --uid 2004 --disabled-password --gecos "" docker
 COPY target/graalvm-native-image/codacy-cppcheck /workdir/
 USER docker
-WORKDIR /src
+WORKDIR /workdir
 ENTRYPOINT ["/workdir/codacy-cppcheck"]
