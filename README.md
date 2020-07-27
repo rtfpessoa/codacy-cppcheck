@@ -12,21 +12,23 @@ Check the **Docs** section for more information.
 You can create the docker by doing:
 
 ```bash
-sbt "docker:publishLocal"
+sbt universal:stage graalvm-native-image:packageBin
+docker build -t codacy-cppcheck .
 ```
 
 The docker is ran with the following command:
 
 ```bash
-docker run -it -v $srcDir:/src -v $configFile:/.codacyrc  <DOCKER_NAME>:<DOCKER_VERSION>
+docker run --rm -v $srcDir:/src -v $configFile:/.codacyrc codacy-cppcheck
 ```
 
-#### Generate Docs
+### Generate Docs
 
-1. Run the script, from the project root, to generate documentation:
+1. Update the `ARG toolVersion` in `Dockerfile` 
+2. Run the documentation generator:
 
-```
-make
+```bash
+sbt doc-generator/run
 ```
 
 ## Docs
@@ -36,6 +38,13 @@ make
 [Tool Developer Guide - Using Scala](https://support.codacy.com/hc/en-us/articles/207280379-Tool-Developer-Guide-Using-Scala)
 
 ## Test
+
+For a faster development loop you can create a Docker image based on the JVM instead of creating a native-image:
+
+```bash
+sbt universal:stage
+docker build -t codacy-cppcheck --target dev .
+```
 
 We use the [codacy-plugins-test](https://github.com/codacy/codacy-plugins-test) to test our external tools integration.
 You can follow the instructions there to make sure your tool is working as expected.

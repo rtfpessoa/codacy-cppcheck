@@ -1,10 +1,29 @@
 import com.typesafe.sbt.packager.docker.Cmd
 
-val commonSettings = Seq(scalaVersion := "2.13.1")
+val cppcheckVersion: String = {
+  val source = scala.io.Source.fromFile("Dockerfile")
+  try {
+    val prefix = "ARG toolVersion="
+    source.getLines.find(_.startsWith(prefix)).get.stripPrefix(prefix)
+  } finally {
+    source.close()
+  }
+}
+
+val commonSettings = Seq(scalaVersion := "2.13.3")
 
 lazy val `doc-generator` = project
   .settings(
     commonSettings,
+    Compile / sourceGenerators += Def.task {
+      val file = (Compile / sourceManaged).value / "codacy" / "cppcheck" / "Versions.scala"
+      IO.write(file, s"""package codacy.cppcheck
+                        |object Versions {
+                        |  val cppcheckVersion: String = "$cppcheckVersion"
+                        |}
+                        |""".stripMargin)
+      Seq(file)
+    }.taskValue,
     libraryDependencies ++= Seq(
       "org.scala-lang.modules" %% "scala-xml" % "1.2.0",
       "com.github.pathikrit" %% "better-files" % "3.8.0",
@@ -12,7 +31,7 @@ lazy val `doc-generator` = project
     )
   )
 
-val dockerUser = "docker"
+val graalVersion = "20.1.0-java11"
 
 lazy val root = project
   .in(file("."))
@@ -21,26 +40,16 @@ lazy val root = project
     name := "codacy-cppcheck",
     libraryDependencies ++= Seq("com.codacy" %% "codacy-engine-scala-seed" % "4.0.0"),
     mainClass in Compile := Some("codacy.Engine"),
-    mappings in Universal ++= {
-      (resourceDirectory in Compile) map { resourceDir: File =>
-        def pathsMoved(dirSrc: File, dirDest: String, condition: File => Boolean) =
-          for (path <- dirSrc.allPaths.get if condition(path))
-            yield path -> path.toString.replaceFirst(dirSrc.toString, dirDest)
-
-        pathsMoved(resourceDir / "docs", "/docs", path => !path.isDirectory) ++
-          pathsMoved(resourceDir / "addons", "/addons", path => !path.isDirectory && path.name.startsWith("misra"))
-      }
-    }.value,
-    daemonUser in Docker := dockerUser,
-    daemonGroup in Docker := dockerUser,
-    dockerBaseImage := "codacy-cppcheck-base:latest",
-    dockerEntrypoint := Seq(s"/opt/docker/bin/${name.value}"),
-    dockerCommands := dockerCommands.value.flatMap {
-      case cmd @ Cmd("WORKDIR", _) => Seq(Cmd("WORKDIR", "/opt/docker"))
-      case cmd @ Cmd("ADD", _) =>
-        Seq(Cmd("RUN", s"adduser -u 2004 -D $dockerUser"), cmd, Cmd("RUN", "mv /opt/docker/docs /docs"))
-      case other => List(other)
-    }
+    graalVMNativeImageGraalVersion := Some(graalVersion),
+    containerBuildImage := Some(s"oracle/graalvm-ce:$graalVersion"),
+    graalVMNativeImageOptions ++= Seq(
+      "-O1",
+      "-H:+ReportExceptionStackTraces",
+      "--no-fallback",
+      "--no-server",
+      "--initialize-at-build-time",
+      "--report-unsupported-elements-at-runtime",
+      "--static"
+    )
   )
-  .enablePlugins(JavaAppPackaging)
-  .enablePlugins(DockerPlugin)
+  .enablePlugins(GraalVMNativeImagePlugin)

@@ -59,7 +59,7 @@ object CPPCheck extends Tool {
         addonIfNeeded("cert") ++
         addonIfNeeded("y2038") ++
         addonIfNeeded("threadsafety") ++
-        addonIfNeeded("misra", Some("/opt/docker/addons/misra.json")) ++
+        addonIfNeeded("misra", Some("addons/misra.json")) ++
         List(
           s"--cppcheck-build-dir=${tempFolder.toString}",
           "--error-exitcode=0",

@@ -409,6 +409,11 @@
   "description" : "The function '' overrides a function in a base class but is not marked with a 'override' specifier.",
   "timeToFix" : 5
 }, {
+  "patternId" : "thisUseAfterFree",
+  "title" : "Using member 'x' when 'this' might be invalid",
+  "description" : "Using member 'x' when 'this' might be invalid",
+  "timeToFix" : 5
+}, {
   "patternId" : "unsafeClassRefMember",
   "title" : "Unsafe class: The const reference member 'UnsafeClass::var' is initialized by a const reference constructor argument. You need to be careful about lifetime issues.",
   "description" : "Unsafe class checking: The const reference member 'UnsafeClass::var' is initialized by a const reference constructor argument. You need to be careful about lifetime issues. If you pass a local variable or temporary value in this constructor argument, be extra careful. If the argument is always some global object that is never destroyed then this is safe usage. However it would be defensive to make the member 'UnsafeClass::var' a non-reference variable or a smart pointer.",
@@ -1009,7 +1014,7 @@
   "description" : "Local variable 'argument' shadows outer argument",
   "timeToFix" : 5
 }, {
-  "patternId" : "constArgument",
+  "patternId" : "knownArgument",
   "title" : "Argument 'x' to function f is always 0",
   "description" : "Argument 'x' to function f is always 0",
   "timeToFix" : 5
@@ -1032,6 +1037,11 @@
   "patternId" : "funcArgOrderDifferent",
   "title" : "Function 'function' argument order different: declaration '' definition ''",
   "description" : "Function 'function' argument order different: declaration '' definition ''",
+  "timeToFix" : 5
+}, {
+  "patternId" : "moduloofone",
+  "title" : "Modulo of one is always equal to zero",
+  "description" : "Modulo of one is always equal to zero",
   "timeToFix" : 5
 }, {
   "patternId" : "containerOutOfBounds",
@@ -1059,14 +1069,9 @@
   "description" : "Same iterator is used with containers 'container' that are defined in different scopes.",
   "timeToFix" : 5
 }, {
-  "patternId" : "iteratorsCmp1",
-  "title" : "Comparison of iterators from containers 'container1' and 'container2'.",
-  "description" : "Comparison of iterators from containers 'container1' and 'container2'.",
-  "timeToFix" : 5
-}, {
-  "patternId" : "iteratorsCmp2",
-  "title" : "Comparison of iterators from containers 'container' that are defined in different scopes.",
-  "description" : "Comparison of iterators from containers 'container' that are defined in different scopes.",
+  "patternId" : "invalidContainerLoop",
+  "title" : "Calling 'erase' while iterating the container is invalid.",
+  "description" : "Calling 'erase' while iterating the container is invalid.",
   "timeToFix" : 5
 }, {
   "patternId" : "invalidContainer",
@@ -1074,9 +1079,14 @@
   "description" : "Using object that may be invalid.",
   "timeToFix" : 5
 }, {
+  "patternId" : "mismatchingContainerIterator",
+  "title" : "Iterator 'it' from different container 'v1' are used together.",
+  "description" : "Iterator 'it' from different container 'v1' are used together.",
+  "timeToFix" : 5
+}, {
   "patternId" : "mismatchingContainers",
-  "title" : "Iterators of different containers are used together.",
-  "description" : "Iterators of different containers are used together.",
+  "title" : "Iterators of different containers 'v1' and 'v2' are used together.",
+  "description" : "Iterators of different containers 'v1' and 'v2' are used together.",
   "timeToFix" : 5
 }, {
   "patternId" : "mismatchingContainerExpression",

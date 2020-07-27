@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  codacy: codacy/base@2.0.1
-  codacy_plugins_test: codacy/plugins-test@0.7.1
+  codacy: codacy/base@4.2.7
+  codacy_plugins_test: codacy/plugins-test@0.13.0
 workflows:
   version: 2
   compile_test_deploy:
@@ -10,44 +10,27 @@ workflows:
       - codacy/checkout_and_version:
           write_sbt_version: true
       - codacy/sbt:
-          name: populate_cache
-          cmd: |
-            sbt "set scalafmtUseIvy in ThisBuild := false;
-                 set name := \"$CIRCLE_PROJECT_REPONAME\";
-                 update"
+          name: checkfmt_and_compile
+          cmd: sbt scalafmt::test test:scalafmt::test sbt:scalafmt::test +test:compile
           persist_to_workspace: true
           requires:
             - codacy/checkout_and_version
       - codacy/sbt:
-          name: run_fmt
-          cmd: sbt ";scalafmt::test;test:scalafmt::test;sbt:scalafmt::test"
-          requires:
-            - populate_cache
-      - codacy/sbt:
           name: publish_docker_local
           cmd: |
-            make publish-base
-            sbt "set version in Docker := \"latest\";
-                 docker:publishLocal"
+            sbt universal:stage graalvm-native-image:packageBin
+            docker build --no-cache -t $CIRCLE_PROJECT_REPONAME:latest .
             docker save --output docker-image.tar $CIRCLE_PROJECT_REPONAME:latest
           persist_to_workspace: true
           requires:
-            - run_fmt
+            - checkfmt_and_compile
       - codacy_plugins_test/run:
           name: plugins_test
           run_multiple_tests: true
           requires:
             - publish_docker_local
-      - codacy/sbt:
-          name: publish_dockerhub
+      - codacy/publish_docker:
           context: CodacyDocker
-          cmd: |
-            docker load --input docker-image.tar
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker tag $CIRCLE_PROJECT_REPONAME codacy/$CIRCLE_PROJECT_REPONAME:$(cat .version)
-            docker tag $CIRCLE_PROJECT_REPONAME codacy/$CIRCLE_PROJECT_REPONAME:latest
-            docker push codacy/$CIRCLE_PROJECT_REPONAME:$(cat .version)
-            docker push codacy/$CIRCLE_PROJECT_REPONAME:latest
           requires:
             - plugins_test
           filters:
@@ -58,4 +41,4 @@ workflows:
           name: tag_version
           context: CodacyAWS
           requires:
-            - publish_dockerhub
+            - codacy/publish_docker
