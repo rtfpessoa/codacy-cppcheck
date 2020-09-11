@@ -4,1171 +4,1463 @@
   "patterns" : [ {
     "patternId" : "purgedConfiguration",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "toomanyconfigs",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "AssignmentAddressToInteger",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "AssignmentIntegerToAddress",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "CastIntegerToAddressAtReturn",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "CastAddressToIntegerAtReturn",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "assertWithSideEffect",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "assignmentInAssert",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "autoVariables",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "returnAddressOfAutoVariable",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "returnLocalVariable",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "returnReference",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "danglingReference",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "returnTempReference",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "autovarInvalidDeallocation",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "returnAddressOfFunctionParameter",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "uselessAssignmentArg",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "uselessAssignmentPtrArg",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "returnDanglingLifetime",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "invalidLifetime",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "danglingLifetime",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "danglingTemporaryLifetime",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "assignBoolToPointer",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "assignBoolToFloat",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "comparisonOfFuncReturningBoolError",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "comparisonOfTwoFuncsReturningBoolError",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "comparisonOfBoolWithBoolError",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "incrementboolean",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "bitwiseOnBoolean",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "compareBoolExpressionWithInt",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "pointerArithBool",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "comparisonOfBoolWithInvalidComparator",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "returnNonBoolInBooleanFunction",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "boostForeachError",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "arrayIndexOutOfBounds",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "arrayIndexOutOfBoundsCond",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "pointerOutOfBounds",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "negativeIndex",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "arrayIndexThenCheck",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "bufferAccessOutOfBounds",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "objectIndex",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "invalidFunctionArg",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidFunctionArgBool",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidFunctionArgStr",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "ignoredReturnValue",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "wrongmathcall",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "unpreciseMathCall",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "memsetZeroBytes",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "memsetFloat",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "memsetValueOutOfRange",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "noConstructor",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "noExplicitConstructor",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "copyCtorPointerCopying",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "noCopyConstructor",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "noOperatorEq",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "noDestructor",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "uninitMemberVar",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "uninitMemberVarPrivate",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "operatorEqVarError",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "unusedPrivateFunction",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "memsetClass",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "memsetClassReference",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "memsetClassFloat",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "mallocOnClassWarning",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "mallocOnClassError",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "operatorEq",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "virtualDestructor",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "thisSubtraction",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "operatorEqRetRefThis",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "operatorEqMissingReturnStatement",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "operatorEqShouldBeLeftUnimplemented",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "operatorEqToSelf",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "functionConst",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "functionStatic",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : false
   }, {
     "patternId" : "initializerList",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "useInitializationList",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "selfInitialization",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "duplInheritedMember",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "copyCtorAndEqOperator",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "pureVirtualCall",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "virtualCallInConstructor",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "missingOverride",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "thisUseAfterFree",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "unsafeClassRefMember",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "assignIfError",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "badBitmaskCheck",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "comparisonError",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "duplicateCondition",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "multiCondition",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "mismatchingBitAnd",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "oppositeInnerCondition",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "identicalInnerCondition",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "identicalConditionAfterEarlyExit",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "incorrectLogicOperator",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "redundantCondition",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "moduloAlwaysTrueFalse",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "clarifyCondition",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "knownConditionTrueFalse",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "invalidTestForOverflow",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "pointerAdditionResultNotNull",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "duplicateConditionalAssign",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "exceptThrowInDestructor",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "exceptDeallocThrow",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "exceptRethrowCopy",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "catchExceptionByValue",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "throwInNoexceptFunction",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "unhandledExceptionSpecification",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "coutCerrMisusage",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "fflushOnInputStream",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "IOWithoutPositioning",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "readWriteOnlyFile",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "writeReadOnlyFile",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "useClosedFile",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "seekOnAppendedFile",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidscanf",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "wrongPrintfScanfArgNum",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidScanfArgType_s",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidScanfArgType_int",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidScanfArgType_float",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidPrintfArgType_s",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidPrintfArgType_n",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidPrintfArgType_p",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidPrintfArgType_uint",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidPrintfArgType_sint",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidPrintfArgType_float",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidLengthModifierError",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidScanfFormatWidth",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidScanfFormatWidth_smaller",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "wrongPrintfScanfParameterPositionError",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "deallocret",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "doubleFree",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "leakNoVarFunctionCall",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "leakReturnValNotUsed",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "leakUnsafeArgAlloc",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "publicAllocationError",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "unsafeClassCanLeak",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "memleak",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "resourceLeak",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "deallocDealloc",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "deallocuse",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "mismatchSize",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "mismatchAllocDealloc",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "memleakOnRealloc",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "nullPointer",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "nullPointerDefaultArg",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "nullPointerRedundantCheck",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "nullPointerArithmetic",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "nullPointerArithmeticRedundantCheck",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "zerodiv",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "zerodivcond",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "unusedScopedObject",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "invalidPointerCast",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "shiftNegativeLHS",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "shiftNegative",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "wrongPipeParameterSize",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "raceAfterInterlockedDecrement",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "invalidFree",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "redundantCopyLocalConst",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : false
   }, {
     "patternId" : "redundantCopy",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "comparisonFunctionIsAlwaysTrueOrFalse",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "checkCastIntToCharAndBack",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "cstyleCast",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "passedByValue",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "constVariable",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "constStatement",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "signedCharArrayIndex",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "unknownSignCharArrayIndex",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "charBitOp",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "variableScope",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "redundantAssignInSwitch",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "redundantCopyInSwitch",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "suspiciousCase",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "selfAssignment",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "clarifyCalculation",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "clarifyStatement",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "duplicateBranch",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "duplicateAssignExpression",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "oppositeExpression",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "duplicateExpression",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "duplicateValueTernary",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "duplicateExpressionTernary",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "duplicateBreak",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "unreachableCode",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "unsignedLessThanZero",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "unsignedPositive",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "pointerLessThanZero",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "pointerPositive",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "suspiciousSemicolon",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "incompleteArrayFill",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "varFuncNullUB",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "nanInArithmeticExpression",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "commaSeparatedReturn",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "redundantPointerOp",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "unusedLabelSwitch",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "unusedLabel",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "unknownEvaluationOrder",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "accessMoved",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "accessForwarded",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "funcArgNamesDifferent",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "redundantBitwiseOperationInSwitch",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "shadowVariable",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "shadowFunction",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "shadowArgument",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "knownArgument",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "comparePointers",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "redundantAssignment",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "redundantInitialization",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "funcArgOrderDifferent",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "moduloofone",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "containerOutOfBounds",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "invalidIterator1",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "iterators1",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "iterators2",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "iterators3",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "invalidContainerLoop",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "invalidContainer",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "mismatchingContainerIterator",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "mismatchingContainers",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "mismatchingContainerExpression",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "sameIteratorExpression",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "eraseDereference",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "stlOutOfBounds",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "negativeContainerIndex",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "stlBoundaries",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "stlIfFind",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "stlIfStrFind",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "stlFindInsert",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : false
   }, {
     "patternId" : "stlcstr",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "stlcstrReturn",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "stlcstrParam",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "stlcstrthrow",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "stlSize",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "StlMissingComparison",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "redundantIfRemove",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "uselessCallsCompare",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "uselessCallsSwap",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "uselessCallsSubstr",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "uselessCallsEmpty",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "uselessCallsRemove",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "derefInvalidIterator",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "reademptycontainer",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "useStlAlgorithm",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "sizeofwithsilentarraypointer",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "pointerSize",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "sizeofDivisionMemfunc",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "sizeofwithnumericparameter",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "sizeofsizeof",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "sizeofCalculation",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "sizeofFunctionCall",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "multiplySizeof",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "divideSizeof",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "sizeofVoid",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "sizeofDereferencedVoidPointer",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "arithOperationsOnVoidPointer",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "stringLiteralWrite",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "sprintfOverlappingData",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "strPlusChar",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "incorrectStringCompare",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "literalWithCharPtrCompare",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "charLiteralWithCharPtrCompare",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "incorrectStringBooleanError",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "incorrectCharBooleanError",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "staticStringCompare",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "stringCompare",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "overlappingStrcmp",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "shiftTooManyBits",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "shiftTooManyBitsSigned",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "integerOverflow",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "signConversion",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "truncLongCastAssignment",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "truncLongCastReturn",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "floatConversionOverflow",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "uninitstring",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "uninitdata",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "uninitvar",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "uninitStructMember",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "unusedFunction",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "unusedVariable",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : false
   }, {
     "patternId" : "unusedAllocatedMemory",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "unreadVariable",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "unassignedVariable",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "unusedStructMember",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "postfixOperator",
     "level" : "Warning",
-    "category" : "Performance"
+    "category" : "Performance",
+    "enabled" : true
   }, {
     "patternId" : "va_start_wrongParameter",
     "level" : "Warning",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "va_start_referencePassed",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "va_end_missing",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "va_list_usedBeforeStarted",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "va_start_subsequentCalls",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "missingInclude",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "missingIncludeSystem",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "ConfigurationNotChecked",
     "level" : "Info",
-    "category" : "CodeStyle"
+    "category" : "CodeStyle",
+    "enabled" : true
   }, {
     "patternId" : "preprocessorErrorDirective",
     "level" : "Error",
-    "category" : "ErrorProne"
+    "category" : "ErrorProne",
+    "enabled" : true
   }, {
     "patternId" : "threadsafety-threadsafety",
     "level" : "Warning",
