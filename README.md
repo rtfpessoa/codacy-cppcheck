@@ -24,7 +24,7 @@ docker run --rm -v $srcDir:/src -v $configFile:/.codacyrc codacy-cppcheck
 
 ### Generate Docs
 
-1. Update the `ARG toolVersion` in `Dockerfile` 
+1. Update the `ARG toolVersion` in `Dockerfile`
 2. Run the documentation generator:
 
 ```bash
