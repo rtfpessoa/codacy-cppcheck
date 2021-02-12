@@ -1,7 +1,7 @@
 import com.typesafe.sbt.packager.docker.Cmd
 
 val cppcheckVersion: String = {
-  val source = scala.io.Source.fromFile("Dockerfile")
+  val source = scala.io.Source.fromFile("Dockerfile.base")
   try {
     val prefix = "ARG toolVersion="
     source.getLines.find(_.startsWith(prefix)).get.stripPrefix(prefix)

@@ -18,6 +18,8 @@ workflows:
       - codacy/sbt:
           name: publish_docker_local
           cmd: |
+            docker build --no-cache -f Dockerfile.base -t codacy-cppcheck-base:latest .
+            sbt doc-generator/run
             sbt universal:stage graalvm-native-image:packageBin
             docker build --no-cache -t $CIRCLE_PROJECT_REPONAME:latest .
             docker save --output docker-image.tar $CIRCLE_PROJECT_REPONAME:latest
