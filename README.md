@@ -12,7 +12,6 @@ Check the **Docs** section for more information.
 You can create the docker by doing:
 
 ```bash
-sbt universal:stage graalvm-native-image:packageBin
 docker build --no-cache -f Dockerfile.base -t codacy-cppcheck-base:latest .
 docker build -t codacy-cppcheck .
 ```
@@ -44,7 +43,7 @@ sbt doc-generator/run
 For a faster development loop you can create a Docker image based on the JVM instead of creating a native-image:
 
 ```bash
-sbt universal:stage
+sbt stage
 docker build --no-cache -f Dockerfile.base -t codacy-cppcheck-base:latest .
 docker build -t codacy-cppcheck --target dev .
 ```
