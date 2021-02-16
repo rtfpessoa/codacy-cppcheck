@@ -1,7 +1,8 @@
-
 target/
 .idea
 .DS_Store
 .metals/
 .bloop/
 .tmp_errorlist
+.vscode/
+.bsp/

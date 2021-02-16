@@ -1,7 +1,9 @@
 import com.typesafe.sbt.packager.docker.Cmd
 
+ThisBuild / scalaVersion := "2.13.3"
+
 val cppcheckVersion: String = {
-  val source = scala.io.Source.fromFile("Dockerfile")
+  val source = scala.io.Source.fromFile("Dockerfile.base")
   try {
     val prefix = "ARG toolVersion="
     source.getLines.find(_.startsWith(prefix)).get.stripPrefix(prefix)
@@ -10,11 +12,8 @@ val cppcheckVersion: String = {
   }
 }
 
-val commonSettings = Seq(scalaVersion := "2.13.3")
-
 lazy val `doc-generator` = project
   .settings(
-    commonSettings,
     Compile / sourceGenerators += Def.task {
       val file = (Compile / sourceManaged).value / "codacy" / "cppcheck" / "Versions.scala"
       IO.write(file, s"""package codacy.cppcheck
@@ -31,25 +30,20 @@ lazy val `doc-generator` = project
     )
   )
 
-val graalVersion = "20.1.0-java11"
-
 lazy val root = project
   .in(file("."))
   .settings(
-    commonSettings,
     name := "codacy-cppcheck",
     libraryDependencies ++= Seq("com.codacy" %% "codacy-engine-scala-seed" % "5.0.1"),
     mainClass in Compile := Some("codacy.Engine"),
-    graalVMNativeImageGraalVersion := Some(graalVersion),
-    containerBuildImage := Some(s"oracle/graalvm-ce:$graalVersion"),
-    graalVMNativeImageOptions ++= Seq(
+    nativeImageOptions ++= List(
       "-O1",
       "-H:+ReportExceptionStackTraces",
       "--no-fallback",
       "--no-server",
       "--initialize-at-build-time",
-      "--report-unsupported-elements-at-runtime",
       "--static"
     )
   )
-  .enablePlugins(GraalVMNativeImagePlugin)
+  .enablePlugins(NativeImagePlugin)
+  .enablePlugins(JavaAppPackaging)

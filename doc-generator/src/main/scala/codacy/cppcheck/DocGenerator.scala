@@ -15,7 +15,7 @@ object DocGenerator {
     val rules = (for {
       file <- File.temporaryFile()
       javaFile = file.toJava
-      _ = assert("docker run -i --entrypoint cppcheck codacy-cppcheck:latest --errorlist".#>(javaFile).! == 0)
+      _ = assert("docker run -i --entrypoint cppcheck codacy-cppcheck-base:latest --errorlist".#>(javaFile).! == 0)
       res = getRules(javaFile)
     } yield res).get()
     createPatternsAndDescriptionFile(rules)
