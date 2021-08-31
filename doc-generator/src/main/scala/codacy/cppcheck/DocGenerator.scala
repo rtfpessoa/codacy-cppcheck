@@ -21,7 +21,7 @@ object DocGenerator {
     createPatternsAndDescriptionFile(rules)
   }
 
-  private val titles = Map(
+  private val misraTitles = Map(
     "1.1" -> "The program shall contain no violations of the standard C syntax and constraints, and shall not exceed the implementation’s translation limits",
     "1.2" -> "Language extensions should not be used",
     "1.3" -> "There shall be no occurrence of undefined or critical unspecified behaviour",
@@ -466,7 +466,7 @@ object DocGenerator {
     Json.parse(Json.toJson(misraPatterns).toString).as[JsArray]
   }
 
-  private def getMisraTitle(rule: String): String = titles.getOrElse(rule, s"MISRA $rule rule")
+  private def getMisraTitle(rule: String): String = misraTitles.apply(rule)
 
   private def getMisraRules(): Seq[String] = {
     val misraRulesLines = File("addons/misra_rules.txt").lines
