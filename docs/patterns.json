@@ -72,6 +72,11 @@
     "category" : "ErrorProne",
     "enabled" : true
   }, {
+    "patternId" : "danglingTempReference",
+    "level" : "Error",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
     "patternId" : "autovarInvalidDeallocation",
     "level" : "Error",
     "category" : "ErrorProne",
@@ -325,11 +330,6 @@
     "patternId" : "mallocOnClassError",
     "level" : "Error",
     "category" : "ErrorProne",
-    "enabled" : true
-  }, {
-    "patternId" : "operatorEq",
-    "level" : "Info",
-    "category" : "CodeStyle",
     "enabled" : true
   }, {
     "patternId" : "virtualDestructor",
@@ -967,15 +967,25 @@
     "category" : "CodeStyle",
     "enabled" : true
   }, {
+    "patternId" : "unusedLabel",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : true
+  }, {
+    "patternId" : "unusedLabelConfiguration",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
     "patternId" : "unusedLabelSwitch",
     "level" : "Warning",
     "category" : "ErrorProne",
     "enabled" : false
   }, {
-    "patternId" : "unusedLabel",
-    "level" : "Info",
-    "category" : "CodeStyle",
-    "enabled" : true
+    "patternId" : "unusedLabelSwitchConfiguration",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "unknownEvaluationOrder",
     "level" : "Error",
@@ -1018,6 +1028,11 @@
     "enabled" : false
   }, {
     "patternId" : "knownArgument",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "knownArgumentHiddenVariableExpression",
     "level" : "Info",
     "category" : "CodeStyle",
     "enabled" : false
@@ -1210,6 +1225,21 @@
     "patternId" : "useStlAlgorithm",
     "level" : "Info",
     "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "knownEmptyContainer",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "globalLockGuard",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
+    "patternId" : "localMutex",
+    "level" : "Warning",
+    "category" : "ErrorProne",
     "enabled" : false
   }, {
     "patternId" : "sizeofwithsilentarraypointer",

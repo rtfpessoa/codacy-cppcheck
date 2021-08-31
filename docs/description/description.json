@@ -69,6 +69,11 @@
   "description" : "Reference to temporary returned.",
   "timeToFix" : 5
 }, {
+  "patternId" : "danglingTempReference",
+  "title" : "Using reference to dangling temporary.",
+  "description" : "Using reference to dangling temporary.",
+  "timeToFix" : 5
+}, {
   "patternId" : "autovarInvalidDeallocation",
   "title" : "Deallocation of an auto-variable results in undefined behaviour.",
   "description" : "The deallocation of an auto-variable results in undefined behaviour. You should only free memory that has been allocated dynamically.",
@@ -322,11 +327,6 @@
   "patternId" : "mallocOnClassError",
   "title" : "Memory for class instance allocated with malloc(), but class contains a std::string.",
   "description" : "Memory for class instance allocated with malloc(), but class a std::string. This is unsafe, since no constructor is called and class members remain uninitialized. Consider using 'new' instead.",
-  "timeToFix" : 5
-}, {
-  "patternId" : "operatorEq",
-  "title" : "'class::operator=' should return 'class &'.",
-  "description" : "The class::operator= does not conform to standard C/C++ behaviour. To conform to standard C/C++ behaviour, return a reference to self (such as: 'class &class::operator=(..) { .. return *this; }'. For safety reasons it might be better to not fix this message. If you think that safety is always more important than conformance then please ignore/suppress this message. For more details about this topic, see the book \"Effective C++\" by Scott Meyers.",
   "timeToFix" : 5
 }, {
   "patternId" : "virtualDestructor",
@@ -964,14 +964,24 @@
   "description" : "Redundant pointer operation on 'varname' - it's already a pointer.",
   "timeToFix" : 5
 }, {
+  "patternId" : "unusedLabel",
+  "title" : "Label '' is not used.",
+  "description" : "Label '' is not used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedLabelConfiguration",
+  "title" : "Label '' is not used. There is #if in function body so the label might be used in code that is removed by the preprocessor.",
+  "description" : "Label '' is not used. There is #if in function body so the label might be used in code that is removed by the preprocessor.",
+  "timeToFix" : 5
+}, {
   "patternId" : "unusedLabelSwitch",
   "title" : "Label '' is not used. Should this be a 'case' of the enclosing switch()?",
   "description" : "Label '' is not used. Should this be a 'case' of the enclosing switch()?",
   "timeToFix" : 5
 }, {
-  "patternId" : "unusedLabel",
-  "title" : "Label '' is not used.",
-  "description" : "Label '' is not used.",
+  "patternId" : "unusedLabelSwitchConfiguration",
+  "title" : "Label '' is not used. There is #if in function body so the label might be used in code that is removed by the preprocessor. Should this be a 'case' of the enclosing switch()?",
+  "description" : "Label '' is not used. There is #if in function body so the label might be used in code that is removed by the preprocessor. Should this be a 'case' of the enclosing switch()?",
   "timeToFix" : 5
 }, {
   "patternId" : "unknownEvaluationOrder",
@@ -1015,8 +1025,13 @@
   "timeToFix" : 5
 }, {
   "patternId" : "knownArgument",
-  "title" : "Argument 'x' to function f is always 0",
-  "description" : "Argument 'x' to function f is always 0",
+  "title" : "Argument 'x-x' to function 'func' is always 0. It does not matter what value 'x' has.",
+  "description" : "Argument 'x-x' to function 'func' is always 0. It does not matter what value 'x' has.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "knownArgumentHiddenVariableExpression",
+  "title" : "Argument 'x*0' to function 'func' is always 0. Constant literal calculation disable/hide variable expression 'x'.",
+  "description" : "Argument 'x*0' to function 'func' is always 0. Constant literal calculation disable/hide variable expression 'x'.",
   "timeToFix" : 5
 }, {
   "patternId" : "comparePointers",
@@ -1207,6 +1222,21 @@
   "patternId" : "useStlAlgorithm",
   "title" : "Consider using  algorithm instead of a raw loop.",
   "description" : "Consider using  algorithm instead of a raw loop.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "knownEmptyContainer",
+  "title" : "Iterating over container 'var' that is always empty.",
+  "description" : "Iterating over container 'var' that is always empty.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "globalLockGuard",
+  "title" : "Lock guard is defined globally. Lock guards are intended to be local. A global lock guard could lead to a deadlock since it won't unlock until the end of the program.",
+  "description" : "Lock guard is defined globally. Lock guards are intended to be local. A global lock guard could lead to a deadlock since it won't unlock until the end of the program.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "localMutex",
+  "title" : "The lock is ineffective because the mutex is locked at the same scope as the mutex itself.",
+  "description" : "The lock is ineffective because the mutex is locked at the same scope as the mutex itself.",
   "timeToFix" : 5
 }, {
   "patternId" : "sizeofwithsilentarraypointer",
@@ -1524,378 +1554,378 @@
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-3.1",
-  "title" : "MISRA 3.1 rule",
+  "title" : "The character sequences /* and // shall not be used within a comment",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-4.1",
-  "title" : "MISRA 4.1 rule",
+  "title" : "Octal and hexadecimal escape sequences shall be terminated",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-10.4",
-  "title" : "MISRA 10.4 rule",
+  "title" : "Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-11.5",
-  "title" : "MISRA 11.5 rule",
+  "title" : "A conversion should not be performed from pointer to void into pointer to object",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-15.5",
-  "title" : "MISRA 15.5 rule",
+  "title" : "A function should have a single point of exit at the end",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-15.6",
-  "title" : "MISRA 15.6 rule",
+  "title" : "The body of an iteration‑statement or a selection‑statement shall be a compound‑statement",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-17.7",
-  "title" : "MISRA 17.7 rule",
+  "title" : "The value returned by a function having non‑void return type shall be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.1",
-  "title" : "MISRA 20.1 rule",
+  "title" : "#include directives should only be preceded by preprocessor directives or comments",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-21.3",
-  "title" : "MISRA 21.3 rule",
+  "title" : "The memory allocation and deallocation functions of <stdlib.h> shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-21.4",
-  "title" : "MISRA 21.4 rule",
+  "title" : "The standard header file <setjmp.h> shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-13.6",
-  "title" : "MISRA 13.6 rule",
+  "title" : "The operand of the sizeof operator shall not contain any expression which has potential side effects",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-7.1",
-  "title" : "MISRA 7.1 rule",
+  "title" : "Octal constants shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-14.3",
-  "title" : "MISRA 14.3 rule",
+  "title" : "Controlling expressions shall not be invariant",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-21.9",
-  "title" : "MISRA 21.9 rule",
+  "title" : "The library functions bsearch and qsort of <stdlib.h> shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-19.2",
-  "title" : "MISRA 19.2 rule",
+  "title" : "The union keyword should not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-15.1",
-  "title" : "MISRA 15.1 rule",
+  "title" : "The goto statement should not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-11.6",
-  "title" : "MISRA 11.6 rule",
+  "title" : "A cast shall not be performed between pointer to void and an arithmetic type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-18.6",
-  "title" : "MISRA 18.6 rule",
+  "title" : "The address of an object with automatic storage shall not be copied to another object that persists after the first object has ceased to exist",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-22.1",
-  "title" : "MISRA 22.1 rule",
+  "title" : "All resources obtained dynamically by means of Standard Library functions shall be explicitly released",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-18.8",
-  "title" : "MISRA 18.8 rule",
+  "title" : "Variable-length array types shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-21.6",
-  "title" : "MISRA 21.6 rule",
+  "title" : "The Standard Library input/output routines shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-2.2",
-  "title" : "MISRA 2.2 rule",
+  "title" : "There shall be no dead code",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-17.6",
-  "title" : "MISRA 17.6 rule",
+  "title" : "The declaration of an array parameter shall not contain the static keyword between the [ ]",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-13.4",
-  "title" : "MISRA 13.4 rule",
+  "title" : "The result of an assignment operator should not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-14.2",
-  "title" : "MISRA 14.2 rule",
+  "title" : "A for loop shall be well-formed",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-21.7",
-  "title" : "MISRA 21.7 rule",
+  "title" : "The Standard Library functions atof, atoi, atol and atoll of <stdlib.h> shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-7.3",
-  "title" : "MISRA 7.3 rule",
+  "title" : "The lowercase character 'l' shall not be used in a literal suffix",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-17.1",
-  "title" : "MISRA 17.1 rule",
+  "title" : "The features of <stdarg.h> shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-5.5",
-  "title" : "MISRA 5.5 rule",
+  "title" : "Identifiers shall be distinct from macro names",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-10.6",
-  "title" : "MISRA 10.6 rule",
+  "title" : "The value of a composite expression shall not be assigned to an object with wider essential type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-13.5",
-  "title" : "MISRA 13.5 rule",
+  "title" : "The right hand operand of a logical && or '' operator shall not contain persistent side effects",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-22.6",
-  "title" : "MISRA 22.6 rule",
+  "title" : "The value of a pointer to a FILE shall not be used after the associated stream has been closed",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-2.1",
-  "title" : "MISRA 2.1 rule",
+  "title" : "A project shall not contain unreachable code",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.13",
-  "title" : "MISRA 20.13 rule",
+  "title" : "A line whose first token is # shall be a valid preprocessing directive",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-18.2",
-  "title" : "MISRA 18.2 rule",
+  "title" : "Subtraction between pointers shall only be applied to pointers that address elements of the same array",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-18.3",
-  "title" : "MISRA 18.3 rule",
+  "title" : "The relational operators >, >=, < and <= shall not be applied to objects of pointer type except where they point into the same object",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-16.4",
-  "title" : "MISRA 16.4 rule",
+  "title" : "Every switch statement shall have a default label",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.4",
-  "title" : "MISRA 20.4 rule",
+  "title" : "A macro shall not be defined with the same name as a keyword",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-2.6",
-  "title" : "MISRA 2.6 rule",
+  "title" : "A function should not contain unused label declarations",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-16.7",
-  "title" : "MISRA 16.7 rule",
+  "title" : "A switch‑expression shall not have essentially Boolean type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-17.5",
-  "title" : "MISRA 17.5 rule",
+  "title" : "The function argument corresponding to a parameter declared to have an array type shall have an appropriate number of elements",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.7",
-  "title" : "MISRA 20.7 rule",
+  "title" : "Expressions resulting from the expansion of macro parameters shall be enclosed in parentheses",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-10.1",
-  "title" : "MISRA 10.1 rule",
+  "title" : "Operands shall not be of an inappropriate essential type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-17.8",
-  "title" : "MISRA 17.8 rule",
+  "title" : "A function parameter should not be modified",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-8.12",
-  "title" : "MISRA 8.12 rule",
+  "title" : "Within an enumerator list, the value of an implicitly-specified enumeration constant shall be unique",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-8.14",
-  "title" : "MISRA 8.14 rule",
+  "title" : "The restrict type qualifier shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.5",
-  "title" : "MISRA 20.5 rule",
+  "title" : "#undef should not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-14.1",
-  "title" : "MISRA 14.1 rule",
+  "title" : "A loop counter shall not have essentially floating type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-21.11",
-  "title" : "MISRA 21.11 rule",
+  "title" : "The standard header file <tgmath.h> shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-16.5",
-  "title" : "MISRA 16.5 rule",
+  "title" : "A default label shall appear as either the first or the last switch label of a switch statement",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-17.2",
-  "title" : "MISRA 17.2 rule",
+  "title" : "Functions shall not call themselves, either directly or indirectly",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-12.3",
-  "title" : "MISRA 12.3 rule",
+  "title" : "The comma operator should not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.6",
-  "title" : "MISRA 20.6 rule",
+  "title" : "Tokens that look like a preprocessing directive shall not occur within a macro argument",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-11.3",
-  "title" : "MISRA 11.3 rule",
+  "title" : "A cast shall not be performed between a pointer to object type and a pointer to a different object type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-18.7",
-  "title" : "MISRA 18.7 rule",
+  "title" : "Flexible array members shall not be declared",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-16.3",
-  "title" : "MISRA 16.3 rule",
+  "title" : "An unconditional break statement shall terminate every switch‑clause",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-18.1",
-  "title" : "MISRA 18.1 rule",
+  "title" : "A pointer resulting from arithmetic on a pointer operand shall address an element of the same array as that pointer operand",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-13.2",
-  "title" : "MISRA 13.2 rule",
+  "title" : "The value of an expression and its persistent side effects shall be the same under all permitted evaluation orders",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.14",
-  "title" : "MISRA 20.14 rule",
+  "title" : "All #else, #elif and #endif preprocessor directives shall reside in the same file as the #if, #ifdef or #ifndef",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-16.2",
-  "title" : "MISRA 16.2 rule",
+  "title" : "A switch label shall only be used when the most closely-enclosing compound statement is the body of a switch statement",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-1.3",
-  "title" : "MISRA 1.3 rule",
+  "title" : "There shall be no occurrence of undefined or critical unspecified behaviour",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-5.1",
-  "title" : "MISRA 5.1 rule",
+  "title" : "External identifiers shall be distinct",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-22.4",
-  "title" : "MISRA 22.4 rule",
+  "title" : "There shall be no attempt to write to a stream which has been opened as read-only",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-5.4",
-  "title" : "MISRA 5.4 rule",
+  "title" : "Macro identifiers shall be distinct",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-21.5",
-  "title" : "MISRA 21.5 rule",
+  "title" : "The standard header file <signal.h> shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-18.5",
-  "title" : "MISRA 18.5 rule",
+  "title" : "Declarations should contain no more than two levels of pointer nesting",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-12.2",
-  "title" : "MISRA 12.2 rule",
+  "title" : "The right hand operand of a shift operator shall lie in the range zero to one less than the width in bits of the essential type of the left hand operand",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.2",
-  "title" : "MISRA 20.2 rule",
+  "title" : "The ', \" or \\ characters and the /* or // character sequences shall not occur in a header file name",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-15.3",
-  "title" : "MISRA 15.3 rule",
+  "title" : "Any label referenced by a goto statement shall be declared in the same block, or in any block enclosing the goto statement",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-12.4",
-  "title" : "MISRA 12.4 rule",
+  "title" : "Evaluation of constant expressions should not lead to unsigned integer wrap-around",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-5.2",
-  "title" : "MISRA 5.2 rule",
+  "title" : "Identifiers declared in the same scope and name space shall be distinct",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-9.5",
-  "title" : "MISRA 9.5 rule",
+  "title" : "Where designated initializers are used to initialize an array object the size of the array shall be specified explicitly",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-21.10",
-  "title" : "MISRA 21.10 rule",
+  "title" : "The Standard Library time and date functions shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-11.8",
-  "title" : "MISRA 11.8 rule",
+  "title" : "A cast shall not remove any const or volatile qualification from the type pointed to by a pointer",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.3",
-  "title" : "MISRA 20.3 rule",
+  "title" : "The #include directive shall be followed by either a <filename> or \"filename\" sequence",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-8.11",
-  "title" : "MISRA 8.11 rule",
+  "title" : "When an array with external linkage is declared, its size should be explicitly specified",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-8.3",
-  "title" : "MISRA 8.3 rule",
+  "title" : "All declarations of an object or function shall use the same names and type qualifiers",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-15.7",
-  "title" : "MISRA 15.7 rule",
+  "title" : "All if ... else if constructs shall be terminated with an else statement",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-16.6",
-  "title" : "MISRA 16.6 rule",
+  "title" : "Every switch statement shall have at least two switch‑clauses",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-14.4",
-  "title" : "MISRA 14.4 rule",
+  "title" : "The controlling expression of an if statement and the controlling expression of an iteration‑statement shall have essentially Boolean type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-22.2",
-  "title" : "MISRA 22.2 rule",
+  "title" : "A block of memory shall only be freed if it was allocated by means of a Standard Library function",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-13.1",
-  "title" : "MISRA 13.1 rule",
+  "title" : "Initializer lists shall not contain persistent side effects",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-2.4",
-  "title" : "MISRA 2.4 rule",
+  "title" : "A project should not contain unused tag declarations",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-10.8",
-  "title" : "MISRA 10.8 rule",
+  "title" : "The value of a composite expression shall not be cast to a different essential type category or a wider essential type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-11.7",
-  "title" : "MISRA 11.7 rule",
+  "title" : "A cast shall not be performed between pointer to object and a non-integer arithmetic type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-13.3",
-  "title" : "MISRA 13.3 rule",
+  "title" : "A full expression containing an increment (++) or decrement (--) operator should have no other potential side effects other than that caused by the increment or decrement operator",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.10",
-  "title" : "MISRA 20.10 rule",
+  "title" : "The # and ## preprocessor operators should not be used ",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-18.4",
-  "title" : "MISRA 18.4 rule",
+  "title" : "The +, -, += and -= operators should not be applied to an expression of pointer type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-11.9",
-  "title" : "MISRA 11.9 rule",
+  "title" : "The macro NULL shall be the only permitted form of integer null pointer constant",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-12.1",
-  "title" : "MISRA 12.1 rule",
+  "title" : "The precedence of operators within expressions should be made explicit",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-5.3",
-  "title" : "MISRA 5.3 rule",
+  "title" : "An identifier declared in an inner scope shall not hide an identifier declared in an outer scope",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-21.8",
-  "title" : "MISRA 21.8 rule",
+  "title" : "The Standard Library termination functions of <stdlib.h> shall not be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-15.2",
-  "title" : "MISRA 15.2 rule",
+  "title" : "The goto statement shall jump to a label declared later in the same function",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-11.4",
-  "title" : "MISRA 11.4 rule",
+  "title" : "A conversion should not be performed between a pointer to object and an integer type",
   "timeToFix" : 5
 } ]
