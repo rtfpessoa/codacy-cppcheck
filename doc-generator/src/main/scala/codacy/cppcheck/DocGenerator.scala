@@ -466,8 +466,6 @@ object DocGenerator {
     Json.parse(Json.toJson(misraPatterns).toString).as[JsArray]
   }
 
-  private def getMisraTitle(rule: String): String = misraTitles.apply(rule)
-
   private def getMisraRules(): Seq[String] = {
     val misraRulesLines = File("addons/misra_rules.txt").lines
     misraRulesLines.filter(_.startsWith("Rule ")).map(_.stripPrefix("Rule ")).toSeq
@@ -477,7 +475,7 @@ object DocGenerator {
     val misraDescriptions = getMisraRules.map { rule =>
       Json.obj(
         "patternId" -> misraPatternId(rule),
-        "title" -> Json.toJsFieldJsValueWrapper(getMisraTitle(rule)),
+        "title" -> Json.toJsFieldJsValueWrapper(misraTitles(rule)),
         "timeToFix" -> 5
       )
     }
