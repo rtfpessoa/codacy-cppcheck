@@ -1,0 +1,1931 @@
+[ {
+  "patternId" : "purgedConfiguration",
+  "title" : "The configuration '' was not checked because its code equals another one.",
+  "description" : "The configuration '' was not checked because its code equals another one.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "toomanyconfigs",
+  "title" : "Too many #ifdef configurations - cppcheck only checks 12 configurations. Use --force to check all configurations. For more details, use --enable=information.",
+  "description" : "The checking of the file will be interrupted because there are too many #ifdef configurations. Checking of all #ifdef configurations can be forced by --force command line option or from GUI preferences. However that may increase the checking time. For more details, use --enable=information.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "AssignmentAddressToInteger",
+  "title" : "Assigning a pointer to an integer is not portable.",
+  "description" : "Assigning a pointer to an integer (int/long/etc) is not portable across different platforms and compilers. For example in 32-bit Windows and linux they are same width, but in 64-bit Windows and linux they are of different width. In worst case you end up assigning 64-bit address to 32-bit integer. The safe way is to store addresses only in pointer types (or typedefs like uintptr_t).",
+  "timeToFix" : 5
+}, {
+  "patternId" : "AssignmentIntegerToAddress",
+  "title" : "Assigning an integer to a pointer is not portable.",
+  "description" : "Assigning an integer (int/long/etc) to a pointer is not portable across different platforms and compilers. For example in 32-bit Windows and linux they are same width, but in 64-bit Windows and linux they are of different width. In worst case you end up assigning 64-bit integer to 32-bit pointer. The safe way is to store addresses only in pointer types (or typedefs like uintptr_t).",
+  "timeToFix" : 5
+}, {
+  "patternId" : "CastIntegerToAddressAtReturn",
+  "title" : "Returning an integer in a function with pointer return type is not portable.",
+  "description" : "Returning an integer (int/long/etc) in a function with pointer return type is not portable across different platforms and compilers. For example in 32-bit Windows and Linux they are same width, but in 64-bit Windows and Linux they are of different width. In worst case you end up casting 64-bit integer down to 32-bit pointer. The safe way is to always return a pointer.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "CastAddressToIntegerAtReturn",
+  "title" : "Returning an address value in a function with integer return type is not portable.",
+  "description" : "Returning an address value in a function with integer (int/long/etc) return type is not portable across different platforms and compilers. For example in 32-bit Windows and Linux they are same width, but in 64-bit Windows and Linux they are of different width. In worst case you end up casting 64-bit address down to 32-bit integer. The safe way is to always return an integer.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "assertWithSideEffect",
+  "title" : "Assert statement calls a function which may have desired side effects: 'function'.",
+  "description" : "Non-pure function: 'function' is called inside assert statement. Assert statements are removed from release builds so the code inside assert statement is not executed. If the code is needed also in release builds, this is a bug.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "assignmentInAssert",
+  "title" : "Assert statement modifies 'var'.",
+  "description" : "Variable 'var' is modified inside assert statement. Assert statements are removed from release builds so the code inside assert statement is not executed. If the code is needed also in release builds, this is a bug.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "autoVariables",
+  "title" : "Address of local auto-variable assigned to a function parameter.",
+  "description" : "Dangerous assignment - the function parameter is assigned the address of a local auto-variable. Local auto-variables are reserved from the stack which is freed when the function ends. So the pointer to a local variable is invalid after the function ends.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "returnAddressOfAutoVariable",
+  "title" : "Address of an auto-variable returned.",
+  "description" : "Address of an auto-variable returned.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "returnLocalVariable",
+  "title" : "Pointer to local array variable returned.",
+  "description" : "Pointer to local array variable returned.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "returnReference",
+  "title" : "Reference to local variable returned.",
+  "description" : "Reference to local variable returned.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "danglingReference",
+  "title" : "Non-local reference variable 'x' to local variable 'y'",
+  "description" : "Non-local reference variable 'x' to local variable 'y'",
+  "timeToFix" : 5
+}, {
+  "patternId" : "returnTempReference",
+  "title" : "Reference to temporary returned.",
+  "description" : "Reference to temporary returned.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "danglingTempReference",
+  "title" : "Using reference to dangling temporary.",
+  "description" : "Using reference to dangling temporary.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "autovarInvalidDeallocation",
+  "title" : "Deallocation of an auto-variable results in undefined behaviour.",
+  "description" : "The deallocation of an auto-variable results in undefined behaviour. You should only free memory that has been allocated dynamically.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "returnAddressOfFunctionParameter",
+  "title" : "Address of function parameter 'parameter' returned.",
+  "description" : "Address of the function parameter 'parameter' becomes invalid after the function exits because function parameters are stored on the stack which is freed when the function exits. Thus the returned value is invalid.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uselessAssignmentArg",
+  "title" : "Assignment of function parameter has no effect outside the function.",
+  "description" : "Assignment of function parameter has no effect outside the function.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uselessAssignmentPtrArg",
+  "title" : "Assignment of function parameter has no effect outside the function. Did you forget dereferencing it?",
+  "description" : "Assignment of function parameter has no effect outside the function. Did you forget dereferencing it?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "returnDanglingLifetime",
+  "title" : "Returning object that will be invalid when returning.",
+  "description" : "Returning object that will be invalid when returning.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidLifetime",
+  "title" : "Using object that is out of scope.",
+  "description" : "Using object that is out of scope.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "danglingLifetime",
+  "title" : "Non-local variable 'x' will use object.",
+  "description" : "Non-local variable 'x' will use object.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "danglingTemporaryLifetime",
+  "title" : "Using object to temporary.",
+  "description" : "Using object to temporary.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "assignBoolToPointer",
+  "title" : "Boolean value assigned to pointer.",
+  "description" : "Boolean value assigned to pointer.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "assignBoolToFloat",
+  "title" : "Boolean value assigned to floating point variable.",
+  "description" : "Boolean value assigned to floating point variable.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "comparisonOfFuncReturningBoolError",
+  "title" : "Comparison of a function returning boolean value using relational (<, >, <= or >=) operator.",
+  "description" : "The return type of function 'func_name' is 'bool' and result is of type 'bool'. Comparing 'bool' value using relational (<, >, <= or >=) operator could cause unexpected results.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "comparisonOfTwoFuncsReturningBoolError",
+  "title" : "Comparison of two functions returning boolean value using relational (<, >, <= or >=) operator.",
+  "description" : "The return type of function 'func_name1' and function 'func_name2' is 'bool' and result is of type 'bool'. Comparing 'bool' value using relational (<, >, <= or >=) operator could cause unexpected results.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "comparisonOfBoolWithBoolError",
+  "title" : "Comparison of a variable having boolean value using relational (<, >, <= or >=) operator.",
+  "description" : "The variable 'var_name' is of type 'bool' and comparing 'bool' value using relational (<, >, <= or >=) operator could cause unexpected results.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "incrementboolean",
+  "title" : "Incrementing a variable of type 'bool' with postfix operator++ is deprecated by the C++ Standard. You should assign it the value 'true' instead.",
+  "description" : "The operand of a postfix increment operator may be of type bool but it is deprecated by C++ Standard (Annex D-1) and the operand is always set to true. You should assign it the value 'true' instead.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "bitwiseOnBoolean",
+  "title" : "Boolean expression 'expression' is used in bitwise operation. Did you mean '&&'?",
+  "description" : "Boolean expression 'expression' is used in bitwise operation. Did you mean '&&'?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "compareBoolExpressionWithInt",
+  "title" : "Comparison of a boolean expression with an integer other than 0 or 1.",
+  "description" : "Comparison of a boolean expression with an integer other than 0 or 1.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "pointerArithBool",
+  "title" : "Converting pointer arithmetic result to bool. The bool is always true unless there is undefined behaviour.",
+  "description" : "Converting pointer arithmetic result to bool. The boolean result is always true unless there is pointer arithmetic overflow, and overflow is undefined behaviour. Probably a dereference is forgotten.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "comparisonOfBoolWithInvalidComparator",
+  "title" : "Comparison of a boolean value using relational operator (<, >, <= or >=).",
+  "description" : "The result of the expression 'expression' is of type 'bool'. Comparing 'bool' value using relational (<, >, <= or >=) operator could cause unexpected results.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "returnNonBoolInBooleanFunction",
+  "title" : "Non-boolean value returned from function returning bool",
+  "description" : "Non-boolean value returned from function returning bool",
+  "timeToFix" : 5
+}, {
+  "patternId" : "boostForeachError",
+  "title" : "BOOST_FOREACH caches the end() iterator. It's undefined behavior if you modify the container inside.",
+  "description" : "BOOST_FOREACH caches the end() iterator. It's undefined behavior if you modify the container inside.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "arrayIndexOutOfBounds",
+  "title" : "Array 'arr[16]' accessed at index 16, which is out of bounds.",
+  "description" : "Array 'arr[16]' accessed at index 16, which is out of bounds.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "arrayIndexOutOfBoundsCond",
+  "title" : "Array 'arr[16]' accessed at index 16, which is out of bounds.",
+  "description" : "Array 'arr[16]' accessed at index 16, which is out of bounds.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "pointerOutOfBounds",
+  "title" : "Pointer arithmetic overflow.",
+  "description" : "Pointer arithmetic overflow.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "negativeIndex",
+  "title" : "Negative array index",
+  "description" : "Negative array index",
+  "timeToFix" : 5
+}, {
+  "patternId" : "arrayIndexThenCheck",
+  "title" : "Array index 'i' is used before limits check.",
+  "description" : "Defensive programming: The variable 'i' is used as an array index before it is checked that is within limits. This can mean that the array might be accessed out of bounds. Reorder conditions such as '(a[i] && i < 10)' to '(i < 10 && a[i])'. That way the array will not be accessed if the index is out of limits.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "bufferAccessOutOfBounds",
+  "title" : "Buffer is accessed out of bounds: buf",
+  "description" : "Buffer is accessed out of bounds: buf",
+  "timeToFix" : 5
+}, {
+  "patternId" : "objectIndex",
+  "title" : "The address of local variable '' is accessed at non-zero index.",
+  "description" : "The address of local variable '' is accessed at non-zero index.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidFunctionArg",
+  "title" : "Invalid func_name() argument nr 1. The value is 0 or 1 (boolean) but the valid values are '1:4'.",
+  "description" : "Invalid func_name() argument nr 1. The value is 0 or 1 (boolean) but the valid values are '1:4'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidFunctionArgBool",
+  "title" : "Invalid func_name() argument nr 1. A non-boolean value is required.",
+  "description" : "Invalid func_name() argument nr 1. A non-boolean value is required.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidFunctionArgStr",
+  "title" : "Invalid func_name() argument nr 1. A nul-terminated string is required.",
+  "description" : "Invalid func_name() argument nr 1. A nul-terminated string is required.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "ignoredReturnValue",
+  "title" : "Return value of function malloc() is not used.",
+  "description" : "Return value of function malloc() is not used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "wrongmathcall",
+  "title" : "Passing value '#' to #() leads to implementation-defined result.",
+  "description" : "Passing value '#' to #() leads to implementation-defined result.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unpreciseMathCall",
+  "title" : "Expression '1 - erf(x)' can be replaced by 'erfc(x)' to avoid loss of precision.",
+  "description" : "Expression '1 - erf(x)' can be replaced by 'erfc(x)' to avoid loss of precision.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "memsetZeroBytes",
+  "title" : "memset() called to fill 0 bytes.",
+  "description" : "memset() called to fill 0 bytes. The second and third arguments might be inverted. The function memset ( void * ptr, int value, size_t num ) sets the first num bytes of the block of memory pointed by ptr to the specified value.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "memsetFloat",
+  "title" : "The 2nd memset() argument 'varname' is a float, its representation is implementation defined.",
+  "description" : "The 2nd memset() argument 'varname' is a float, its representation is implementation defined. memset() is used to set each byte of a block of memory to a specific value and the actual representation of a floating-point value is implementation defined.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "memsetValueOutOfRange",
+  "title" : "The 2nd memset() argument 'varname' doesn't fit into an 'unsigned char'.",
+  "description" : "The 2nd memset() argument 'varname' doesn't fit into an 'unsigned char'. The 2nd parameter is passed as an 'int', but the function fills the block of memory using the 'unsigned char' conversion of this value.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "noConstructor",
+  "title" : "The class 'classname' does not have a constructor although it has private member variables.",
+  "description" : "The class 'classname' does not have a constructor although it has private member variables. Member variables of builtin types are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "noExplicitConstructor",
+  "title" : "Class 'classname' has a constructor with 1 argument that is not explicit.",
+  "description" : "Class 'classname' has a constructor with 1 argument that is not explicit. Such constructors should in general be explicit for type safety reasons. Using the explicit keyword in the constructor means some mistakes when using the class can be avoided.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "copyCtorPointerCopying",
+  "title" : "Value of pointer 'var', which points to allocated memory, is copied in copy constructor instead of allocating new memory.",
+  "description" : "Value of pointer 'var', which points to allocated memory, is copied in copy constructor instead of allocating new memory.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "noCopyConstructor",
+  "title" : "Class 'class' does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s).",
+  "description" : "Class 'class' does not have a copy constructor which is recommended since it has dynamic memory/resource allocation(s).",
+  "timeToFix" : 5
+}, {
+  "patternId" : "noOperatorEq",
+  "title" : "Class 'class' does not have a operator= which is recommended since it has dynamic memory/resource allocation(s).",
+  "description" : "Class 'class' does not have a operator= which is recommended since it has dynamic memory/resource allocation(s).",
+  "timeToFix" : 5
+}, {
+  "patternId" : "noDestructor",
+  "title" : "Class 'class' does not have a destructor which is recommended since it has dynamic memory/resource allocation(s).",
+  "description" : "Class 'class' does not have a destructor which is recommended since it has dynamic memory/resource allocation(s).",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uninitMemberVar",
+  "title" : "Member variable 'classname::varname' is not initialized in the constructor.",
+  "description" : "Member variable 'classname::varname' is not initialized in the constructor.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uninitMemberVarPrivate",
+  "title" : "Member variable 'classname::varnamepriv' is not initialized in the constructor.",
+  "description" : "Member variable 'classname::varnamepriv' is not initialized in the constructor.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "operatorEqVarError",
+  "title" : "Member variable 'classname::' is not assigned a value in 'classname::operator='.",
+  "description" : "Member variable 'classname::' is not assigned a value in 'classname::operator='.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedPrivateFunction",
+  "title" : "Unused private function: 'classname::funcname'",
+  "description" : "Unused private function: 'classname::funcname'",
+  "timeToFix" : 5
+}, {
+  "patternId" : "memsetClass",
+  "title" : "Using 'memfunc' on class that contains a classname.",
+  "description" : "Using 'memfunc' on class that contains a classname is unsafe, because constructor, destructor and copy operator calls are omitted. These are necessary for this non-POD type to ensure that a valid object is created.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "memsetClassReference",
+  "title" : "Using 'memfunc' on class that contains a reference.",
+  "description" : "Using 'memfunc' on class that contains a reference.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "memsetClassFloat",
+  "title" : "Using memset() on class which contains a floating point number.",
+  "description" : "Using memset() on class which contains a floating point number. This is not portable because memset() sets each byte of a block of memory to a specific value and the actual representation of a floating-point value is implementation defined. Note: In case of an IEEE754-1985 compatible implementation setting all bits to zero results in the value 0.0.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "mallocOnClassWarning",
+  "title" : "Memory for class instance allocated with malloc(), but class provides constructors.",
+  "description" : "Memory for class instance allocated with malloc(), but class provides constructors. This is unsafe, since no constructor is called and class members remain uninitialized. Consider using 'new' instead.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "mallocOnClassError",
+  "title" : "Memory for class instance allocated with malloc(), but class contains a std::string.",
+  "description" : "Memory for class instance allocated with malloc(), but class a std::string. This is unsafe, since no constructor is called and class members remain uninitialized. Consider using 'new' instead.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "virtualDestructor",
+  "title" : "Class 'Base' which is inherited by class 'Derived' does not have a virtual destructor.",
+  "description" : "Class 'Base' which is inherited by class 'Derived' does not have a virtual destructor. If you destroy instances of the derived class by deleting a pointer that points to the base class, only the destructor of the base class is executed. Thus, dynamic memory that is managed by the derived class could leak. This can be avoided by adding a virtual destructor to the base class.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "thisSubtraction",
+  "title" : "Suspicious pointer subtraction. Did you intend to write '->'?",
+  "description" : "Suspicious pointer subtraction. Did you intend to write '->'?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "operatorEqRetRefThis",
+  "title" : "'operator=' should return reference to 'this' instance.",
+  "description" : "'operator=' should return reference to 'this' instance.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "operatorEqMissingReturnStatement",
+  "title" : "No 'return' statement in non-void function causes undefined behavior.",
+  "description" : "No 'return' statement in non-void function causes undefined behavior.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "operatorEqShouldBeLeftUnimplemented",
+  "title" : "'operator=' should either return reference to 'this' instance or be declared private and left unimplemented.",
+  "description" : "'operator=' should either return reference to 'this' instance or be declared private and left unimplemented.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "operatorEqToSelf",
+  "title" : "'operator=' should check for assignment to self to avoid problems with dynamic memory.",
+  "description" : "'operator=' should check for assignment to self to ensure that each block of dynamically allocated memory is owned and managed by only one instance of the class.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "functionConst",
+  "title" : "Technically the member function 'class::function' can be const.",
+  "description" : "The member function 'class::function' can be made a const function. Making this function 'const' should not cause compiler errors. Even though the function can be made const function technically it may not make sense conceptually. Think about your design and the task of the function first - is it a function that must not change object internal state?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "functionStatic",
+  "title" : "Technically the member function 'class::function' can be static (but you may consider moving to unnamed namespace).",
+  "description" : "The member function 'class::function' can be made a static function. Making a function static can bring a performance benefit since no 'this' instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to a unnamed namespace.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "initializerList",
+  "title" : "Member variable 'class::variable' is in the wrong place in the initializer list.",
+  "description" : "Member variable 'class::variable' is in the wrong place in the initializer list. Members are initialized in the order they are declared, not in the order they are in the initializer list.  Keeping the initializer list in the same order that the members were declared prevents order dependent initialization errors.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "useInitializationList",
+  "title" : "Variable 'variable' is assigned in constructor body. Consider performing initialization in initialization list.",
+  "description" : "When an object of a class is created, the constructors of all member variables are called consecutively in the order the variables are declared, even if you don't explicitly write them to the initialization list. You could avoid assigning 'variable' a value by passing the value to the constructor in the initialization list.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "selfInitialization",
+  "title" : "Member variable 'var' is initialized by itself.",
+  "description" : "Member variable 'var' is initialized by itself.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "duplInheritedMember",
+  "title" : "The class 'class' defines member variable with name 'variable' also defined in its parent class 'class'.",
+  "description" : "The class 'class' defines member variable with name 'variable' also defined in its parent class 'class'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "copyCtorAndEqOperator",
+  "title" : "The class 'class' has 'operator=' but lack of 'copy constructor'.",
+  "description" : "The class 'class' has 'operator=' but lack of 'copy constructor'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "pureVirtualCall",
+  "title" : "Call of pure virtual function 'f' in constructor.",
+  "description" : "Call of pure virtual function 'f' in constructor. The call will fail during runtime.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "virtualCallInConstructor",
+  "title" : "Virtual function 'f' is called from constructor '' at line 1. Dynamic binding is not used.",
+  "description" : "Virtual function 'f' is called from constructor '' at line 1. Dynamic binding is not used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "missingOverride",
+  "title" : "The function '' overrides a function in a base class but is not marked with a 'override' specifier.",
+  "description" : "The function '' overrides a function in a base class but is not marked with a 'override' specifier.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "thisUseAfterFree",
+  "title" : "Using member 'x' when 'this' might be invalid",
+  "description" : "Using member 'x' when 'this' might be invalid",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unsafeClassRefMember",
+  "title" : "Unsafe class: The const reference member 'UnsafeClass::var' is initialized by a const reference constructor argument. You need to be careful about lifetime issues.",
+  "description" : "Unsafe class checking: The const reference member 'UnsafeClass::var' is initialized by a const reference constructor argument. You need to be careful about lifetime issues. If you pass a local variable or temporary value in this constructor argument, be extra careful. If the argument is always some global object that is never destroyed then this is safe usage. However it would be defensive to make the member 'UnsafeClass::var' a non-reference variable or a smart pointer.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "assignIfError",
+  "title" : "Mismatching assignment and comparison, comparison '' is always false.",
+  "description" : "Mismatching assignment and comparison, comparison '' is always false.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "badBitmaskCheck",
+  "title" : "Result of operator '|' is always true if one operand is non-zero. Did you intend to use '&'?",
+  "description" : "Result of operator '|' is always true if one operand is non-zero. Did you intend to use '&'?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "comparisonError",
+  "title" : "Expression '(X & 0x6) == 0x1' is always false.",
+  "description" : "The expression '(X & 0x6) == 0x1' is always false. Check carefully constants and operators used, these errors might be hard to spot sometimes. In case of complex expression it might help to split it to separate expressions.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "duplicateCondition",
+  "title" : "The if condition is the same as the previous if condition",
+  "description" : "The if condition is the same as the previous if condition",
+  "timeToFix" : 5
+}, {
+  "patternId" : "multiCondition",
+  "title" : "Expression is always false because 'else if' condition matches previous condition at line 1.",
+  "description" : "Expression is always false because 'else if' condition matches previous condition at line 1.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "mismatchingBitAnd",
+  "title" : "Mismatching bitmasks. Result is always 0 (X = Y & 0xf0; Z = X & 0x1; => Z=0).",
+  "description" : "Mismatching bitmasks. Result is always 0 (X = Y & 0xf0; Z = X & 0x1; => Z=0).",
+  "timeToFix" : 5
+}, {
+  "patternId" : "oppositeInnerCondition",
+  "title" : "Opposite inner 'if' condition leads to a dead code block.",
+  "description" : "Opposite inner 'if' condition leads to a dead code block (outer condition is 'x' and inner condition is '!x').",
+  "timeToFix" : 5
+}, {
+  "patternId" : "identicalInnerCondition",
+  "title" : "Identical inner 'if' condition is always true.",
+  "description" : "Identical inner 'if' condition is always true (outer condition is 'x' and inner condition is 'x').",
+  "timeToFix" : 5
+}, {
+  "patternId" : "identicalConditionAfterEarlyExit",
+  "title" : "Identical condition 'x', second condition is always false",
+  "description" : "Identical condition 'x', second condition is always false",
+  "timeToFix" : 5
+}, {
+  "patternId" : "incorrectLogicOperator",
+  "title" : "Logical disjunction always evaluates to true: foo > 3 && foo < 4.",
+  "description" : "Logical disjunction always evaluates to true: foo > 3 && foo < 4. Are these conditions necessary? Did you intend to use && instead? Are the numbers correct? Are you comparing the correct variables?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantCondition",
+  "title" : "Redundant condition: If x > 11 the condition x > 10 is always true.",
+  "description" : "Redundant condition: If x > 11 the condition x > 10 is always true.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "moduloAlwaysTrueFalse",
+  "title" : "Comparison of modulo result is predetermined, because it is always less than 1.",
+  "description" : "Comparison of modulo result is predetermined, because it is always less than 1.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "clarifyCondition",
+  "title" : "Suspicious condition (assignment + comparison); Clarify expression with parentheses.",
+  "description" : "Suspicious condition (assignment + comparison); Clarify expression with parentheses.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "knownConditionTrueFalse",
+  "title" : "Condition 'x' is always false",
+  "description" : "Condition 'x' is always false",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidTestForOverflow",
+  "title" : "Invalid test for overflow 'x + u < x'. Condition is always false unless there is overflow, and overflow is undefined behaviour.",
+  "description" : "Invalid test for overflow 'x + u < x'. Condition is always false unless there is overflow, and overflow is undefined behaviour.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "pointerAdditionResultNotNull",
+  "title" : "Comparison is wrong. Result of 'ptr+1' can't be 0 unless there is pointer overflow, and pointer overflow is undefined behaviour.",
+  "description" : "Comparison is wrong. Result of 'ptr+1' can't be 0 unless there is pointer overflow, and pointer overflow is undefined behaviour.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "duplicateConditionalAssign",
+  "title" : "Duplicate expression for the condition and assignment.",
+  "description" : "Duplicate expression for the condition and assignment.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "exceptThrowInDestructor",
+  "title" : "Class Class is not safe, destructor throws exception",
+  "description" : "The class Class is not safe because its destructor throws an exception. If Class is used and an exception is thrown that is caught in an outer scope the program will terminate.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "exceptDeallocThrow",
+  "title" : "Exception thrown in invalid state, 'p' points at deallocated memory.",
+  "description" : "Exception thrown in invalid state, 'p' points at deallocated memory.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "exceptRethrowCopy",
+  "title" : "Throwing a copy of the caught exception instead of rethrowing the original exception.",
+  "description" : "Rethrowing an exception with 'throw varname;' creates an unnecessary copy of 'varname'. To rethrow the caught exception without unnecessary copying or slicing, use a bare 'throw;'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "catchExceptionByValue",
+  "title" : "Exception should be caught by reference.",
+  "description" : "The exception is caught by value. It could be caught as a (const) reference which is usually recommended in C++.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "throwInNoexceptFunction",
+  "title" : "Exception thrown in function declared not to throw exceptions.",
+  "description" : "Exception thrown in function declared not to throw exceptions.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unhandledExceptionSpecification",
+  "title" : "Unhandled exception specification when calling function foo().",
+  "description" : "Unhandled exception specification when calling function foo(). Either use a try/catch around the function call, or add a exception specification for funcname() also.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "coutCerrMisusage",
+  "title" : "Invalid usage of output stream: '<< std::cout'.",
+  "description" : "Invalid usage of output stream: '<< std::cout'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "fflushOnInputStream",
+  "title" : "fflush() called on input stream 'stdin' may result in undefined behaviour on non-linux systems.",
+  "description" : "fflush() called on input stream 'stdin' may result in undefined behaviour on non-linux systems.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "IOWithoutPositioning",
+  "title" : "Read and write operations without a call to a positioning function (fseek, fsetpos or rewind) or fflush in between result in undefined behaviour.",
+  "description" : "Read and write operations without a call to a positioning function (fseek, fsetpos or rewind) or fflush in between result in undefined behaviour.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "readWriteOnlyFile",
+  "title" : "Read operation on a file that was opened only for writing.",
+  "description" : "Read operation on a file that was opened only for writing.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "writeReadOnlyFile",
+  "title" : "Write operation on a file that was opened only for reading.",
+  "description" : "Write operation on a file that was opened only for reading.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "useClosedFile",
+  "title" : "Used file that is not opened.",
+  "description" : "Used file that is not opened.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "seekOnAppendedFile",
+  "title" : "Repositioning operation performed on a file opened in append mode has no effect.",
+  "description" : "Repositioning operation performed on a file opened in append mode has no effect.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidscanf",
+  "title" : "scanf() without field width limits can crash with huge input data.",
+  "description" : "scanf() without field width limits can crash with huge input data. Add a field width specifier to fix this problem.\\012\\012Sample program that can crash:\\012\\012#include <stdio.h>\\012int main()\\012{\\012    char c[5];\\012    scanf(\"%s\", c);\\012    return 0;\\012}\\012\\012Typing in 5 or more characters may make the program crash. The correct usage here is 'scanf(\"%4s\", c);', as the maximum field width does not include the terminating null byte.\\012Source: http://linux.die.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "wrongPrintfScanfArgNum",
+  "title" : "printf format string requires 3 parameters but only 2 are given.",
+  "description" : "printf format string requires 3 parameters but only 2 are given.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidScanfArgType_s",
+  "title" : "%s in format string (no. 1) requires a 'char *' but the argument type is Unknown.",
+  "description" : "%s in format string (no. 1) requires a 'char *' but the argument type is Unknown.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidScanfArgType_int",
+  "title" : "%d in format string (no. 1) requires 'int *' but the argument type is Unknown.",
+  "description" : "%d in format string (no. 1) requires 'int *' but the argument type is Unknown.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidScanfArgType_float",
+  "title" : "%f in format string (no. 1) requires 'float *' but the argument type is Unknown.",
+  "description" : "%f in format string (no. 1) requires 'float *' but the argument type is Unknown.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidPrintfArgType_s",
+  "title" : "%s in format string (no. 1) requires 'char *' but the argument type is Unknown.",
+  "description" : "%s in format string (no. 1) requires 'char *' but the argument type is Unknown.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidPrintfArgType_n",
+  "title" : "%n in format string (no. 1) requires 'int *' but the argument type is Unknown.",
+  "description" : "%n in format string (no. 1) requires 'int *' but the argument type is Unknown.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidPrintfArgType_p",
+  "title" : "%p in format string (no. 1) requires an address but the argument type is Unknown.",
+  "description" : "%p in format string (no. 1) requires an address but the argument type is Unknown.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidPrintfArgType_uint",
+  "title" : "%u in format string (no. 1) requires 'unsigned int' but the argument type is Unknown.",
+  "description" : "%u in format string (no. 1) requires 'unsigned int' but the argument type is Unknown.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidPrintfArgType_sint",
+  "title" : "%i in format string (no. 1) requires 'int' but the argument type is Unknown.",
+  "description" : "%i in format string (no. 1) requires 'int' but the argument type is Unknown.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidPrintfArgType_float",
+  "title" : "%f in format string (no. 1) requires 'double' but the argument type is Unknown.",
+  "description" : "%f in format string (no. 1) requires 'double' but the argument type is Unknown.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidLengthModifierError",
+  "title" : "'I' in format string (no. 1) is a length modifier and cannot be used without a conversion specifier.",
+  "description" : "'I' in format string (no. 1) is a length modifier and cannot be used without a conversion specifier.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidScanfFormatWidth",
+  "title" : "Width 5 given in format string (no. 10) is larger than destination buffer '[0]', use %-1s to prevent overflowing it.",
+  "description" : "Width 5 given in format string (no. 10) is larger than destination buffer '[0]', use %-1s to prevent overflowing it.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidScanfFormatWidth_smaller",
+  "title" : "Width -1 given in format string (no. 99) is smaller than destination buffer '[0]'.",
+  "description" : "Width -1 given in format string (no. 99) is smaller than destination buffer '[0]'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "wrongPrintfScanfParameterPositionError",
+  "title" : "printf: referencing parameter 2 while 1 arguments given",
+  "description" : "printf: referencing parameter 2 while 1 arguments given",
+  "timeToFix" : 5
+}, {
+  "patternId" : "deallocret",
+  "title" : "Returning/dereferencing 'p' after it is deallocated / released",
+  "description" : "Returning/dereferencing 'p' after it is deallocated / released",
+  "timeToFix" : 5
+}, {
+  "patternId" : "doubleFree",
+  "title" : "Memory pointed to by 'varname' is freed twice.",
+  "description" : "Memory pointed to by 'varname' is freed twice.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "leakNoVarFunctionCall",
+  "title" : "Allocation with funcName, funcName doesn't release it.",
+  "description" : "Allocation with funcName, funcName doesn't release it.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "leakReturnValNotUsed",
+  "title" : "Return value of allocation function 'funcName' is not stored.",
+  "description" : "Return value of allocation function 'funcName' is not stored.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "leakUnsafeArgAlloc",
+  "title" : "Unsafe allocation. If funcName() throws, memory could be leaked. Use make_shared<int>() instead.",
+  "description" : "Unsafe allocation. If funcName() throws, memory could be leaked. Use make_shared<int>() instead.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "publicAllocationError",
+  "title" : "Possible leak in public function. The pointer 'varname' is not deallocated before it is allocated.",
+  "description" : "Possible leak in public function. The pointer 'varname' is not deallocated before it is allocated.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unsafeClassCanLeak",
+  "title" : "Class 'class' is unsafe, 'class::varname' can leak by wrong usage.",
+  "description" : "The class 'class' is unsafe, wrong usage can cause memory/resource leaks for 'class::varname'. This can for instance be fixed by adding proper cleanup in the destructor.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "memleak",
+  "title" : "Memory leak: varname",
+  "description" : "Memory leak: varname",
+  "timeToFix" : 5
+}, {
+  "patternId" : "resourceLeak",
+  "title" : "Resource leak: varname",
+  "description" : "Resource leak: varname",
+  "timeToFix" : 5
+}, {
+  "patternId" : "deallocDealloc",
+  "title" : "Deallocating a deallocated pointer: varname",
+  "description" : "Deallocating a deallocated pointer: varname",
+  "timeToFix" : 5
+}, {
+  "patternId" : "deallocuse",
+  "title" : "Dereferencing 'varname' after it is deallocated / released",
+  "description" : "Dereferencing 'varname' after it is deallocated / released",
+  "timeToFix" : 5
+}, {
+  "patternId" : "mismatchSize",
+  "title" : "The allocated size sz is not a multiple of the underlying type's size.",
+  "description" : "The allocated size sz is not a multiple of the underlying type's size.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "mismatchAllocDealloc",
+  "title" : "Mismatching allocation and deallocation: varname",
+  "description" : "Mismatching allocation and deallocation: varname",
+  "timeToFix" : 5
+}, {
+  "patternId" : "memleakOnRealloc",
+  "title" : "Common realloc mistake: 'varname' nulled but not freed upon failure",
+  "description" : "Common realloc mistake: 'varname' nulled but not freed upon failure",
+  "timeToFix" : 5
+}, {
+  "patternId" : "nullPointer",
+  "title" : "Null pointer dereference",
+  "description" : "Null pointer dereference",
+  "timeToFix" : 5
+}, {
+  "patternId" : "nullPointerDefaultArg",
+  "title" : "Possible null pointer dereference if the default parameter value is used: pointer",
+  "description" : "Possible null pointer dereference if the default parameter value is used: pointer",
+  "timeToFix" : 5
+}, {
+  "patternId" : "nullPointerRedundantCheck",
+  "title" : "Either the condition is redundant or there is possible null pointer dereference: pointer.",
+  "description" : "Either the condition is redundant or there is possible null pointer dereference: pointer.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "nullPointerArithmetic",
+  "title" : "Pointer arithmetic with NULL pointer.",
+  "description" : "Pointer arithmetic with NULL pointer.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "nullPointerArithmeticRedundantCheck",
+  "title" : "Either the condition is redundant or there is pointer arithmetic with NULL pointer.",
+  "description" : "Either the condition is redundant or there is pointer arithmetic with NULL pointer.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "zerodiv",
+  "title" : "Division by zero.",
+  "description" : "Division by zero.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "zerodivcond",
+  "title" : "Either the condition is redundant or there is division by zero.",
+  "description" : "Either the condition is redundant or there is division by zero.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedScopedObject",
+  "title" : "Instance of 'varname' object is destroyed immediately.",
+  "description" : "Instance of 'varname' object is destroyed immediately.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidPointerCast",
+  "title" : "Casting between float * and double * which have an incompatible binary data representation.",
+  "description" : "Casting between float * and double * which have an incompatible binary data representation.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "shiftNegativeLHS",
+  "title" : "Shifting a negative value is technically undefined behaviour",
+  "description" : "Shifting a negative value is technically undefined behaviour",
+  "timeToFix" : 5
+}, {
+  "patternId" : "shiftNegative",
+  "title" : "Shifting by a negative value is undefined behaviour",
+  "description" : "Shifting by a negative value is undefined behaviour",
+  "timeToFix" : 5
+}, {
+  "patternId" : "wrongPipeParameterSize",
+  "title" : "Buffer 'varname' must have size of 2 integers if used as parameter of pipe().",
+  "description" : "The pipe()/pipe2() system command takes an argument, which is an array of exactly two integers.\\012The variable 'varname' is an array of size dimension, which does not match.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "raceAfterInterlockedDecrement",
+  "title" : "Race condition: non-interlocked access after InterlockedDecrement(). Use InterlockedDecrement() return value instead.",
+  "description" : "Race condition: non-interlocked access after InterlockedDecrement(). Use InterlockedDecrement() return value instead.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidFree",
+  "title" : "Mismatching address is freed. The address you get from malloc() must be freed without offset.",
+  "description" : "Mismatching address is freed. The address you get from malloc() must be freed without offset.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantCopyLocalConst",
+  "title" : "Use const reference for 'varname' to avoid unnecessary data copying.",
+  "description" : "The const variable 'varname' is assigned a copy of the data. You can avoid the unnecessary data copying by converting 'varname' to const reference.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantCopy",
+  "title" : "Buffer 'var' is being written before its old content has been used.",
+  "description" : "Buffer 'var' is being written before its old content has been used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "comparisonFunctionIsAlwaysTrueOrFalse",
+  "title" : "Comparison of two identical variables with isless(varName,varName) always evaluates to false.",
+  "description" : "The function isless is designed to compare two variables. Calling this function with one variable (varName) for both parameters leads to a statement which is always false.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "checkCastIntToCharAndBack",
+  "title" : "Storing func_name() return value in char variable and then comparing with EOF.",
+  "description" : "When saving func_name() return value in char variable there is loss of precision.  When func_name() returns EOF this value is truncated. Comparing the char variable with EOF can have unexpected results. For instance a loop \"while (EOF != (c = func_name());\" loops forever on some compilers/platforms and on other compilers/platforms it will stop when the file contains a matching character.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cstyleCast",
+  "title" : "C-style pointer casting",
+  "description" : "C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected. See also: https://www.securecoding.cert.org/confluence/display/cplusplus/EXP05-CPP.+Do+not+use+C-style+casts.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "passedByValue",
+  "title" : "Function parameter 'parametername' should be passed by const reference.",
+  "description" : "Parameter 'parametername' is passed by value. It could be passed as a const reference which is usually faster and recommended in C++.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "constVariable",
+  "title" : "Variable 'x' can be declared with const",
+  "description" : "Variable 'x' can be declared with const",
+  "timeToFix" : 5
+}, {
+  "patternId" : "constStatement",
+  "title" : "Redundant code: Found a statement that begins with type constant.",
+  "description" : "Redundant code: Found a statement that begins with type constant.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "signedCharArrayIndex",
+  "title" : "Signed 'char' type used as array index.",
+  "description" : "Signed 'char' type used as array index. If the value can be greater than 127 there will be a buffer underflow because of sign extension.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unknownSignCharArrayIndex",
+  "title" : "'char' type used as array index.",
+  "description" : "'char' type used as array index. Values greater than 127 will be treated depending on whether 'char' is signed or unsigned on target platform.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "charBitOp",
+  "title" : "When using 'char' variables in bit operations, sign extension can generate unexpected results.",
+  "description" : "When using 'char' variables in bit operations, sign extension can generate unexpected results. For example:\\012    char c = 0x80;\\012    int i = 0 | c;\\012    if (i & 0x8000)\\012        printf(\"not expected\");\\012The \"not expected\" will be printed on the screen.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "variableScope",
+  "title" : "The scope of the variable 'varname' can be reduced.",
+  "description" : "The scope of the variable 'varname' can be reduced. Warning: Be careful when fixing this message, especially when there are inner loops.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantAssignInSwitch",
+  "title" : "Variable 'var' is reassigned a value before the old one has been used. 'break;' missing?",
+  "description" : "Variable 'var' is reassigned a value before the old one has been used. 'break;' missing?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantCopyInSwitch",
+  "title" : "Buffer 'var' is being written before its old content has been used. 'break;' missing?",
+  "description" : "Buffer 'var' is being written before its old content has been used. 'break;' missing?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "suspiciousCase",
+  "title" : "Found suspicious case label in switch(). Operator '||' probably doesn't work as intended.",
+  "description" : "Using an operator like '||' in a case label is suspicious. Did you intend to use a bitwise operator, multiple case labels or if/else instead?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "selfAssignment",
+  "title" : "Redundant assignment of 'varname' to itself.",
+  "description" : "Redundant assignment of 'varname' to itself.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "clarifyCalculation",
+  "title" : "Clarify calculation precedence for '+' and '?'.",
+  "description" : "Suspicious calculation. Please use parentheses to clarify the code. The code ''a+b?c:d'' should be written as either ''(a+b)?c:d'' or ''a+(b?c:d)''.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "clarifyStatement",
+  "title" : "In expression like '*A++' the result of '*' is unused. Did you intend to write '(*A)++;'?",
+  "description" : "A statement like '*A++;' might not do what you intended. Postfix 'operator++' is executed before 'operator*'. Thus, the dereference is meaningless. Did you intend to write '(*A)++;'?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "duplicateBranch",
+  "title" : "Found duplicate branches for 'if' and 'else'.",
+  "description" : "Finding the same code in an 'if' and related 'else' branch is suspicious and might indicate a cut and paste or logic error. Please examine this code carefully to determine if it is correct.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "duplicateAssignExpression",
+  "title" : "Same expression used in consecutive assignments of 'x' and 'x'.",
+  "description" : "Finding variables 'x' and 'x' that are assigned the same expression is suspicious and might indicate a cut and paste or logic error. Please examine this code carefully to determine if it is correct.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "oppositeExpression",
+  "title" : "Opposite expression on both sides of '&&'.",
+  "description" : "Finding the opposite expression on both sides of an operator is suspicious and might indicate a cut and paste or logic error. Please examine this code carefully to determine if it is correct.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "duplicateExpression",
+  "title" : "Same expression on both sides of '&&'.",
+  "description" : "Finding the same expression on both sides of an operator is suspicious and might indicate a cut and paste or logic error. Please examine this code carefully to determine if it is correct.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "duplicateValueTernary",
+  "title" : "Same value in both branches of ternary operator.",
+  "description" : "Finding the same value in both branches of ternary operator is suspicious as the same code is executed regardless of the condition.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "duplicateExpressionTernary",
+  "title" : "Same expression in both branches of ternary operator.",
+  "description" : "Finding the same expression in both branches of ternary operator is suspicious as the same code is executed regardless of the condition.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "duplicateBreak",
+  "title" : "Consecutive return, break, continue, goto or throw statements are unnecessary.",
+  "description" : "Consecutive return, break, continue, goto or throw statements are unnecessary. The second statement can never be executed, and so should be removed.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unreachableCode",
+  "title" : "Statements following return, break, continue, goto or throw will never be executed.",
+  "description" : "Statements following return, break, continue, goto or throw will never be executed.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unsignedLessThanZero",
+  "title" : "Checking if unsigned expression 'varname' is less than zero.",
+  "description" : "The unsigned expression 'varname' will never be negative so it is either pointless or an error to check if it is.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unsignedPositive",
+  "title" : "Unsigned expression 'varname' can't be negative so it is unnecessary to test it.",
+  "description" : "Unsigned expression 'varname' can't be negative so it is unnecessary to test it.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "pointerLessThanZero",
+  "title" : "A pointer can not be negative so it is either pointless or an error to check if it is.",
+  "description" : "A pointer can not be negative so it is either pointless or an error to check if it is.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "pointerPositive",
+  "title" : "A pointer can not be negative so it is either pointless or an error to check if it is not.",
+  "description" : "A pointer can not be negative so it is either pointless or an error to check if it is not.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "suspiciousSemicolon",
+  "title" : "Suspicious use of ; at the end of '' statement.",
+  "description" : "Suspicious use of ; at the end of '' statement.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "incompleteArrayFill",
+  "title" : "Array 'buffer' is filled incompletely. Did you forget to multiply the size given to 'memset()' with 'sizeof(*buffer)'?",
+  "description" : "The array 'buffer' is filled incompletely. The function 'memset()' needs the size given in bytes, but an element of the given array is larger than one byte. Did you forget to multiply the size with 'sizeof(*buffer)'?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "varFuncNullUB",
+  "title" : "Passing NULL after the last typed argument to a variadic function leads to undefined behaviour.",
+  "description" : "Passing NULL after the last typed argument to a variadic function leads to undefined behaviour.\\012The C99 standard, in section 7.15.1.1, states that if the type used by va_arg() is not compatible with the type of the actual next argument (as promoted according to the default argument promotions), the behavior is undefined.\\012The value of the NULL macro is an implementation-defined null pointer constant (7.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "nanInArithmeticExpression",
+  "title" : "Using NaN/Inf in a computation.",
+  "description" : "Using NaN/Inf in a computation. Although nothing bad really happens, it is suspicious.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "commaSeparatedReturn",
+  "title" : "Comma is used in return statement. The comma can easily be misread as a ';'.",
+  "description" : "Comma is used in return statement. When comma is used in a return statement it can easily be misread as a semicolon. For example in the code below the value of 'b' is returned if the condition is true, but it is easy to think that 'a+1' is returned:\\012    if (x)\\012        return a + 1,\\012    b++;\\012However it can be useful to use comma in macros. Cppcheck does not warn when such a macro is then used in a return statement, it is less likely such code is misunderstood.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantPointerOp",
+  "title" : "Redundant pointer operation on 'varname' - it's already a pointer.",
+  "description" : "Redundant pointer operation on 'varname' - it's already a pointer.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedLabel",
+  "title" : "Label '' is not used.",
+  "description" : "Label '' is not used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedLabelConfiguration",
+  "title" : "Label '' is not used. There is #if in function body so the label might be used in code that is removed by the preprocessor.",
+  "description" : "Label '' is not used. There is #if in function body so the label might be used in code that is removed by the preprocessor.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedLabelSwitch",
+  "title" : "Label '' is not used. Should this be a 'case' of the enclosing switch()?",
+  "description" : "Label '' is not used. Should this be a 'case' of the enclosing switch()?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedLabelSwitchConfiguration",
+  "title" : "Label '' is not used. There is #if in function body so the label might be used in code that is removed by the preprocessor. Should this be a 'case' of the enclosing switch()?",
+  "description" : "Label '' is not used. There is #if in function body so the label might be used in code that is removed by the preprocessor. Should this be a 'case' of the enclosing switch()?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unknownEvaluationOrder",
+  "title" : "Expression 'x = x++;' depends on order of evaluation of side effects",
+  "description" : "Expression 'x = x++;' depends on order of evaluation of side effects",
+  "timeToFix" : 5
+}, {
+  "patternId" : "accessMoved",
+  "title" : "Access of moved variable 'v'.",
+  "description" : "Access of moved variable 'v'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "accessForwarded",
+  "title" : "Access of forwarded variable 'v'.",
+  "description" : "Access of forwarded variable 'v'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "funcArgNamesDifferent",
+  "title" : "Function 'function' argument 2 names different: declaration 'A' definition 'B'.",
+  "description" : "Function 'function' argument 2 names different: declaration 'A' definition 'B'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantBitwiseOperationInSwitch",
+  "title" : "Redundant bitwise operation on 'varname' in 'switch' statement. 'break;' missing?",
+  "description" : "Redundant bitwise operation on 'varname' in 'switch' statement. 'break;' missing?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "shadowVariable",
+  "title" : "Local variable 'variable' shadows outer variable",
+  "description" : "Local variable 'variable' shadows outer variable",
+  "timeToFix" : 5
+}, {
+  "patternId" : "shadowFunction",
+  "title" : "Local variable 'function' shadows outer function",
+  "description" : "Local variable 'function' shadows outer function",
+  "timeToFix" : 5
+}, {
+  "patternId" : "shadowArgument",
+  "title" : "Local variable 'argument' shadows outer argument",
+  "description" : "Local variable 'argument' shadows outer argument",
+  "timeToFix" : 5
+}, {
+  "patternId" : "knownArgument",
+  "title" : "Argument 'x-x' to function 'func' is always 0. It does not matter what value 'x' has.",
+  "description" : "Argument 'x-x' to function 'func' is always 0. It does not matter what value 'x' has.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "knownArgumentHiddenVariableExpression",
+  "title" : "Argument 'x*0' to function 'func' is always 0. Constant literal calculation disable/hide variable expression 'x'.",
+  "description" : "Argument 'x*0' to function 'func' is always 0. Constant literal calculation disable/hide variable expression 'x'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "comparePointers",
+  "title" : "Comparing pointers that point to different objects",
+  "description" : "Comparing pointers that point to different objects",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantAssignment",
+  "title" : "Variable 'var' is reassigned a value before the old one has been used.",
+  "description" : "Variable 'var' is reassigned a value before the old one has been used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantInitialization",
+  "title" : "Redundant initialization for 'var'. The initialized value is overwritten before it is read.",
+  "description" : "Redundant initialization for 'var'. The initialized value is overwritten before it is read.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "funcArgOrderDifferent",
+  "title" : "Function 'function' argument order different: declaration '' definition ''",
+  "description" : "Function 'function' argument order different: declaration '' definition ''",
+  "timeToFix" : 5
+}, {
+  "patternId" : "moduloofone",
+  "title" : "Modulo of one is always equal to zero",
+  "description" : "Modulo of one is always equal to zero",
+  "timeToFix" : 5
+}, {
+  "patternId" : "containerOutOfBounds",
+  "title" : "Out of bounds access in expression 'container[x]'",
+  "description" : "Out of bounds access in expression 'container[x]'",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidIterator1",
+  "title" : "Invalid iterator: iterator",
+  "description" : "Invalid iterator: iterator",
+  "timeToFix" : 5
+}, {
+  "patternId" : "iterators1",
+  "title" : "Same iterator is used with different containers 'container1' and 'container2'.",
+  "description" : "Same iterator is used with different containers 'container1' and 'container2'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "iterators2",
+  "title" : "Same iterator is used with different containers 'container0' and 'container1'.",
+  "description" : "Same iterator is used with different containers 'container0' and 'container1'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "iterators3",
+  "title" : "Same iterator is used with containers 'container' that are defined in different scopes.",
+  "description" : "Same iterator is used with containers 'container' that are defined in different scopes.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidContainerLoop",
+  "title" : "Calling 'erase' while iterating the container is invalid.",
+  "description" : "Calling 'erase' while iterating the container is invalid.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "invalidContainer",
+  "title" : "Using object that may be invalid.",
+  "description" : "Using object that may be invalid.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "mismatchingContainerIterator",
+  "title" : "Iterator 'it' from different container 'v1' are used together.",
+  "description" : "Iterator 'it' from different container 'v1' are used together.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "mismatchingContainers",
+  "title" : "Iterators of different containers 'v1' and 'v2' are used together.",
+  "description" : "Iterators of different containers 'v1' and 'v2' are used together.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "mismatchingContainerExpression",
+  "title" : "Iterators to containers from different expressions 'v1' and 'v2' are used together.",
+  "description" : "Iterators to containers from different expressions 'v1' and 'v2' are used together.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sameIteratorExpression",
+  "title" : "Same iterators expression are used for algorithm.",
+  "description" : "Same iterators expression are used for algorithm.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "eraseDereference",
+  "title" : "Invalid iterator 'iter' used.",
+  "description" : "The iterator 'iter' is invalid before being assigned. Dereferencing or comparing it with another iterator is invalid operation.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlOutOfBounds",
+  "title" : "When i==foo.size(), foo[i] is out of bounds.",
+  "description" : "When i==foo.size(), foo[i] is out of bounds.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "negativeContainerIndex",
+  "title" : "Array index -1 is out of bounds.",
+  "description" : "Array index -1 is out of bounds.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlBoundaries",
+  "title" : "Dangerous comparison using operator< on iterator.",
+  "description" : "Iterator compared with operator<. This is dangerous since the order of items in the container is not guaranteed. One should use operator!= instead to compare iterators.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlIfFind",
+  "title" : "Suspicious condition. The result of find() is an iterator, but it is not properly checked.",
+  "description" : "Suspicious condition. The result of find() is an iterator, but it is not properly checked.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlIfStrFind",
+  "title" : "Inefficient usage of string::find() in condition; string::starts_with() could be faster.",
+  "description" : "Either inefficient or wrong usage of string::find(). string::starts_with() will be faster if string::find's result is compared with 0, because it will not scan the whole string. If your intention is to check that there are no findings in the string, you should compare with std::string::npos.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlFindInsert",
+  "title" : "Searching before insertion is not necessary.",
+  "description" : "Searching before insertion is not necessary.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlcstr",
+  "title" : "Dangerous usage of c_str(). The value returned by c_str() is invalid after this call.",
+  "description" : "Dangerous usage of c_str(). The c_str() return value is only valid until its string is deleted.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlcstrReturn",
+  "title" : "Returning the result of c_str() in a function that returns std::string is slow and redundant.",
+  "description" : "The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly returning the string.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlcstrParam",
+  "title" : "Passing the result of c_str() to a function that takes std::string as argument no. 0 is slow and redundant.",
+  "description" : "The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlcstrthrow",
+  "title" : "Dangerous usage of c_str(). The value returned by c_str() is invalid after throwing exception.",
+  "description" : "Dangerous usage of c_str(). The string is destroyed after the c_str() call so the thrown pointer is invalid.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stlSize",
+  "title" : "Possible inefficient checking for 'list' emptiness.",
+  "description" : "Checking for 'list' emptiness might be inefficient. Using list.empty() instead of list.size() can be faster. list.size() can take linear time but list.empty() is guaranteed to take constant time.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "StlMissingComparison",
+  "title" : "Missing bounds check for extra iterator increment in loop.",
+  "description" : "The iterator incrementing is suspicious - it is incremented at line  and then at line . The loop might unintentionally skip an element in the container. There is no comparison between these increments to prevent that the iterator is incremented beyond the end.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "redundantIfRemove",
+  "title" : "Redundant checking of STL container element existence before removing it.",
+  "description" : "Redundant checking of STL container element existence before removing it. It is safe to call the remove method on a non-existing element.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uselessCallsCompare",
+  "title" : "It is inefficient to call 'str.find(str)' as it always returns 0.",
+  "description" : "'std::string::find()' returns zero when given itself as parameter (str.find(str)). As it is currently the code is inefficient. It is possible either the string searched ('str') or searched for ('str') is wrong.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uselessCallsSwap",
+  "title" : "It is inefficient to swap a object with itself by calling 'str.swap(str)'",
+  "description" : "The 'swap()' function has no logical effect when given itself as parameter (str.swap(str)). As it is currently the code is inefficient. Is the object or the parameter wrong here?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uselessCallsSubstr",
+  "title" : "Ineffective call of function 'substr' because it returns a copy of the object. Use operator= instead.",
+  "description" : "Ineffective call of function 'substr' because it returns a copy of the object. Use operator= instead.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uselessCallsEmpty",
+  "title" : "Ineffective call of function 'empty()'. Did you intend to call 'clear()' instead?",
+  "description" : "Ineffective call of function 'empty()'. Did you intend to call 'clear()' instead?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uselessCallsRemove",
+  "title" : "Return value of std::remove() ignored. Elements remain in container.",
+  "description" : "The return value of std::remove() is ignored. This function returns an iterator to the end of the range containing those elements that should be kept. Elements past new end remain valid but with unspecified values. Use the erase method of the container to delete them.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "derefInvalidIterator",
+  "title" : "Possible dereference of an invalid iterator: i",
+  "description" : "Possible dereference of an invalid iterator: i. Make sure to check that the iterator is valid before dereferencing it - not after.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "reademptycontainer",
+  "title" : "Reading from empty STL container 'var'",
+  "description" : "Reading from empty STL container 'var'",
+  "timeToFix" : 5
+}, {
+  "patternId" : "useStlAlgorithm",
+  "title" : "Consider using  algorithm instead of a raw loop.",
+  "description" : "Consider using  algorithm instead of a raw loop.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "knownEmptyContainer",
+  "title" : "Iterating over container 'var' that is always empty.",
+  "description" : "Iterating over container 'var' that is always empty.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "globalLockGuard",
+  "title" : "Lock guard is defined globally. Lock guards are intended to be local. A global lock guard could lead to a deadlock since it won't unlock until the end of the program.",
+  "description" : "Lock guard is defined globally. Lock guards are intended to be local. A global lock guard could lead to a deadlock since it won't unlock until the end of the program.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "localMutex",
+  "title" : "The lock is ineffective because the mutex is locked at the same scope as the mutex itself.",
+  "description" : "The lock is ineffective because the mutex is locked at the same scope as the mutex itself.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sizeofwithsilentarraypointer",
+  "title" : "Using 'sizeof' on array given as function argument returns size of a pointer.",
+  "description" : "Using 'sizeof' for array given as function argument returns the size of a pointer. It does not return the size of the whole array in bytes as might be expected. For example, this code:\\012     int f(char a[100]) {\\012         return sizeof(a);\\012     }\\012returns 4 (in 32-bit systems) or 8 (in 64-bit systems) instead of 100 (the size of the array in bytes).",
+  "timeToFix" : 5
+}, {
+  "patternId" : "pointerSize",
+  "title" : "Size of pointer 'varname' used instead of size of its data.",
+  "description" : "Size of pointer 'varname' used instead of size of its data. This is likely to lead to a buffer overflow. You probably intend to write 'sizeof(*varname)'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sizeofDivisionMemfunc",
+  "title" : "Division by result of sizeof(). memset() expects a size in bytes, did you intend to multiply instead?",
+  "description" : "Division by result of sizeof(). memset() expects a size in bytes, did you intend to multiply instead?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sizeofwithnumericparameter",
+  "title" : "Suspicious usage of 'sizeof' with a numeric constant as parameter.",
+  "description" : "It is unusual to use a constant value with sizeof. For example, 'sizeof(10)' returns 4 (in 32-bit systems) or 8 (in 64-bit systems) instead of 10. 'sizeof('A')' and 'sizeof(char)' can return different results.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sizeofsizeof",
+  "title" : "Calling 'sizeof' on 'sizeof'.",
+  "description" : "Calling sizeof for 'sizeof looks like a suspicious code and most likely there should be just one 'sizeof'. The current code is equivalent to 'sizeof(size_t)'",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sizeofCalculation",
+  "title" : "Found calculation inside sizeof().",
+  "description" : "Found calculation inside sizeof().",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sizeofFunctionCall",
+  "title" : "Found function call inside sizeof().",
+  "description" : "Found function call inside sizeof().",
+  "timeToFix" : 5
+}, {
+  "patternId" : "multiplySizeof",
+  "title" : "Multiplying sizeof() with sizeof() indicates a logic error.",
+  "description" : "Multiplying sizeof() with sizeof() indicates a logic error.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "divideSizeof",
+  "title" : "Division of result of sizeof() on pointer type.",
+  "description" : "Division of result of sizeof() on pointer type. sizeof() returns the size of the pointer, not the size of the memory area it points to.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sizeofVoid",
+  "title" : "Behaviour of 'sizeof(void)' is not covered by the ISO C standard.",
+  "description" : "Behaviour of 'sizeof(void)' is not covered by the ISO C standard. A value for 'sizeof(void)' is defined only as part of a GNU C extension, which defines 'sizeof(void)' to be 1.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sizeofDereferencedVoidPointer",
+  "title" : "'*varname' is of type 'void', the behaviour of 'sizeof(void)' is not covered by the ISO C standard.",
+  "description" : "'*varname' is of type 'void', the behaviour of 'sizeof(void)' is not covered by the ISO C standard. A value for 'sizeof(void)' is defined only as part of a GNU C extension, which defines 'sizeof(void)' to be 1.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "arithOperationsOnVoidPointer",
+  "title" : "'varname' is of type 'vartype'. When using void pointers in calculations, the behaviour is undefined.",
+  "description" : "'varname' is of type 'vartype'. When using void pointers in calculations, the behaviour is undefined. Arithmetic operations on 'void *' is a GNU C extension, which defines the 'sizeof(void)' to be 1.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stringLiteralWrite",
+  "title" : "Modifying string literal directly or indirectly is undefined behaviour.",
+  "description" : "Modifying string literal directly or indirectly is undefined behaviour.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "sprintfOverlappingData",
+  "title" : "Undefined behavior: Variable 'varname' is used as parameter and destination in s[n]printf().",
+  "description" : "The variable 'varname' is used both as a parameter and as destination in s[n]printf(). The origin and destination buffers overlap. Quote from glibc (C-library) documentation (http://www.gnu.org/software/libc/manual/html_mono/libc.html#Formatted-Output-Functions): \"If copying takes place between objects that overlap as a result of a call to sprintf() or snprintf(), the results are undefined.\"",
+  "timeToFix" : 5
+}, {
+  "patternId" : "strPlusChar",
+  "title" : "Unusual pointer arithmetic. A value of type 'char' is added to a string literal.",
+  "description" : "Unusual pointer arithmetic. A value of type 'char' is added to a string literal.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "incorrectStringCompare",
+  "title" : "String literal \"Hello World\" doesn't match length argument for substr().",
+  "description" : "String literal \"Hello World\" doesn't match length argument for substr().",
+  "timeToFix" : 5
+}, {
+  "patternId" : "literalWithCharPtrCompare",
+  "title" : "String literal compared with variable 'foo'. Did you intend to use strcmp() instead?",
+  "description" : "String literal compared with variable 'foo'. Did you intend to use strcmp() instead?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "charLiteralWithCharPtrCompare",
+  "title" : "Char literal compared with pointer 'foo'. Did you intend to dereference it?",
+  "description" : "Char literal compared with pointer 'foo'. Did you intend to dereference it?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "incorrectStringBooleanError",
+  "title" : "Conversion of string literal \"Hello World\" to bool always evaluates to true.",
+  "description" : "Conversion of string literal \"Hello World\" to bool always evaluates to true.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "incorrectCharBooleanError",
+  "title" : "Conversion of char literal 'x' to bool always evaluates to true.",
+  "description" : "Conversion of char literal 'x' to bool always evaluates to true.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "staticStringCompare",
+  "title" : "Unnecessary comparison of static strings.",
+  "description" : "The compared strings, 'str1' and 'str2', are always unequal. Therefore the comparison is unnecessary and looks suspicious.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "stringCompare",
+  "title" : "Comparison of identical string variables.",
+  "description" : "The compared strings, 'varname1' and 'varname2', are identical. This could be a logic bug.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "overlappingStrcmp",
+  "title" : "The expression 'strcmp(x,\"def\") != 0' is suspicious. It overlaps 'strcmp(x,\"abc\") == 0'.",
+  "description" : "The expression 'strcmp(x,\"def\") != 0' is suspicious. It overlaps 'strcmp(x,\"abc\") == 0'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "shiftTooManyBits",
+  "title" : "Shifting 32-bit value by 40 bits is undefined behaviour",
+  "description" : "Shifting 32-bit value by 40 bits is undefined behaviour",
+  "timeToFix" : 5
+}, {
+  "patternId" : "shiftTooManyBitsSigned",
+  "title" : "Shifting signed 32-bit value by 31 bits is implementation-defined behaviour",
+  "description" : "Shifting signed 32-bit value by 31 bits is implementation-defined behaviour",
+  "timeToFix" : 5
+}, {
+  "patternId" : "integerOverflow",
+  "title" : "Signed integer overflow for expression ''.",
+  "description" : "Signed integer overflow for expression ''.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "signConversion",
+  "title" : "Expression 'var' can have a negative value. That is converted to an unsigned value and used in an unsigned calculation.",
+  "description" : "Expression 'var' can have a negative value. That is converted to an unsigned value and used in an unsigned calculation.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "truncLongCastAssignment",
+  "title" : "int result is assigned to long variable. If the variable is long to avoid loss of information, then you have loss of information.",
+  "description" : "int result is assigned to long variable. If the variable is long to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to long, for example 'l = a * b;' => 'l = (long)a * b;'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "truncLongCastReturn",
+  "title" : "int result is returned as long value. If the return value is long to avoid loss of information, then you have loss of information.",
+  "description" : "int result is returned as long value. If the return value is long to avoid loss of information, then there is loss of information. To avoid loss of information you must cast a calculation operand to long, for example 'return a*b;' => 'return (long)a*b'.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "floatConversionOverflow",
+  "title" : "Undefined behaviour: float (1e+100) to integer conversion overflow.",
+  "description" : "Undefined behaviour: float (1e+100) to integer conversion overflow.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uninitstring",
+  "title" : "Dangerous usage of 'varname' (strncpy doesn't always null-terminate it).",
+  "description" : "Dangerous usage of 'varname' (strncpy doesn't always null-terminate it).",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uninitdata",
+  "title" : "Memory is allocated but not initialized: varname",
+  "description" : "Memory is allocated but not initialized: varname",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uninitvar",
+  "title" : "Uninitialized variable: varname",
+  "description" : "Uninitialized variable: varname",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uninitStructMember",
+  "title" : "Uninitialized struct member: a.b",
+  "description" : "Uninitialized struct member: a.b",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedFunction",
+  "title" : "The function 'funcName' is never used.",
+  "description" : "The function 'funcName' is never used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedVariable",
+  "title" : "Unused variable: varname",
+  "description" : "Unused variable: varname",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedAllocatedMemory",
+  "title" : "Variable 'varname' is allocated memory that is never used.",
+  "description" : "Variable 'varname' is allocated memory that is never used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unreadVariable",
+  "title" : "Variable 'varname' is assigned a value that is never used.",
+  "description" : "Variable 'varname' is assigned a value that is never used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unassignedVariable",
+  "title" : "Variable 'varname' is not assigned a value.",
+  "description" : "Variable 'varname' is not assigned a value.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "unusedStructMember",
+  "title" : "struct member 'structname::variable' is never used.",
+  "description" : "struct member 'structname::variable' is never used.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "postfixOperator",
+  "title" : "Prefer prefix ++/-- operators for non-primitive types.",
+  "description" : "Prefix ++/-- operators should be preferred for non-primitive types. Pre-increment/decrement can be more efficient than post-increment/decrement. Post-increment/decrement usually involves keeping a copy of the previous value around and adds a little extra code.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "va_start_wrongParameter",
+  "title" : "'arg1' given to va_start() is not last named argument of the function. Did you intend to pass 'arg2'?",
+  "description" : "'arg1' given to va_start() is not last named argument of the function. Did you intend to pass 'arg2'?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "va_start_referencePassed",
+  "title" : "Using reference 'arg1' as parameter for va_start() results in undefined behaviour.",
+  "description" : "Using reference 'arg1' as parameter for va_start() results in undefined behaviour.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "va_end_missing",
+  "title" : "va_list 'vl' was opened but not closed by va_end().",
+  "description" : "va_list 'vl' was opened but not closed by va_end().",
+  "timeToFix" : 5
+}, {
+  "patternId" : "va_list_usedBeforeStarted",
+  "title" : "va_list 'vl' used before va_start() was called.",
+  "description" : "va_list 'vl' used before va_start() was called.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "va_start_subsequentCalls",
+  "title" : "va_start() or va_copy() called subsequently on 'vl' without va_end() in between.",
+  "description" : "va_start() or va_copy() called subsequently on 'vl' without va_end() in between.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "missingInclude",
+  "title" : "Include file: \"\" not found.",
+  "description" : "Include file: \"\" not found.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "missingIncludeSystem",
+  "title" : "Include file: <> not found. Please note: Cppcheck does not need standard library headers to get proper results.",
+  "description" : "Include file: <> not found. Please note: Cppcheck does not need standard library headers to get proper results.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "ConfigurationNotChecked",
+  "title" : "Skipping configuration 'X' since the value of 'X' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.",
+  "description" : "Skipping configuration 'X' since the value of 'X' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "preprocessorErrorDirective",
+  "title" : "#error message",
+  "description" : "#error message",
+  "timeToFix" : 5
+}, {
+  "patternId" : "threadsafety-threadsafety",
+  "title" : "Locate for threadsafety issues",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-EXP05-C",
+  "title" : "Do not attempt to cast away const",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-EXP42-C",
+  "title" : "Do not compare padding data",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-EXP15-C",
+  "title" : "Do not place a semicolon on the same line as an if, for or while statement",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-EXP46-c",
+  "title" : "Do not use a bitwise operator with a Boolean-like operand",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-INT31-c",
+  "title" : "Ensure that integer conversions do not result in lost or misinterpreted data",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-MSC24-C",
+  "title" : "Do not use deprecated or obsolescent functions",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-MSC30-c",
+  "title" : "Do not use the rand() function for generating pseudorandom numbers",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-STR03-C",
+  "title" : "Do not inadvertently truncate a string",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-STR05-C",
+  "title" : "Use pointers to const when referring to string literals",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-STR07-C",
+  "title" : "Use the bounds-checking interfaces for string manipulation",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-STR11-C",
+  "title" : "Do not specify the bound of a character array initialized with a string literal",
+  "timeToFix" : 5
+}, {
+  "patternId" : "cert-API01-C",
+  "title" : "Avoid laying out strings in memory directly before sensitive data",
+  "timeToFix" : 5
+}, {
+  "patternId" : "y2038-type-bits-not-64",
+  "title" : "_TIME_BITS must be defined equal to 64",
+  "timeToFix" : 5
+}, {
+  "patternId" : "y2038-type-bits-undef",
+  "title" : "_USE_TIME_BITS64 is defined but _TIME_BITS was not",
+  "timeToFix" : 5
+}, {
+  "patternId" : "y2038-unsafe-call",
+  "title" : "Using Y2038-unsafe call",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-3.1",
+  "title" : "The character sequences /* and // shall not be used within a comment",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-4.1",
+  "title" : "Octal and hexadecimal escape sequences shall be terminated",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-10.4",
+  "title" : "Both operands of an operator in which the usual arithmetic conversions are performed shall have the same essential type category",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.5",
+  "title" : "A conversion should not be performed from pointer to void into pointer to object",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.5",
+  "title" : "A function should have a single point of exit at the end",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.6",
+  "title" : "The body of an iteration‑statement or a selection‑statement shall be a compound‑statement",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.7",
+  "title" : "The value returned by a function having non‑void return type shall be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.1",
+  "title" : "#include directives should only be preceded by preprocessor directives or comments",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.3",
+  "title" : "The memory allocation and deallocation functions of <stdlib.h> shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.4",
+  "title" : "The standard header file <setjmp.h> shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.6",
+  "title" : "The operand of the sizeof operator shall not contain any expression which has potential side effects",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-7.1",
+  "title" : "Octal constants shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-14.3",
+  "title" : "Controlling expressions shall not be invariant",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.9",
+  "title" : "The library functions bsearch and qsort of <stdlib.h> shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-19.2",
+  "title" : "The union keyword should not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.1",
+  "title" : "The goto statement should not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.6",
+  "title" : "A cast shall not be performed between pointer to void and an arithmetic type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.6",
+  "title" : "The address of an object with automatic storage shall not be copied to another object that persists after the first object has ceased to exist",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-22.1",
+  "title" : "All resources obtained dynamically by means of Standard Library functions shall be explicitly released",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.8",
+  "title" : "Variable-length array types shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.6",
+  "title" : "The Standard Library input/output routines shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-2.2",
+  "title" : "There shall be no dead code",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.6",
+  "title" : "The declaration of an array parameter shall not contain the static keyword between the [ ]",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.4",
+  "title" : "The result of an assignment operator should not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-14.2",
+  "title" : "A for loop shall be well-formed",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.7",
+  "title" : "The Standard Library functions atof, atoi, atol and atoll of <stdlib.h> shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-7.3",
+  "title" : "The lowercase character 'l' shall not be used in a literal suffix",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.1",
+  "title" : "The features of <stdarg.h> shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.5",
+  "title" : "Identifiers shall be distinct from macro names",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-10.6",
+  "title" : "The value of a composite expression shall not be assigned to an object with wider essential type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.5",
+  "title" : "The right hand operand of a logical && or '' operator shall not contain persistent side effects",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-22.6",
+  "title" : "The value of a pointer to a FILE shall not be used after the associated stream has been closed",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-2.1",
+  "title" : "A project shall not contain unreachable code",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.13",
+  "title" : "A line whose first token is # shall be a valid preprocessing directive",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.2",
+  "title" : "Subtraction between pointers shall only be applied to pointers that address elements of the same array",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.3",
+  "title" : "The relational operators >, >=, < and <= shall not be applied to objects of pointer type except where they point into the same object",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.4",
+  "title" : "Every switch statement shall have a default label",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.4",
+  "title" : "A macro shall not be defined with the same name as a keyword",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-2.6",
+  "title" : "A function should not contain unused label declarations",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.7",
+  "title" : "A switch‑expression shall not have essentially Boolean type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.5",
+  "title" : "The function argument corresponding to a parameter declared to have an array type shall have an appropriate number of elements",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.7",
+  "title" : "Expressions resulting from the expansion of macro parameters shall be enclosed in parentheses",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-10.1",
+  "title" : "Operands shall not be of an inappropriate essential type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.8",
+  "title" : "A function parameter should not be modified",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-8.12",
+  "title" : "Within an enumerator list, the value of an implicitly-specified enumeration constant shall be unique",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-8.14",
+  "title" : "The restrict type qualifier shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.5",
+  "title" : "#undef should not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-14.1",
+  "title" : "A loop counter shall not have essentially floating type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.11",
+  "title" : "The standard header file <tgmath.h> shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.5",
+  "title" : "A default label shall appear as either the first or the last switch label of a switch statement",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-17.2",
+  "title" : "Functions shall not call themselves, either directly or indirectly",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-12.3",
+  "title" : "The comma operator should not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.6",
+  "title" : "Tokens that look like a preprocessing directive shall not occur within a macro argument",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.3",
+  "title" : "A cast shall not be performed between a pointer to object type and a pointer to a different object type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.7",
+  "title" : "Flexible array members shall not be declared",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.3",
+  "title" : "An unconditional break statement shall terminate every switch‑clause",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.1",
+  "title" : "A pointer resulting from arithmetic on a pointer operand shall address an element of the same array as that pointer operand",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.2",
+  "title" : "The value of an expression and its persistent side effects shall be the same under all permitted evaluation orders",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.14",
+  "title" : "All #else, #elif and #endif preprocessor directives shall reside in the same file as the #if, #ifdef or #ifndef",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.2",
+  "title" : "A switch label shall only be used when the most closely-enclosing compound statement is the body of a switch statement",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-1.3",
+  "title" : "There shall be no occurrence of undefined or critical unspecified behaviour",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.1",
+  "title" : "External identifiers shall be distinct",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-22.4",
+  "title" : "There shall be no attempt to write to a stream which has been opened as read-only",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.4",
+  "title" : "Macro identifiers shall be distinct",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.5",
+  "title" : "The standard header file <signal.h> shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.5",
+  "title" : "Declarations should contain no more than two levels of pointer nesting",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-12.2",
+  "title" : "The right hand operand of a shift operator shall lie in the range zero to one less than the width in bits of the essential type of the left hand operand",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.2",
+  "title" : "The ', \" or \\ characters and the /* or // character sequences shall not occur in a header file name",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.3",
+  "title" : "Any label referenced by a goto statement shall be declared in the same block, or in any block enclosing the goto statement",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-12.4",
+  "title" : "Evaluation of constant expressions should not lead to unsigned integer wrap-around",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.2",
+  "title" : "Identifiers declared in the same scope and name space shall be distinct",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-9.5",
+  "title" : "Where designated initializers are used to initialize an array object the size of the array shall be specified explicitly",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.10",
+  "title" : "The Standard Library time and date functions shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.8",
+  "title" : "A cast shall not remove any const or volatile qualification from the type pointed to by a pointer",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.3",
+  "title" : "The #include directive shall be followed by either a <filename> or \"filename\" sequence",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-8.11",
+  "title" : "When an array with external linkage is declared, its size should be explicitly specified",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-8.3",
+  "title" : "All declarations of an object or function shall use the same names and type qualifiers",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.7",
+  "title" : "All if ... else if constructs shall be terminated with an else statement",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-16.6",
+  "title" : "Every switch statement shall have at least two switch‑clauses",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-14.4",
+  "title" : "The controlling expression of an if statement and the controlling expression of an iteration‑statement shall have essentially Boolean type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-22.2",
+  "title" : "A block of memory shall only be freed if it was allocated by means of a Standard Library function",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.1",
+  "title" : "Initializer lists shall not contain persistent side effects",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-2.4",
+  "title" : "A project should not contain unused tag declarations",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-10.8",
+  "title" : "The value of a composite expression shall not be cast to a different essential type category or a wider essential type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.7",
+  "title" : "A cast shall not be performed between pointer to object and a non-integer arithmetic type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-13.3",
+  "title" : "A full expression containing an increment (++) or decrement (--) operator should have no other potential side effects other than that caused by the increment or decrement operator",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-20.10",
+  "title" : "The # and ## preprocessor operators should not be used ",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-18.4",
+  "title" : "The +, -, += and -= operators should not be applied to an expression of pointer type",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.9",
+  "title" : "The macro NULL shall be the only permitted form of integer null pointer constant",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-12.1",
+  "title" : "The precedence of operators within expressions should be made explicit",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-5.3",
+  "title" : "An identifier declared in an inner scope shall not hide an identifier declared in an outer scope",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-21.8",
+  "title" : "The Standard Library termination functions of <stdlib.h> shall not be used",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-15.2",
+  "title" : "The goto statement shall jump to a label declared later in the same function",
+  "timeToFix" : 5
+}, {
+  "patternId" : "misra-c2012-11.4",
+  "title" : "A conversion should not be performed between a pointer to object and an integer type",
+  "timeToFix" : 5
+} ]
