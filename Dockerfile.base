@@ -1,6 +1,6 @@
 FROM alpine:3.13.6
 
-ARG toolVersion=2.2
+ARG toolVersion=2.10
 
 RUN \
     # runtime packages

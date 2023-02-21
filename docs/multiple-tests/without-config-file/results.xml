@@ -8,8 +8,4 @@
     <file name="unusedLabel.cpp">
         <error source="unusedLabel" line="8" message="Label 'Test2' is not used." severity="info" />
     </file>
-    <file name="header.h">
-        <error source="unusedLabel" line="4" message="Label 'public' is not used." severity="info" />
-        <error source="unusedLabel" line="9" message="Label 'private' is not used." severity="info" />
-    </file>
 </checkstyle>
