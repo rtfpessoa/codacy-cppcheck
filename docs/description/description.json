@@ -44,16 +44,6 @@
   "description" : "Dangerous assignment - the function parameter is assigned the address of a local auto-variable. Local auto-variables are reserved from the stack which is freed when the function ends. So the pointer to a local variable is invalid after the function ends.",
   "timeToFix" : 5
 }, {
-  "patternId" : "returnAddressOfAutoVariable",
-  "title" : "Address of an auto-variable returned.",
-  "description" : "Address of an auto-variable returned.",
-  "timeToFix" : 5
-}, {
-  "patternId" : "returnLocalVariable",
-  "title" : "Pointer to local array variable returned.",
-  "description" : "Pointer to local array variable returned.",
-  "timeToFix" : 5
-}, {
   "patternId" : "returnReference",
   "title" : "Reference to local variable returned.",
   "description" : "Reference to local variable returned.",
@@ -77,11 +67,6 @@
   "patternId" : "autovarInvalidDeallocation",
   "title" : "Deallocation of an auto-variable results in undefined behaviour.",
   "description" : "The deallocation of an auto-variable results in undefined behaviour. You should only free memory that has been allocated dynamically.",
-  "timeToFix" : 5
-}, {
-  "patternId" : "returnAddressOfFunctionParameter",
-  "title" : "Address of function parameter 'parameter' returned.",
-  "description" : "Address of the function parameter 'parameter' becomes invalid after the function exits because function parameters are stored on the stack which is freed when the function exits. Thus the returned value is invalid.",
   "timeToFix" : 5
 }, {
   "patternId" : "uselessAssignmentArg",
@@ -110,8 +95,8 @@
   "timeToFix" : 5
 }, {
   "patternId" : "danglingTemporaryLifetime",
-  "title" : "Using object to temporary.",
-  "description" : "Using object to temporary.",
+  "title" : "Using object that is a temporary.",
+  "description" : "Using object that is a temporary.",
   "timeToFix" : 5
 }, {
   "patternId" : "assignBoolToPointer",
@@ -209,6 +194,21 @@
   "description" : "The address of local variable '' is accessed at non-zero index.",
   "timeToFix" : 5
 }, {
+  "patternId" : "argumentSize",
+  "title" : "Buffer 'buffer' is too small, the function 'function' expects a bigger buffer in 2nd argument",
+  "description" : "Buffer 'buffer' is too small, the function 'function' expects a bigger buffer in 2nd argument",
+  "timeToFix" : 5
+}, {
+  "patternId" : "negativeMemoryAllocationSize",
+  "title" : "Memory allocation size is negative.",
+  "description" : "Memory allocation size is negative.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "negativeArraySize",
+  "title" : "Declaration of array '' with negative size is undefined behaviour",
+  "description" : "Declaration of array '' with negative size is undefined behaviour",
+  "timeToFix" : 5
+}, {
   "patternId" : "invalidFunctionArg",
   "title" : "Invalid func_name() argument nr 1. The value is 0 or 1 (boolean) but the valid values are '1:4'.",
   "description" : "Invalid func_name() argument nr 1. The value is 0 or 1 (boolean) but the valid values are '1:4'.",
@@ -254,9 +254,24 @@
   "description" : "The 2nd memset() argument 'varname' doesn't fit into an 'unsigned char'. The 2nd parameter is passed as an 'int', but the function fills the block of memory using the 'unsigned char' conversion of this value.",
   "timeToFix" : 5
 }, {
+  "patternId" : "missingReturn",
+  "title" : "Found an exit path from function with non-void return type that has missing return statement",
+  "description" : "Found an exit path from function with non-void return type that has missing return statement",
+  "timeToFix" : 5
+}, {
+  "patternId" : "returnStdMoveLocal",
+  "title" : "Using std::move for returning object by-value from function will affect copy elision optimization. More: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-return-move-local",
+  "description" : "Using std::move for returning object by-value from function will affect copy elision optimization. More: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-return-move-local",
+  "timeToFix" : 5
+}, {
+  "patternId" : "useStandardLibrary",
+  "title" : "Consider using memcpy instead of loop.",
+  "description" : "Consider using memcpy instead of loop.",
+  "timeToFix" : 5
+}, {
   "patternId" : "noConstructor",
-  "title" : "The class 'classname' does not have a constructor although it has private member variables.",
-  "description" : "The class 'classname' does not have a constructor although it has private member variables. Member variables of builtin types are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.",
+  "title" : "The class 'classname' does not declare a constructor although it has private member variables which likely require initialization.",
+  "description" : "The class 'classname' does not declare a constructor although it has private member variables. Member variables of builtin types are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.",
   "timeToFix" : 5
 }, {
   "patternId" : "noExplicitConstructor",
@@ -292,6 +307,21 @@
   "patternId" : "uninitMemberVarPrivate",
   "title" : "Member variable 'classname::varnamepriv' is not initialized in the constructor.",
   "description" : "Member variable 'classname::varnamepriv' is not initialized in the constructor.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uninitDerivedMemberVar",
+  "title" : "Member variable 'classname::varname' is not initialized in the constructor. Maybe it should be initialized directly in the class classname?",
+  "description" : "Member variable 'classname::varname' is not initialized in the constructor. Maybe it should be initialized directly in the class classname?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "uninitDerivedMemberVarPrivate",
+  "title" : "Member variable 'classname::varnamepriv' is not initialized in the constructor. Maybe it should be initialized directly in the class classname?",
+  "description" : "Member variable 'classname::varnamepriv' is not initialized in the constructor. Maybe it should be initialized directly in the class classname?",
+  "timeToFix" : 5
+}, {
+  "patternId" : "missingMemberCopy",
+  "title" : "Member variable 'classname::varnamepriv' is not assigned in the move constructor. Should it be moved?",
+  "description" : "Member variable 'classname::varnamepriv' is not assigned in the move constructor. Should it be moved?",
   "timeToFix" : 5
 }, {
   "patternId" : "operatorEqVarError",
@@ -490,8 +520,8 @@
   "timeToFix" : 5
 }, {
   "patternId" : "invalidTestForOverflow",
-  "title" : "Invalid test for overflow 'x + u < x'. Condition is always false unless there is overflow, and overflow is undefined behaviour.",
-  "description" : "Invalid test for overflow 'x + u < x'. Condition is always false unless there is overflow, and overflow is undefined behaviour.",
+  "title" : "Invalid test for overflow 'x + c < x'; signed integer overflow is undefined behavior. Some mainstream compilers remove such overflow tests when optimising the code and assume it's always false.",
+  "description" : "Invalid test for overflow 'x + c < x'; signed integer overflow is undefined behavior. Some mainstream compilers remove such overflow tests when optimising the code and assume it's always false.",
   "timeToFix" : 5
 }, {
   "patternId" : "pointerAdditionResultNotNull",
@@ -502,6 +532,16 @@
   "patternId" : "duplicateConditionalAssign",
   "title" : "Duplicate expression for the condition and assignment.",
   "description" : "Duplicate expression for the condition and assignment.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "assignmentInCondition",
+  "title" : "Suspicious assignment in condition. Condition 'x=y' is always true.",
+  "description" : "Suspicious assignment in condition. Condition 'x=y' is always true.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "compareValueOutOfTypeRangeError",
+  "title" : "Comparing expression of type 'unsigned char' against value 256. Condition is always true.",
+  "description" : "Comparing expression of type 'unsigned char' against value 256. Condition is always true.",
   "timeToFix" : 5
 }, {
   "patternId" : "exceptThrowInDestructor",
@@ -532,6 +572,11 @@
   "patternId" : "unhandledExceptionSpecification",
   "title" : "Unhandled exception specification when calling function foo().",
   "description" : "Unhandled exception specification when calling function foo(). Either use a try/catch around the function call, or add a exception specification for funcname() also.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "rethrowNoCurrentException",
+  "title" : "Rethrowing current exception with 'throw;', it seems there is no current exception to rethrow. If there is no current exception this calls std::terminate(). More: https://isocpp.org/wiki/faq/exceptions#throw-without-an-object",
+  "description" : "Rethrowing current exception with 'throw;', it seems there is no current exception to rethrow. If there is no current exception this calls std::terminate(). More: https://isocpp.org/wiki/faq/exceptions#throw-without-an-object",
   "timeToFix" : 5
 }, {
   "patternId" : "coutCerrMisusage",
@@ -567,6 +612,11 @@
   "patternId" : "seekOnAppendedFile",
   "title" : "Repositioning operation performed on a file opened in append mode has no effect.",
   "description" : "Repositioning operation performed on a file opened in append mode has no effect.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "incompatibleFileOpen",
+  "title" : "The file 'tmp' is opened for read and write access at the same time on different streams",
+  "description" : "The file 'tmp' is opened for read and write access at the same time on different streams",
   "timeToFix" : 5
 }, {
   "patternId" : "invalidscanf",
@@ -689,19 +739,9 @@
   "description" : "Resource leak: varname",
   "timeToFix" : 5
 }, {
-  "patternId" : "deallocDealloc",
-  "title" : "Deallocating a deallocated pointer: varname",
-  "description" : "Deallocating a deallocated pointer: varname",
-  "timeToFix" : 5
-}, {
   "patternId" : "deallocuse",
   "title" : "Dereferencing 'varname' after it is deallocated / released",
   "description" : "Dereferencing 'varname' after it is deallocated / released",
-  "timeToFix" : 5
-}, {
-  "patternId" : "mismatchSize",
-  "title" : "The allocated size sz is not a multiple of the underlying type's size.",
-  "description" : "The allocated size sz is not a multiple of the underlying type's size.",
   "timeToFix" : 5
 }, {
   "patternId" : "mismatchAllocDealloc",
@@ -769,11 +809,6 @@
   "description" : "Shifting by a negative value is undefined behaviour",
   "timeToFix" : 5
 }, {
-  "patternId" : "wrongPipeParameterSize",
-  "title" : "Buffer 'varname' must have size of 2 integers if used as parameter of pipe().",
-  "description" : "The pipe()/pipe2() system command takes an argument, which is an array of exactly two integers.\\012The variable 'varname' is an array of size dimension, which does not match.",
-  "timeToFix" : 5
-}, {
   "patternId" : "raceAfterInterlockedDecrement",
   "title" : "Race condition: non-interlocked access after InterlockedDecrement(). Use InterlockedDecrement() return value instead.",
   "description" : "Race condition: non-interlocked access after InterlockedDecrement(). Use InterlockedDecrement() return value instead.",
@@ -782,6 +817,16 @@
   "patternId" : "invalidFree",
   "title" : "Mismatching address is freed. The address you get from malloc() must be freed without offset.",
   "description" : "Mismatching address is freed. The address you get from malloc() must be freed without offset.",
+  "timeToFix" : 5
+}, {
+  "patternId" : "overlappingWriteUnion",
+  "title" : "Overlapping read/write of union is undefined behavior",
+  "description" : "Overlapping read/write of union is undefined behavior",
+  "timeToFix" : 5
+}, {
+  "patternId" : "overlappingWriteFunction",
+  "title" : "Overlapping read/write in () is undefined behavior",
+  "description" : "Overlapping read/write in () is undefined behavior",
   "timeToFix" : 5
 }, {
   "patternId" : "redundantCopyLocalConst",
@@ -814,9 +859,19 @@
   "description" : "Parameter 'parametername' is passed by value. It could be passed as a const reference which is usually faster and recommended in C++.",
   "timeToFix" : 5
 }, {
+  "patternId" : "constParameter",
+  "title" : "Parameter 'x' can be declared with const",
+  "description" : "Parameter 'x' can be declared with const",
+  "timeToFix" : 5
+}, {
   "patternId" : "constVariable",
   "title" : "Variable 'x' can be declared with const",
   "description" : "Variable 'x' can be declared with const",
+  "timeToFix" : 5
+}, {
+  "patternId" : "constParameterCallback",
+  "title" : "Parameter 'x' can be declared with const, however it seems that 'f' is a callback function.",
+  "description" : "Parameter 'x' can be declared with const, however it seems that 'f' is a callback function.",
   "timeToFix" : 5
 }, {
   "patternId" : "constStatement",
@@ -847,11 +902,6 @@
   "patternId" : "redundantAssignInSwitch",
   "title" : "Variable 'var' is reassigned a value before the old one has been used. 'break;' missing?",
   "description" : "Variable 'var' is reassigned a value before the old one has been used. 'break;' missing?",
-  "timeToFix" : 5
-}, {
-  "patternId" : "redundantCopyInSwitch",
-  "title" : "Buffer 'var' is being written before its old content has been used. 'break;' missing?",
-  "description" : "Buffer 'var' is being written before its old content has been used. 'break;' missing?",
   "timeToFix" : 5
 }, {
   "patternId" : "suspiciousCase",
@@ -1080,8 +1130,8 @@
   "timeToFix" : 5
 }, {
   "patternId" : "iterators3",
-  "title" : "Same iterator is used with containers 'container' that are defined in different scopes.",
-  "description" : "Same iterator is used with containers 'container' that are defined in different scopes.",
+  "title" : "Same iterator is used with containers 'container' that are temporaries or defined in different scopes.",
+  "description" : "Same iterator is used with containers 'container' that are temporaries or defined in different scopes.",
   "timeToFix" : 5
 }, {
   "patternId" : "invalidContainerLoop",
@@ -1212,11 +1262,6 @@
   "patternId" : "derefInvalidIterator",
   "title" : "Possible dereference of an invalid iterator: i",
   "description" : "Possible dereference of an invalid iterator: i. Make sure to check that the iterator is valid before dereferencing it - not after.",
-  "timeToFix" : 5
-}, {
-  "patternId" : "reademptycontainer",
-  "title" : "Reading from empty STL container 'var'",
-  "description" : "Reading from empty STL container 'var'",
   "timeToFix" : 5
 }, {
   "patternId" : "useStlAlgorithm",
@@ -1389,19 +1434,9 @@
   "description" : "Undefined behaviour: float (1e+100) to integer conversion overflow.",
   "timeToFix" : 5
 }, {
-  "patternId" : "uninitstring",
-  "title" : "Dangerous usage of 'varname' (strncpy doesn't always null-terminate it).",
-  "description" : "Dangerous usage of 'varname' (strncpy doesn't always null-terminate it).",
-  "timeToFix" : 5
-}, {
   "patternId" : "uninitdata",
   "title" : "Memory is allocated but not initialized: varname",
   "description" : "Memory is allocated but not initialized: varname",
-  "timeToFix" : 5
-}, {
-  "patternId" : "uninitvar",
-  "title" : "Uninitialized variable: varname",
-  "description" : "Uninitialized variable: varname",
   "timeToFix" : 5
 }, {
   "patternId" : "uninitStructMember",
@@ -1574,11 +1609,11 @@
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-15.6",
-  "title" : "The body of an iteration‑statement or a selection‑statement shall be a compound‑statement",
+  "title" : "The body of an iteration-statement or a selection-statement shall be a compound-statement",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-17.7",
-  "title" : "The value returned by a function having non‑void return type shall be used",
+  "title" : "The value returned by a function having non-void return type shall be used",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-20.1",
@@ -1710,7 +1745,7 @@
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-16.7",
-  "title" : "A switch‑expression shall not have essentially Boolean type",
+  "title" : "A switch-expression shall not have essentially Boolean type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-17.5",
@@ -1774,7 +1809,7 @@
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-16.3",
-  "title" : "An unconditional break statement shall terminate every switch‑clause",
+  "title" : "An unconditional break statement shall terminate every switch-clause",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-18.1",
@@ -1866,11 +1901,11 @@
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-16.6",
-  "title" : "Every switch statement shall have at least two switch‑clauses",
+  "title" : "Every switch statement shall have at least two switch-clauses",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-14.4",
-  "title" : "The controlling expression of an if statement and the controlling expression of an iteration‑statement shall have essentially Boolean type",
+  "title" : "The controlling expression of an if statement and the controlling expression of an iteration-statement shall have essentially Boolean type",
   "timeToFix" : 5
 }, {
   "patternId" : "misra-c2012-22.2",

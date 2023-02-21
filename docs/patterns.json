@@ -1,6 +1,6 @@
 {
   "name" : "cppcheck",
-  "version" : "2.2",
+  "version" : "2.10",
   "patterns" : [ {
     "patternId" : "purgedConfiguration",
     "level" : "Info",
@@ -47,16 +47,6 @@
     "category" : "ErrorProne",
     "enabled" : true
   }, {
-    "patternId" : "returnAddressOfAutoVariable",
-    "level" : "Error",
-    "category" : "ErrorProne",
-    "enabled" : true
-  }, {
-    "patternId" : "returnLocalVariable",
-    "level" : "Error",
-    "category" : "ErrorProne",
-    "enabled" : true
-  }, {
     "patternId" : "returnReference",
     "level" : "Error",
     "category" : "ErrorProne",
@@ -78,11 +68,6 @@
     "enabled" : false
   }, {
     "patternId" : "autovarInvalidDeallocation",
-    "level" : "Error",
-    "category" : "ErrorProne",
-    "enabled" : true
-  }, {
-    "patternId" : "returnAddressOfFunctionParameter",
     "level" : "Error",
     "category" : "ErrorProne",
     "enabled" : true
@@ -212,6 +197,21 @@
     "category" : "ErrorProne",
     "enabled" : false
   }, {
+    "patternId" : "argumentSize",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
+    "patternId" : "negativeMemoryAllocationSize",
+    "level" : "Error",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
+    "patternId" : "negativeArraySize",
+    "level" : "Error",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
     "patternId" : "invalidFunctionArg",
     "level" : "Error",
     "category" : "ErrorProne",
@@ -257,6 +257,21 @@
     "category" : "ErrorProne",
     "enabled" : true
   }, {
+    "patternId" : "missingReturn",
+    "level" : "Error",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
+    "patternId" : "returnStdMoveLocal",
+    "level" : "Warning",
+    "category" : "Performance",
+    "enabled" : false
+  }, {
+    "patternId" : "useStandardLibrary",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
     "patternId" : "noConstructor",
     "level" : "Info",
     "category" : "CodeStyle",
@@ -293,6 +308,21 @@
     "enabled" : true
   }, {
     "patternId" : "uninitMemberVarPrivate",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
+    "patternId" : "uninitDerivedMemberVar",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
+    "patternId" : "uninitDerivedMemberVarPrivate",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
+    "patternId" : "missingMemberCopy",
     "level" : "Warning",
     "category" : "ErrorProne",
     "enabled" : false
@@ -507,6 +537,16 @@
     "category" : "CodeStyle",
     "enabled" : false
   }, {
+    "patternId" : "assignmentInCondition",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "compareValueOutOfTypeRangeError",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
     "patternId" : "exceptThrowInDestructor",
     "level" : "Warning",
     "category" : "ErrorProne",
@@ -535,6 +575,11 @@
     "patternId" : "unhandledExceptionSpecification",
     "level" : "Info",
     "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "rethrowNoCurrentException",
+    "level" : "Error",
+    "category" : "ErrorProne",
     "enabled" : false
   }, {
     "patternId" : "coutCerrMisusage",
@@ -571,6 +616,11 @@
     "level" : "Warning",
     "category" : "ErrorProne",
     "enabled" : true
+  }, {
+    "patternId" : "incompatibleFileOpen",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "invalidscanf",
     "level" : "Warning",
@@ -692,17 +742,7 @@
     "category" : "ErrorProne",
     "enabled" : true
   }, {
-    "patternId" : "deallocDealloc",
-    "level" : "Error",
-    "category" : "ErrorProne",
-    "enabled" : true
-  }, {
     "patternId" : "deallocuse",
-    "level" : "Error",
-    "category" : "ErrorProne",
-    "enabled" : true
-  }, {
-    "patternId" : "mismatchSize",
     "level" : "Error",
     "category" : "ErrorProne",
     "enabled" : true
@@ -772,17 +812,22 @@
     "category" : "ErrorProne",
     "enabled" : true
   }, {
-    "patternId" : "wrongPipeParameterSize",
-    "level" : "Error",
-    "category" : "ErrorProne",
-    "enabled" : true
-  }, {
     "patternId" : "raceAfterInterlockedDecrement",
     "level" : "Error",
     "category" : "ErrorProne",
     "enabled" : true
   }, {
     "patternId" : "invalidFree",
+    "level" : "Error",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
+    "patternId" : "overlappingWriteUnion",
+    "level" : "Error",
+    "category" : "ErrorProne",
+    "enabled" : false
+  }, {
+    "patternId" : "overlappingWriteFunction",
     "level" : "Error",
     "category" : "ErrorProne",
     "enabled" : false
@@ -817,7 +862,17 @@
     "category" : "Performance",
     "enabled" : true
   }, {
+    "patternId" : "constParameter",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
     "patternId" : "constVariable",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "constParameterCallback",
     "level" : "Info",
     "category" : "CodeStyle",
     "enabled" : false
@@ -848,13 +903,8 @@
     "enabled" : true
   }, {
     "patternId" : "redundantAssignInSwitch",
-    "level" : "Warning",
-    "category" : "ErrorProne",
-    "enabled" : true
-  }, {
-    "patternId" : "redundantCopyInSwitch",
-    "level" : "Warning",
-    "category" : "ErrorProne",
+    "level" : "Info",
+    "category" : "CodeStyle",
     "enabled" : true
   }, {
     "patternId" : "suspiciousCase",
@@ -1008,8 +1058,8 @@
     "enabled" : false
   }, {
     "patternId" : "redundantBitwiseOperationInSwitch",
-    "level" : "Warning",
-    "category" : "ErrorProne",
+    "level" : "Info",
+    "category" : "CodeStyle",
     "enabled" : false
   }, {
     "patternId" : "shadowVariable",
@@ -1217,11 +1267,6 @@
     "category" : "ErrorProne",
     "enabled" : true
   }, {
-    "patternId" : "reademptycontainer",
-    "level" : "Info",
-    "category" : "CodeStyle",
-    "enabled" : false
-  }, {
     "patternId" : "useStlAlgorithm",
     "level" : "Info",
     "category" : "CodeStyle",
@@ -1392,17 +1437,7 @@
     "category" : "ErrorProne",
     "enabled" : false
   }, {
-    "patternId" : "uninitstring",
-    "level" : "Error",
-    "category" : "ErrorProne",
-    "enabled" : true
-  }, {
     "patternId" : "uninitdata",
-    "level" : "Error",
-    "category" : "ErrorProne",
-    "enabled" : true
-  }, {
-    "patternId" : "uninitvar",
     "level" : "Error",
     "category" : "ErrorProne",
     "enabled" : true
