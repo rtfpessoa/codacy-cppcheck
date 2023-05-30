@@ -1,7 +1,7 @@
 # dev is just used for development purposes. Not used for production images
 FROM codacy-cppcheck-base as dev
 
-RUN apk add openjdk11	
+RUN apk add openjdk17
 COPY docs /docs	
 COPY addons/misra* /workdir/addons/	
 RUN adduser --uid 2004 --disabled-password --gecos "" docker	
