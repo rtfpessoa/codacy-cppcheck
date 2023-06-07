@@ -11,7 +11,7 @@ USER docker
 WORKDIR /workdir
 ENTRYPOINT ["bin/codacy-cppcheck"]
 
-FROM sbtscala/scala-sbt:graalvm-ce-22.3.0-b2-java17_1.9.0_3.3.0 AS builder
+FROM sbtscala/scala-sbt:eclipse-temurin-jammy-17.0.5_8_1.9.0_2.12.17 AS builder
 
 WORKDIR /workdir
 COPY . .
