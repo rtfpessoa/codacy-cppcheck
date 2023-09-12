@@ -1,6 +1,6 @@
 {
   "name" : "cppcheck",
-  "version" : "2.10.3",
+  "version" : "2.12.0",
   "patterns" : [ {
     "patternId" : "purgedConfiguration",
     "level" : "Info",
@@ -176,6 +176,11 @@
     "level" : "Warning",
     "category" : "ErrorProne",
     "enabled" : true
+  }, {
+    "patternId" : "pointerOutOfBoundsCond",
+    "level" : "Warning",
+    "category" : "ErrorProne",
+    "enabled" : false
   }, {
     "patternId" : "negativeIndex",
     "level" : "Error",
@@ -788,7 +793,7 @@
     "enabled" : true
   }, {
     "patternId" : "zerodivcond",
-    "level" : "Error",
+    "level" : "Warning",
     "category" : "ErrorProne",
     "enabled" : true
   }, {
@@ -868,6 +873,26 @@
     "enabled" : false
   }, {
     "patternId" : "constVariable",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "constParameterReference",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "constVariableReference",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "constParameterPointer",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
+    "patternId" : "constVariablePointer",
     "level" : "Info",
     "category" : "CodeStyle",
     "enabled" : false
@@ -1087,6 +1112,11 @@
     "category" : "CodeStyle",
     "enabled" : false
   }, {
+    "patternId" : "knownPointerToBool",
+    "level" : "Info",
+    "category" : "CodeStyle",
+    "enabled" : false
+  }, {
     "patternId" : "comparePointers",
     "level" : "Error",
     "category" : "ErrorProne",
@@ -1178,7 +1208,7 @@
     "enabled" : true
   }, {
     "patternId" : "negativeContainerIndex",
-    "level" : "Error",
+    "level" : "Warning",
     "category" : "ErrorProne",
     "enabled" : false
   }, {
@@ -1505,21 +1535,6 @@
     "patternId" : "va_start_subsequentCalls",
     "level" : "Error",
     "category" : "ErrorProne",
-    "enabled" : true
-  }, {
-    "patternId" : "missingInclude",
-    "level" : "Info",
-    "category" : "CodeStyle",
-    "enabled" : true
-  }, {
-    "patternId" : "missingIncludeSystem",
-    "level" : "Info",
-    "category" : "CodeStyle",
-    "enabled" : true
-  }, {
-    "patternId" : "ConfigurationNotChecked",
-    "level" : "Info",
-    "category" : "CodeStyle",
     "enabled" : true
   }, {
     "patternId" : "preprocessorErrorDirective",

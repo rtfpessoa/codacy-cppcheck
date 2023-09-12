@@ -174,6 +174,11 @@
   "description" : "Pointer arithmetic overflow.",
   "timeToFix" : 5
 }, {
+  "patternId" : "pointerOutOfBoundsCond",
+  "title" : "Pointer arithmetic overflow.",
+  "description" : "Pointer arithmetic overflow.",
+  "timeToFix" : 5
+}, {
   "patternId" : "negativeIndex",
   "title" : "Negative array index",
   "description" : "Negative array index",
@@ -271,12 +276,12 @@
 }, {
   "patternId" : "noConstructor",
   "title" : "The class 'classname' does not declare a constructor although it has private member variables which likely require initialization.",
-  "description" : "The class 'classname' does not declare a constructor although it has private member variables. Member variables of builtin types are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.",
+  "description" : "The class 'classname' does not declare a constructor although it has private member variables which likely require initialization. Member variables of native types, pointers, or references are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.",
   "timeToFix" : 5
 }, {
   "patternId" : "noExplicitConstructor",
   "title" : "Class 'classname' has a constructor with 1 argument that is not explicit.",
-  "description" : "Class 'classname' has a constructor with 1 argument that is not explicit. Such constructors should in general be explicit for type safety reasons. Using the explicit keyword in the constructor means some mistakes when using the class can be avoided.",
+  "description" : "Class 'classname' has a constructor with 1 argument that is not explicit. Such, so called \"Converting constructors\", should in general be explicit for type safety reasons as that prevents unintended implicit conversions.",
   "timeToFix" : 5
 }, {
   "patternId" : "copyCtorPointerCopying",
@@ -301,22 +306,22 @@
 }, {
   "patternId" : "uninitMemberVar",
   "title" : "Member variable 'classname::varname' is not initialized in the constructor.",
-  "description" : "Member variable 'classname::varname' is not initialized in the constructor.",
+  "description" : "Member variable 'classname::varname' is not initialized in the constructor. Member variables of native types, pointers, or references are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.",
   "timeToFix" : 5
 }, {
   "patternId" : "uninitMemberVarPrivate",
   "title" : "Member variable 'classname::varnamepriv' is not initialized in the constructor.",
-  "description" : "Member variable 'classname::varnamepriv' is not initialized in the constructor.",
+  "description" : "Member variable 'classname::varnamepriv' is not initialized in the constructor. Member variables of native types, pointers, or references are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.",
   "timeToFix" : 5
 }, {
   "patternId" : "uninitDerivedMemberVar",
   "title" : "Member variable 'classname::varname' is not initialized in the constructor. Maybe it should be initialized directly in the class classname?",
-  "description" : "Member variable 'classname::varname' is not initialized in the constructor. Maybe it should be initialized directly in the class classname?",
+  "description" : "Member variable 'classname::varname' is not initialized in the constructor. Maybe it should be initialized directly in the class classname? Member variables of native types, pointers, or references are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.",
   "timeToFix" : 5
 }, {
   "patternId" : "uninitDerivedMemberVarPrivate",
   "title" : "Member variable 'classname::varnamepriv' is not initialized in the constructor. Maybe it should be initialized directly in the class classname?",
-  "description" : "Member variable 'classname::varnamepriv' is not initialized in the constructor. Maybe it should be initialized directly in the class classname?",
+  "description" : "Member variable 'classname::varnamepriv' is not initialized in the constructor. Maybe it should be initialized directly in the class classname? Member variables of native types, pointers, or references are left uninitialized when the class is instantiated. That may cause bugs or undefined behavior.",
   "timeToFix" : 5
 }, {
   "patternId" : "missingMemberCopy",
@@ -396,7 +401,7 @@
 }, {
   "patternId" : "functionStatic",
   "title" : "Technically the member function 'class::function' can be static (but you may consider moving to unnamed namespace).",
-  "description" : "The member function 'class::function' can be made a static function. Making a function static can bring a performance benefit since no 'this' instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to a unnamed namespace.",
+  "description" : "The member function 'class::function' can be made a static function. Making a function static can bring a performance benefit since no 'this' instance is passed to the function. This change should not cause compiler errors but it does not necessarily make sense conceptually. Think about your design and the task of the function first - is it a function that must not access members of class instances? And maybe it is more appropriate to move this function to an unnamed namespace.",
   "timeToFix" : 5
 }, {
   "patternId" : "initializerList",
@@ -851,7 +856,7 @@
 }, {
   "patternId" : "cstyleCast",
   "title" : "C-style pointer casting",
-  "description" : "C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected. See also: https://www.securecoding.cert.org/confluence/display/cplusplus/EXP05-CPP.+Do+not+use+C-style+casts.",
+  "description" : "C-style pointer casting detected. C++ offers four different kinds of casts as replacements: static_cast, const_cast, dynamic_cast and reinterpret_cast. A C-style cast could evaluate to any of those automatically, thus it is considered safer if the programmer explicitly states which kind of cast is expected.",
   "timeToFix" : 5
 }, {
   "patternId" : "passedByValue",
@@ -865,6 +870,26 @@
   "timeToFix" : 5
 }, {
   "patternId" : "constVariable",
+  "title" : "Variable 'x' can be declared with const",
+  "description" : "Variable 'x' can be declared with const",
+  "timeToFix" : 5
+}, {
+  "patternId" : "constParameterReference",
+  "title" : "Parameter 'x' can be declared with const",
+  "description" : "Parameter 'x' can be declared with const",
+  "timeToFix" : 5
+}, {
+  "patternId" : "constVariableReference",
+  "title" : "Variable 'x' can be declared with const",
+  "description" : "Variable 'x' can be declared with const",
+  "timeToFix" : 5
+}, {
+  "patternId" : "constParameterPointer",
+  "title" : "Parameter 'x' can be declared with const",
+  "description" : "Parameter 'x' can be declared with const",
+  "timeToFix" : 5
+}, {
+  "patternId" : "constVariablePointer",
   "title" : "Variable 'x' can be declared with const",
   "description" : "Variable 'x' can be declared with const",
   "timeToFix" : 5
@@ -1084,6 +1109,11 @@
   "description" : "Argument 'x*0' to function 'func' is always 0. Constant literal calculation disable/hide variable expression 'x'.",
   "timeToFix" : 5
 }, {
+  "patternId" : "knownPointerToBool",
+  "title" : "Pointer expression 'p' converted to bool is always true.",
+  "description" : "Pointer expression 'p' converted to bool is always true.",
+  "timeToFix" : 5
+}, {
   "patternId" : "comparePointers",
   "title" : "Comparing pointers that point to different objects",
   "description" : "Comparing pointers that point to different objects",
@@ -1211,7 +1241,7 @@
 }, {
   "patternId" : "stlcstrParam",
   "title" : "Passing the result of c_str() to a function that takes std::string as argument no. 0 is slow and redundant.",
-  "description" : "The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy. Solve that by directly passing the string.",
+  "description" : "The conversion from const char* as returned by c_str() to std::string creates an unnecessary string copy or length calculation. Solve that by directly passing the string.",
   "timeToFix" : 5
 }, {
   "patternId" : "stlcstrthrow",
@@ -1502,21 +1532,6 @@
   "patternId" : "va_start_subsequentCalls",
   "title" : "va_start() or va_copy() called subsequently on 'vl' without va_end() in between.",
   "description" : "va_start() or va_copy() called subsequently on 'vl' without va_end() in between.",
-  "timeToFix" : 5
-}, {
-  "patternId" : "missingInclude",
-  "title" : "Include file: \"\" not found.",
-  "description" : "Include file: \"\" not found.",
-  "timeToFix" : 5
-}, {
-  "patternId" : "missingIncludeSystem",
-  "title" : "Include file: <> not found. Please note: Cppcheck does not need standard library headers to get proper results.",
-  "description" : "Include file: <> not found. Please note: Cppcheck does not need standard library headers to get proper results.",
-  "timeToFix" : 5
-}, {
-  "patternId" : "ConfigurationNotChecked",
-  "title" : "Skipping configuration 'X' since the value of 'X' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.",
-  "description" : "Skipping configuration 'X' since the value of 'X' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.",
   "timeToFix" : 5
 }, {
   "patternId" : "preprocessorErrorDirective",
